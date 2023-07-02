@@ -86,8 +86,8 @@ th {
         <li>俯仰摇杆控制高度（与 <a href="#altitude_fw">高度</a>相同）。</li>
         <li>滚转摇杆控制滚转角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a> （与 <a href="#stabilized_fw">稳定</0> 相同）。</li>
         <li>油门设置空速（与 <a href="#altitude_fw">高度</a> 相同）。</li> 
-        <li>滚转、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。</li>
-        <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
+        <li>Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
      </ul></li>
    </ul>
   </p>
@@ -115,7 +115,7 @@ th {
       <ul>
        <li>俯仰摇杆控制高度。</li>
        <li>油门杆控制飞机的空速（如回中 横滚、俯仰、偏航摇杆）。</li>
-       <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
+       <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
     </ul>
   </li>
   </ul>
@@ -138,7 +138,7 @@ th {
    <li>俯仰摇杆控制俯仰角度。</li>
    <li>滚转摇杆控制滚转角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。</li>
    <li>油门摇杆控制油门。</li>
-   <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。</li>
+   <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
@@ -152,7 +152,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>用于执行杂技动作的遥控模式，例如滚动、翻转、失速和杂技图形。</p>
-<p>RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 油门直接传递到输出混频器。</p></td>
+<p>RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 Throttle is passed directly to control allocation.</p></td>
 </tr>
 
 
@@ -164,7 +164,7 @@ th {
  <td>M</td>
  <td>M</td>
  <td></td>
- <td><p>遥控模式，其中摇杆输入直接发送到输出混频器（用于 "完全" 手动控制）。</p>
+ <td><p>RC mode where stick input is sent directly to control allocation (for "fully" manual control).</p>
    <p>这是覆盖 FMU（命令通过安全协处理器发送）的唯一模式。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
    </p>
   </td>
@@ -329,7 +329,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>用于执行特技动作的遥控模式，例如翻转，横滚和环绕。</p> 
-  <p>横滚、俯仰、偏航摇杆输入控制围绕各自轴的角度旋转速率。 油门直接传递到输出混频器。  当操纵杆居中时，机体将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。</p>
+  <p>横滚、俯仰、偏航摇杆输入控制围绕各自轴的角度旋转速率。 Throttle is passed directly to control allocation.  当操纵杆居中时，机体将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。</p>
  </td>
 </tr>
 
@@ -410,16 +410,16 @@ VTOL 在两种配置中均支持 [外部](../flight_modes/offboard.md) 模式。
 
 理解该表的关键如下所示：
 
-| 符号                                                                                                                                                                                                                                                                                                                                                                | 参数描述                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| M                                                                                                                                                                                                                                                                                                                                                                 | 通过遥控摇杆手动控制。 遥控输入直接发送到输出混控器。                    |
-| S                                                                                                                                                                                                                                                                                                                                                                 | 自动驾驶仪协助稳定姿态。 遥控输入是必需的。 遥控摇杆的位置映射到机体的对应方向姿态角度。  |
-| S<sub>rate</sub>                                                                                                                                                                                                                                                                                                                                                  | 自动驾驶辅助稳定姿态变化率。 遥控输入是必需的。 摇杆的位置与飞机在该方向上的角速度相对应。 |
-| S<sup>+</sup>                                                                                                                                                                                                                                                                                                                                                     | 在自动驾驶仪的辅助帮助下可以保持位置或高度来抗风。 遥控输入是必需的。            |
-| 自动                                                                                                                                                                                                                                                                                                                                                                | 该模式是自动控制的（默认情况下禁用遥控控制，除非更改模式）。                 |
-| <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" />                                                                                                                                                                                                                         | 测量位置高度所需要的传感器，例如光流、GPS + 气压计、视觉惯性里程计(VIO)。     |
-| <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="需要定高（例如气压计、测距仪）" width="20px" />                                                                                                                                                                                                                           | 测量所需高度的传感器，例如气压计、测距仪。                          |
-| <span id="key_difficulty"></span>[<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" />](#key_difficulty) | 飞行模式难度（简单/中等/困难）。                              |
+| 符号                                                                                                                                                                                                                                                                                                                                                                | 参数描述                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| M                                                                                                                                                                                                                                                                                                                                                                 | 通过遥控摇杆手动控制。 RC input is sent directly to control allocation. |
+| S                                                                                                                                                                                                                                                                                                                                                                 | 自动驾驶仪协助稳定姿态。 遥控输入是必需的。 遥控摇杆的位置映射到机体的对应方向姿态角度。                |
+| S<sub>rate</sub>                                                                                                                                                                                                                                                                                                                                                  | 自动驾驶辅助稳定姿态变化率。 遥控输入是必需的。 摇杆的位置与飞机在该方向上的角速度相对应。               |
+| S<sup>+</sup>                                                                                                                                                                                                                                                                                                                                                     | 在自动驾驶仪的辅助帮助下可以保持位置或高度来抗风。 遥控输入是必需的。                          |
+| 自动                                                                                                                                                                                                                                                                                                                                                                | 该模式是自动控制的（默认情况下禁用遥控控制，除非更改模式）。                               |
+| <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" />                                                                                                                                                                                                                         | 测量位置高度所需要的传感器，例如光流、GPS + 气压计、视觉惯性里程计(VIO)。                   |
+| <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="需要定高（例如气压计、测距仪）" width="20px" />                                                                                                                                                                                                                           | 测量所需高度的传感器，例如气压计、测距仪。                                        |
+| <span id="key_difficulty"></span>[<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" />](#key_difficulty) | 飞行模式难度（简单/中等/困难）。                                            |
 
 
 缩写：

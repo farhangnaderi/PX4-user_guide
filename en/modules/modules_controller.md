@@ -1,24 +1,5 @@
 # Modules Reference: Controller
 
-## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
-
-
-### Description
-This implements control allocation. It takes torque and thrust setpoints
-as inputs and outputs actuator setpoint messages.
-
-<a id="ODULE_NAM_usage"></a>
-### Usage
-```
-ODULE_NAM <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## airship_att_control
 Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
 
@@ -38,6 +19,25 @@ To reduce control latency, the module directly polls on the gyro topic published
 ### Usage
 ```
 airship_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## control_allocator
+Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
+
+
+### Description
+This implements control allocation. It takes torque and thrust setpoints
+as inputs and outputs actuator setpoint messages.
+
+<a id="control_allocator_usage"></a>
+### Usage
+```
+control_allocator <command> [arguments...]
  Commands:
    start
 
@@ -85,18 +85,38 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_pos_control_l1
-Source: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control_l1)
+## fw_pos_control
+Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
 
 
 ### Description
-fw_pos_control_l1 is the fixed wing position controller.
+fw_pos_control is the fixed-wing position controller.
 
 
-<a id="fw_pos_control_l1_usage"></a>
+<a id="fw_pos_control_usage"></a>
 ### Usage
 ```
-fw_pos_control_l1 <command> [arguments...]
+fw_pos_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### Description
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+### Usage
+```
+fw_rate_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -221,7 +241,7 @@ Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/ma
 ### Description
 Controls the position of a ground rover using an L1 controller.
 
-Publishes `actuator_controls_0` messages at IMU_GYRO_RATEMAX.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### Implementation
 Currently, this implementation supports only a few modes:
@@ -257,7 +277,7 @@ Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main
 ### Description
 Controls the attitude of an unmanned underwater vehicle (UUV).
 
-Publishes `actuator_controls_0` messages at a constant 250Hz.
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### Implementation
 Currently, this implementation supports only a few modes:
@@ -291,7 +311,7 @@ Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main
 
 ### Description
 Controls the attitude of an unmanned underwater vehicle (UUV).
-Publishes `actuator_controls_0` messages at a constant 250Hz.
+Publishes `attitude_setpoint` messages.
 ### Implementation
 Currently, this implementation supports only a few modes:
  * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators

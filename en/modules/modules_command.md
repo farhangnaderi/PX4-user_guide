@@ -40,6 +40,16 @@ bl_update [arguments...]
 
    <file>        Bootloader bin file
 ```
+## bsondump
+Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
+
+read BSON from a file and print in human form
+<a id="bsondump_usage"></a>
+### Usage
+```
+bsondump [arguments...]
+     <file>      File name
+```
 ## dumpfile
 Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
 
@@ -120,9 +130,9 @@ Set the output value on Port E pin 7 to high
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpin1 to high
+Set the output value on device /dev/gpio1 to high
 ```
-gpio write /dev/gpin1 1
+gpio write /dev/gpio1 1
 ```
 
 
@@ -351,9 +361,6 @@ param <command> [arguments...]
      [<file>]    File name (use default if not given)
 
    save          Save params to a file
-     [<file>]    File name (use default if not given)
-
-   dump          Dump params from a file
      [<file>]    File name (use default if not given)
 
    select        Select default file

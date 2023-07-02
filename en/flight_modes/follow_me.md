@@ -60,7 +60,7 @@ Special care must be taken when this mode is used.
 
 The following flight precautions should be observed:
 - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
-  - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions.
+  - Set the [follow-me height](#FLW_TGT_HT) to a value that is well above any surrounding obstructions.
     By *default* this is 8 metres above the home (arming) position.
 - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).
 - Give your vehicle sufficient room to stop, especially when it is moving fast.
@@ -109,7 +109,7 @@ This can confuse the target position and velocity estimator.
 
 ### Altitude Control Mode
 
-![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.png)
+![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.svg)
 
 The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target. 
 

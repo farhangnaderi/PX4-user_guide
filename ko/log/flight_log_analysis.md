@@ -30,7 +30,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 주요 기능:
 
 * 웹 기반으로 되어 있어며, 일반 사용자에게 적합합니다.
-* 사용자는 보고서를 업로드하고 다른 사람과 공유 할 수 있습니다.
+* Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
 * 대화형 플롯.
 
 ![비행 검토 차트](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
@@ -116,19 +116,6 @@ Name (multi id, message size in bytes)    number of data points, total bytes
  vehicle_rates_setpoint (0, 24)              6448     154752
  vehicle_status (0, 45)                       294      13230 
 ```
-
-### pyFlightAnalysis
-
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis)는 [FlightPlot](#flightplot)에서 영감을 얻은 크로스 플랫폼 PX4 비행 로그 (ULog) 비쥬얼 분석 도구입니다.
-
-주요 기능:
-
-* 데이터 표시를위한 동적 필터
-* 드론의 자세와 위치에 대한 3D 시각화
-* Easily replay with _pyqtgraph_'s ROI (Region Of Interest)
-* Python 기반, 다양한 플랫폼 지원.
-
-![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
 ### FlightPlot
 

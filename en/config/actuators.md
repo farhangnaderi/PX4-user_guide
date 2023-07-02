@@ -54,12 +54,7 @@ Core geometry concepts and the configuration for a number of different frames ar
 
 #### Motor Geometry: Multicopter
 
-The image below shows the geometry setup for a multicopter frame with and without advanced settings.
-
-:::note
-Specifically this is the motor geometry for a [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) muticopter.
-Other multicopters frames are configured similarly.
-:::
+The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
@@ -71,7 +66,7 @@ For each motor you can then set:
 - `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
 - (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
+- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
 - (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
 :::note
@@ -79,10 +74,9 @@ The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centr
 Note, this may not be the same as the position of the flight controller!
 :::
 
-
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar). 
 
 Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
@@ -101,7 +95,7 @@ The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airfram
 
 #### Motor Geometry: Standard VTOL
 
-The motor geometry for a [Generic Standard Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
@@ -146,32 +140,64 @@ Note that you will need to also ensure that the ESC associated with bidirectiona
 The control surfaces section of the geometry panel lets you set the number and types of control surfaces that are present on the vehicle.
 You may also need to set trim and slew rate values in some cases.
 More advanced users can also configure the roll scale, yaw scale, and pitch scale (generally the defaults are acceptable, and this is not needed).
-
 An "example" control surface section for a vehicle with two ailerons is shown below.
 Note that ailerons only affect roll, so the pitch and yaw fields are disabled.
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
+:::note
+Only the most common settings are displayed by default.
+Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+:::
+
 The fields are:
 
 - `Control Surfaces`: The number of control surfaces (set this first!)
 - `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
-- `Roll scale`: Effectiveness of actuator around roll axis (normalised: -1 to 1).
+- `Roll Torque`: Effectiveness of actuator around roll axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Pitch scale`: Effectiveness of actuator around pitch axis (normalised: -1 to 1).
+- `Pitch Torque`: Effectiveness of actuator around pitch axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).
+- `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Trim`: An offset added to the actuator so that it is centered without input.
   This might be determined by trial and error.
-- `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
+- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
   - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
      It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
-- `Lock control surfaces in hover`:
+- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" [0, 1] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below).
+  Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
+- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" [0, 1] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below).
+  Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
+- (VTOL only) `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
+#### Flap Scale and Spoiler Scale Configuration
+
+"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller.
+For example, a  pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
+
+The configurations are an _abstract_ way for the controller to tell the allocator how much it should adjust the aerodynamic properties of the wings relative to the "full flaps" or "full spoiler" configuration (between `[0,1]`, where "1" indicates the full range).
+The allocator then uses any of the available control surfaces it wants in order to achieve the requested configuration: usually flaps, ailerons, and elevator.
+
+The `flap scale` and `spoiler scale` settings in the actuator UI inform the allocator how much ailerons, elevators, flaps, spoilers, and other control surfaces, contribute to a requested "Flap-control" and/or "Spoiler-control" value.
+Specifically, they indicate how much each control surface should be deflected when the controller is demanding "full flaps" or "full spoiler".
+
+In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
+
+![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
+
+- The flaps have both `Flap Scale` set to 1, meaning that they will be fully deflected with the flap-control at 1.
+  They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
+- The ailerons are primarily tasked to provide the commanded roll torque.
+  They also have `Spoiler Scale` set to 0.5, and will additionally be deflected upwards 50% if the controller demands full spoiler configuration.
+  The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
+- The elevator is primarily tasked to provide pitch torque.
+  It also has non-zero entries in the `Flap Scale` and `Spoiler Scale` fields.
+  These are the elevator deflections added to compensate for the pitching moments generated by the flaps and spoiler actuators.
+  In the case here the elevator would be deflected 0.3 up when the flaps are fully deployed to counteract the pitching down moment caused by the flaps. 
 
 #### Actuator Roll, Pitch, and Yaw Scaling
 
@@ -188,7 +214,7 @@ In this case the things you need to know are:
 - Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
- 
+
 
 #### Control Surface Deflection Convention
 
@@ -252,7 +278,7 @@ Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**
 
 Similarly, a servo that moves:
 
-- between the upright and forward positions would have `min=0` and `max=90`. 
+- between the upright and forward positions would have `min=0` and `max=90`.
 - symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
 - between the upright and backward positions would have `min=-90` and `max=0`.
 :::
@@ -276,7 +302,7 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM MAIN (I/O Board output), PWM AUX (FMU Board output), UAVCAN.
 
 Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
 
@@ -305,7 +331,7 @@ This makes it easy to use a particular output pin for almost any purpose.
 
 Some functions are only relevant to particular frames or output types, and will not be offered on others.
 
-Functions include: 
+Functions include:
 
 - `Disabled`: Output has no assigned function.
 - `Constant_Min`: Output set to constant minimum value (-1).
@@ -314,7 +340,7 @@ Functions include:
   Only motors allowed for airframe are displayed.
 - `Servo 1` to `Servo 8`: Servo output.
    These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
-- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [MAVLink Payload output](../payloads/README.md#cargo-drones-actuator-payloads).
+- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
 - `Parachute`: Output is parachute.
   The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
@@ -324,7 +350,7 @@ Functions include:
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
 - `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
 - `RC Flaps`: Output is flaps from RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) maps an RC channel to this output).
-- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/README.md#cargo-drones-actuator-payloads)
+- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/README.md#generic-actuator-control-with-rc)
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.
@@ -348,7 +374,7 @@ The functions are defined in source at [/src/lib/mixer_module/output_functions.y
 
 ## Actuator Testing
 
-The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. 
+The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings.
 A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section.
 The slider example below shows the section for a typical VTOL Tiltrotor airframe.
 
@@ -457,7 +483,7 @@ For each motor:
    - Verify that the motor doesn't spin in this position.
    - If the motor spins, reduce the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
 2. Slowly move the slider up until it snaps to the _minimum_ position.
-   In this position the motor is set to the outputs `Minimum` value.  
+   In this position the motor is set to the outputs `Minimum` value.
    - Verify that the motor is spinning very slowly in this position.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 

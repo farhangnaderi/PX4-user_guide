@@ -30,7 +30,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 主要特性：
 
 * 基于 web，非常适合终端用户。
-* 用户可以上传、下载、并且与他人分享报告。
+* Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
 * 交互式绘图。
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
@@ -116,19 +116,6 @@ Name (multi id, message size in bytes)    number of data points, total bytes
  vehicle_rates_setpoint (0, 24)              6448     154752
  vehicle_status (0, 45)                       294      13230
 ```
-
-### pyFlightAnalysis
-
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) 是一个跨平台的 PX4 飞行日志 (ulog) 可视化分析工具，灵感来源于 [FlightPlot](#flightplot)。
-
-主要特性：
-
-* 用于显示数据的动态筛选器
-* 无人机姿态和位置三维可视化
-* Easily replay with _pyqtgraph_'s ROI (Region Of Interest)
-* 基于 Python 的，跨平台的。
-
-![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
 ### FlightPlot
 

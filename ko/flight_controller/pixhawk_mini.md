@@ -1,6 +1,6 @@
-# 홀리브로 Pixhawk 미니
+# Holybro Pixhawk Mini (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오. :::
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
 
 홀리브로 *Pixhawk<sup>&reg;</sup> 미니* 자동조종장치는 Pixhawk의 차세대 제품입니다. 원래 Pixhawk의 약 1/3 크기이며 더 강력한 프로세서와 센서를 제공합니다.
 
@@ -60,9 +60,9 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 - **중량:** 22.4g
 - **크기:** 37x37x12mm
 
-## Where to Buy
+## 구매처
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
+Discontinued.
 
 ## 커넥터 할당
 
@@ -262,8 +262,8 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
 지원되는 모든 기체의 MAIN/AUX 출력 포트와 모터/서보 간의 매핑은 [기체 정의서](../airframes/airframe_reference.md)에 기술되어 있습니다.
 
-:::caution
-매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음).
+:::warning
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
 가지고 있는 기체의 프레임에 대해 올바르게 모터를 제대로 연결하였는지 다시 한 번 확인하십시오.
 :::
 

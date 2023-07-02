@@ -8,7 +8,7 @@ Key information
 - **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
 - **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
 
-![Finished setup 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.jpg)
+![Finished setup 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.png)
 
 ## Bill of materials
 
@@ -19,7 +19,7 @@ The components needed for this build are:
 - Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
 - Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
 - Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
-- Telemetry: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+- Telemetry: [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
 - RC Receiver: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
 - Motors: [DJI E305 2312E Motor (960kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-960kv/dp/B072MBMCZN)
 - ESC: Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters
@@ -48,7 +48,7 @@ This section lists all hardware for the frame.
 | Velcro Battery Strap                              | 1        |
 | DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1        |
 
-![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_frame_components.jpg)
+![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_frame_components.png)
 
 
 ### CUAV V5+ Package
@@ -76,7 +76,7 @@ This section lists the components in the CUAV v5+ package.
 | NEO GPS                  | -                          | 1                       |
 | GPS Bracket              | -                          | 1                       |
 
-![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.jpg)
+![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.png)
 
 
 ### Electronics
@@ -161,8 +161,7 @@ The motor order is defined in the [Airframe Reference > Quadrotor x](../airframe
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete_2.jpg)
 
 
-<span id="configure"></span>
-## Vehicle Configuration/Calibration
+## PX4 Configuration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -170,20 +169,27 @@ The motor order is defined in the [Airframe Reference > Quadrotor x](../airframe
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
-First update the firmware and airframe:
-* [固件](../config/firmware.md)
-* [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
+First update the firmware, airframe, geometry, and outputs:
 
-  ![QGroundControl - Select Generic Quadrotor X airframee](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_select_airframe.jpg)
+- [固件](../config/firmware.md)
+- [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+
+  ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
 
+- [Actuators](../config/actuators.md)
+  - Update the vehicle geometry to match the frame.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
 Then perform the mandatory setup/calibration:
-* [传感器方向](../config/flight_controller_orientation.md)
-* [罗盘](../config/compass.md)
-* [加速度计 Accelerometer](../config/accelerometer.md)
-* [水平平面校准](../config/level_horizon_calibration.md)
-* [无线电系统设置](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+
+- [传感器方向](../config/flight_controller_orientation.md)
+- [罗盘](../config/compass.md)
+- [加速度计 Accelerometer](../config/accelerometer.md)
+- [水平平面校准](../config/level_horizon_calibration.md)
+- [无线电系统设置](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
 :::note
 For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
@@ -197,15 +203,9 @@ Ideally you should also do:
 
 ## 调试
 
-Firmware installation sets *default* autopilot parameters that have been configured for the selected frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
-
-<!--
-
-The parameters below are recommended for this build (the yellow parameters are the ones that have changed).
-These were generated by flight testing.
-
--->
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 视频
 

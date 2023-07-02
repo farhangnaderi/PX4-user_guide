@@ -1,6 +1,6 @@
 # MAVROS *Offboard* control example (Python)
 
-This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in Gazebo/SITL.
+This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
 It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
 
 At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
@@ -15,8 +15,9 @@ This example uses Python.
 Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
-<video width="100%" autoplay="true" controls="true" id = "offb_video">
-	<source src="../../assets/simulation/gazebo_offboard.webm" type="video/webm">
+<a id="offb_video"></a>
+<video width="100%" autoplay="true" controls="true">
+ <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
 ## Creating the ROS Package
@@ -25,7 +26,7 @@ Other examples in Python can be found here: [integrationtests/python_src/px4_it/
 
     ```sh
     roscd  # Should cd into ~/catkin_ws/devel
-    cd .. 
+    cd ..
     cd src
     ```
 
@@ -71,7 +72,7 @@ After that, open `offb_node.py` file and paste the following code:
 ```py
 """
  * File: offb_node.py
- * Stack and tested in Gazebo 9 SITL
+ * Stack and tested in Gazebo Classic 9 SITL
 """
 
 #! /usr/bin/env python
@@ -94,13 +95,13 @@ if __name__ == "__main__":
     state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 
     local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
-    
+
     rospy.wait_for_service("/mavros/cmd/arming")
-    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
     rospy.wait_for_service("/mavros/set_mode")
     set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
-    
+
 
     # Setpoint publishing MUST be faster than 2Hz
     rate = rospy.Rate(20)
@@ -116,7 +117,7 @@ if __name__ == "__main__":
     pose.pose.position.z = 2
 
     # Send a few setpoints before starting
-    for i in range(100):   
+    for i in range(100):
         if(rospy.is_shutdown()):
             break
 
@@ -135,13 +136,13 @@ if __name__ == "__main__":
         if(current_state.mode != "OFFBOARD" and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
             if(set_mode_client.call(offb_set_mode).mode_sent == True):
                 rospy.loginfo("OFFBOARD enabled")
-            
+
             last_req = rospy.Time.now()
         else:
             if(not current_state.armed and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
                 if(arming_client.call(arm_cmd).success == True):
                     rospy.loginfo("Vehicle armed")
-            
+
                 last_req = rospy.Time.now()
 
         local_pos_pub.publish(pose)
@@ -182,7 +183,7 @@ state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
 rospy.wait_for_service("/mavros/cmd/arming")
-arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
 rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -226,7 +227,7 @@ Below, `100` was chosen as an arbitrary amount.
 
 ```py
 # Send a few setpoints before starting
-for i in range(100):   
+for i in range(100):
     if(rospy.is_shutdown()):
         break
 
@@ -257,13 +258,13 @@ while(not rospy.is_shutdown()):
     if(current_state.mode != "OFFBOARD" and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
         if(set_mode_client.call(offb_set_mode).mode_sent == True):
             rospy.loginfo("OFFBOARD enabled")
-        
+
         last_req = rospy.Time.now()
     else:
         if(not current_state.armed and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
             if(arming_client.call(arm_cmd).success == True):
                 rospy.loginfo("Vehicle armed")
-        
+
             last_req = rospy.Time.now()
 
     local_pos_pub.publish(pose)
@@ -285,7 +286,7 @@ After that, create your first launch file, in this case we will call it `start_o
 ```sh
 roscd offboard_py
 mkdir launch
-cd launch 
+cd launch
 touch start_offb.launch
 ```
 
@@ -304,10 +305,10 @@ For the `start_offb.launch` copy the following code:
 ```
 
 As you can see, the `mavros_posix_sitl.launch` file is included.
-This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Classic Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
 :::tip
-The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
+The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo Classic world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
 
 You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags.
 As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
@@ -330,7 +331,7 @@ In the terminal write:
 roslaunch offboard_py start_offb.launch
 ```
 
-You should now see the PX4 firmware initiating and the Gazebo application running.
+You should now see the PX4 firmware initiating and the Gazebo Classic application running.
 After the *OFFBOARD* mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
 
 :::warning
@@ -346,17 +347,17 @@ To solve this add these lines at the end of the `.bashrc` file:
 ```sh
 source ~/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
 Now in the terminal, go to the home directory and run the following command to apply the changes above to the current terminal:
 
-```sh 
+```sh
 source .bashrc
 ```
 
 After this step, every time you open a new terminal window you should not have to worry about this error anymore.
 If it appears again, a simple `source .bashrc` should fix it.
-This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem. 
+This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem.
 :::

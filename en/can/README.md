@@ -15,6 +15,7 @@ PX4 supports two software protocols for communicating with CAN devices:
 :::note
 Both DroneCAN and Cyphal originate from an earlier project named UAVCAN.
 In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCAN, and the newer UAVCAN v1 was renamed Cyphal.
+The differences between the two protocols are outlined in [Cyphal vs. DroneCAN](https://forum.opencyphal.org/t/cyphal-vs-dronecan/1814).
 :::
 
 :::warning
@@ -23,22 +24,23 @@ PX4 does not support other CAN software protocols for drones such as KDECAN (at 
 
 ## Wiring
 
-The wiring for CAN networks is the same for both DroneCAN and Cyphal (in fact, for all CAN networks).
+The wiring for CAN networks is the same for both DroneCAN and Cyphal/CAN (in fact, for all CAN networks).
 
 Devices are connected in a chain in any order.
 At either end of the chain, a 120Ω termination resistor should be connected between the two data lines.
 Flight controllers and some GNSS modules have built in termination resistors for convenience, thus should be placed at opposite ends of the chain.
-Otherwise, you can use a termination resistor such as [this one from Zubax Electronics](https://shop.zubax.com/products/uavcan-micro-termination-plug?variant=6007985111069), or solder one yourself if you have access to a JST-GH crimper.
+Otherwise, you can use a termination resistor such as [this one from Zubax Robotics](https://shop.zubax.com/products/uavcan-micro-termination-plug?variant=6007985111069), or solder one yourself if you have access to a JST-GH crimper.
 
 The following diagram shows an example of a CAN bus connecting a flight controller to 4 CAN ESCs and a GNSS.
 
-![CAN Wiring](../../assets/can/uavcan_wiring.png)
+![CAN Wiring](../../assets/can/uavcan_wiring.svg)
 
 The diagram does not show any power wiring.
 Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
 For more information, see [Cyphal/CAN device interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com).
 While the article is written with the Cyphal protocol in mind, it applies equally to DroneCAN hardware and any other CAN setup.
+For more advanced scenarios, consult with [On CAN bus topology and termination](https://forum.opencyphal.org/t/on-can-bus-topology-and-termination/1685).
 
 ### Connectors
 
@@ -50,7 +52,7 @@ However, as long as the device firmware supports DroneCAN or Cyphal, it can be u
 
 ### Redundancy
 
-DroneCAN and Cyphal support using a second (redundant) CAN interface.
+DroneCAN and Cyphal/CAN support using a second (redundant) CAN interface.
 This is completely optional but increases the robustness of the connection.
 All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals support 2 CAN interfaces as well, it is recommended to wire both up for increased safety.
 
@@ -69,21 +71,25 @@ See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md) for more information.
 
 ## Videos
 
-Intro to UAVCAN (now DroneCAN) and practical example with setup in QGroundControl:
+### DroneCAN
+
+Intro to DroneCAN (UAVCANv0) and practical example with setup in QGroundControl:
 
 @[youtube](https://youtu.be/IZMTq9fTiOM)
 
-----
-UAVCAN (now Cyphal) for drones — PX4 Developer Summit Virtual 2020
+
+### Cyphal
+
+UAVCAN v1 for drones — PX4 Developer Summit Virtual 2020
 
 @[youtube](https://youtu.be/6Bvtn_g8liU)
 
 ----
 
-Getting started using UAVCAN v1 (now Cyphal) with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
+Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
 @[youtube](https://youtu.be/MwdHwjaXYKs)
 
 ----
-UAVCAN (Cyphal): a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking  — PX4 Developer Summit Virtual 2019
+UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking  — PX4 Developer Summit Virtual 2019
 
 @[youtube](https://youtu.be/MBtROivYPik)

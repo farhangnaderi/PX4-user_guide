@@ -1,6 +1,6 @@
 # PX4 Vision Autonomy Development Kit
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
@@ -8,17 +8,15 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 :::note
 This vehicle comes with no pre-installed software.
-A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
-This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
-Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
 :::
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
 ## Where to Buy
 
-- [PX4 Vision Dev Kit (Discontinued)](https://shop.holybro.com/px4-vision_p1225.html?)
-- [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
+- [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
+- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 
 ## Px4 Vision Guide Content
 - [Warnings & Notifications](#warnings-and-notifications)
@@ -27,7 +25,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 - [First-time Setup](#first-time-setup)
 - [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
 - [Development using the Kit](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
+- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
 - [Other Development Resources](#other-development-resources)
 - [How to get Technical Support](#how-to-get-technical-support)
 
@@ -58,8 +56,7 @@ Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.h
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
-
+What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 The PX4 Vision DevKit contains following components:
 - Core Components:
@@ -94,7 +91,7 @@ The PX4 Vision DevKit contains following components:
   - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core ROS driver
@@ -234,7 +231,6 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
-<!-- 
 <span id="install_image_mission_computer"></span>
 ### Installing the image on the Companion Computer
 
@@ -253,7 +249,7 @@ To flash the USB image to the *UP Core*:
 1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
    The terminal will prompt for a number of responses during the flashing process.
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
@@ -264,7 +260,6 @@ To flash the USB image to the *UP Core*:
 1. Pull out the USB stick.
 1. Restart the vehicle.
    The *UP Core* computer will now boot from internal memory (eMMC).
---> 
 
 ### Boot the Companion Computer
 
@@ -363,7 +358,8 @@ To discuss the interfaces or how to integrate other features join the [PX4 suppo
 
 ## PX4 Vision Carrier Board Pinouts
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5).
+The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
 
 ## Other Development Resources
 
@@ -373,7 +369,6 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 - [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)
 - [Path Planning Interface](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 ## How to get Technical Support
 

@@ -1,16 +1,17 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html) is a ready-to-fly race quad for flying FPV or line-of-sight.
+The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is a ready-to-fly race quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
 ## 구매처
 
 *Kopis 2*는 여러 곳에서 구매 가능합니다.
-- [Holybro](https://shop.holybro.com/c/kopis_0480)  <!-- item code 30069, 30070 -->
+- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping)  <!-- item code 30069, 30070 -->
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 추가로 다음과 같은 것들이 필요합니다.
+
 - RC 송신기. *Kopis 2*에는 FrSky 수신기가 포함되지 않은 체로 배송될 수도 있습니다.
 - LiPo 배터리 및 충전기.
 - FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3). You can also use DJI FPV goggles if you have the HDV version of the Kopis 2.
@@ -26,7 +27,7 @@ FPV 지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
 PX4 펌웨어를 업로드 하기 위하여 PX4 부트 로더를 먼저 설치하여야 합니다. 부트 로더 설치 방법은 [Kakute F7](../flight_controller/kakutef7.md#bootloader) 항목(*Kopis 2*의 비행 컨트롤러 보드)을 참고하십시오.
 
 :::tip
-필요하면 언제든지 [Betaflight를 다시 설치](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight)할 수 있습니다!
+You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
 :::
 
 ## 설치 및 설정

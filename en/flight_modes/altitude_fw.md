@@ -20,7 +20,7 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 
 * Centered Roll/Pitch/Yaw inputs (inside deadband):
   * Autopilot levels vehicle/wings and maintains altitude.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend).
 * Outside center:
   * Pitch stick controls altitude.
   * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
@@ -41,12 +41,12 @@ The mode is affected by the following parameters:
 
 Parameter | Description
 --- | ---
-<span id="FW_AIRSPD_MIN"></span>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) | Min airspeed/throttle. Default: 10 m/s.
-<span id="FW_AIRSPD_MAX"></span>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) | Max airspeed/throttle. Default: 20 m/s.
-<span id="FW_AIRSPD_TRIM"></span>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | Cruise speed. Default: 15 m/s.
-<span id="FW_MAN_P_MAX">[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX) | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
-<span id="FW_MAN_R_MAX">[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX) | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
-<span id="FW_L1_CONTROL">[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters. 
+<a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) | Min airspeed/throttle. Default: 10 m/s.
+<a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) | Max airspeed/throttle. Default: 20 m/s.
+<a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | Cruise speed. Default: 15 m/s.
+<a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX) | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
+<a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX) | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
+<a id="FW_NPFG_CONTROL"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW NPFG Control parameters. 
 
 
 <!-- 

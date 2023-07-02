@@ -33,10 +33,6 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 ## 유량 센서/카메라
 
-### PX4Flow
-
-[PX4Flow](../sensor/px4flow.md)는 조명 LED 없이 실내외의 조명이 낮은 환경에서 작동하는 광류 카메라입니다. 광류를 계산하는 간편하고 가장 확립된 방법 중 하나입니다.
-
 ### ARK Flow
 
 [ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. PAW3902 광학 유량 센서, Broadcom AFBR-S50LV85D 30m 거리 센서 및 BMI088 IMU가 있습니다.
@@ -69,9 +65,7 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 ### 확장 칼만 필터 (EKF2)
 
-EKF2를 사용하는 광류 융합의 경우 아래 QGroundControl을 사용하여 표시된대로 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수에서 광류 플래그 사용을 설정합니다.
-
-![QGroundControl - 센서 보정](../../assets/ekf2/qgc_ekf2_enable_flow.png)
+For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 
 광류 센서가 차량 중앙에서 오프셋된 경우 다음 매개변수를 사용하여 설정합니다.
 

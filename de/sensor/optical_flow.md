@@ -33,10 +33,6 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 
 ## Flow Sensors/Cameras
 
-### PX4Flow
-
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
-
 ### ARK Flow
 
 [ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
@@ -69,9 +65,7 @@ Optical Flow based navigation is enabled by both the availableestimators: EKF2 a
 
 ### Extended Kalman Filter (EKF2)
 
-For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
-
-![QGroundControl - Calibrate Sensors](../../assets/ekf2/qgc_ekf2_enable_flow.png)
+For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 
 If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
 

@@ -1,6 +1,6 @@
 # Pixhawk 4 Mini 배선 퀵스타트
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 [*Pixhawk 4<sup>&reg;</sup> Mini*](../flight_controller/pixhawk4_mini.md) 비행 콘트롤러 전원공급 방법과 주변장치 연결 방법을 설명합니다.
@@ -126,8 +126,8 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 :::
 
-:::caution
-매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음).
+:::warning
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
 해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
 :::
 

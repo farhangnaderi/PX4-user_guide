@@ -2,7 +2,7 @@
 
 PX4 can be configured to trigger a parachute during [flight termination](../advanced_config/flight_termination.md).
 
-The parachute can be connected to a free PWM output or via [MAVLink](#mavlink-parachutes).
+The parachute can be connected to a free PWM output or via MAVLink.
 
 :::note
 During flight termination PX4 turns off all controllers and sets all PWM outputs to their failsafe values (including those connected to PWM outputs) and triggers any connected MAVLink parachutes.
@@ -84,4 +84,4 @@ The parachute will trigger during [flight termination](../advanced_config/flight
 
 The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude-trigger) and tip the vehicle over.
 
-You can also simulate a parachute/flight termination in Gazebo: [Development > Simulation > Gazebo > Simulated Parachute/Flight Termination](../simulation/gazebo.md#flight_termination).
+You can also simulate a parachute/flight termination: [Gazebo Classic > Simulated Parachute/Flight Termination](../sim_gazebo_classic/README.md#flight_termination).

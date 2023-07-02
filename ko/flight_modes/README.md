@@ -85,8 +85,8 @@ th {
         <li>피치 스틱은 고도를 제어합니다 (<a href="#altitude_fw">고도 </a>와 동일).</li>
         <li>롤 스틱은 롤 각도를 제어합니다. Autopilot은 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지합니다 (<a href="#stabilized_fw">안정화</a>와 동일함).</li>
         <li>스로틀은 대기 속도를 설정합니다 (<a href="#altitude_fw">고도</a>와 동일).</li> 
-        <li>롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).</li>
-        <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
+        <li>Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
      </ul></li>
    </ul>
   </p>
@@ -114,7 +114,7 @@ th {
       <ul>
        <li>피치 스틱은 고도를 제어합니다.</li>
        <li>스로틀 스틱은 기체의 속도를 제어합니다 (중앙 RPY 스틱의 경우).</li>
-       <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
+       <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
     </ul>
   </li>
   </ul>
@@ -137,7 +137,7 @@ th {
    <li>피치 스틱은 피치 각도를 제어합니다.</li>
    <li>롤 스틱은 롤 각도를 제어합니다. 자동 조종 장치는 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지합니다.</li>
    <li>스토틀 스틱으로 추진력을 제어합니다</li>
-   <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다).</li>
+   <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
@@ -151,7 +151,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>곡예 기동을 수행하는 RC 모드 (예 : 롤, 뒤집기, 포장 마차 및 곡예 인물)</p>
-<p>RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle은 출력 믹서에 직접적으로 전달됩니다.</p></td>
+<p>RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle is passed directly to control allocation.</p></td>
 </tr>
 
 
@@ -163,7 +163,7 @@ th {
  <td>M</td>
  <td>M</td>
  <td></td>
- <td><p>스틱 입력이 출력 믹서로 직접 전송되는 RC 모드 ( "완전한"수동 제어용).</p>
+ <td><p>RC mode where stick input is sent directly to control allocation (for "fully" manual control).</p>
    <p>FMU를 무시하는 유일한 모드입니다 (명령은 안전 코프로세서를 통해 전송 됨). FMU 펌웨어 오작동시 RC를 통해 스로틀, 엘리베이터, 에일러론 및 방향타를 완전히 제어 할 수있는 안전 메커니즘을 제공합니다.
    </p>
   </td>
@@ -328,7 +328,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>곡예 기동을 수행하는 RC 모드 (예 : 뒤집기, 롤 및 루프).</p> 
-  <p>RC RPY 스틱 입력은 각 축의 회전 각속도를 제어합니다. Throttle은 출력 믹서에 직접적으로 전달됩니다.  스틱이 중앙에 오면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 따라 이동합니다.</p>
+  <p>RC RPY 스틱 입력은 각 축의 회전 각속도를 제어합니다. Throttle is passed directly to control allocation.  스틱이 중앙에 오면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 따라 이동합니다.</p>
  </td>
 </tr>
 
@@ -411,7 +411,7 @@ VTOL은 두 구성 모두에서 [오프 보드](../flight_modes/offboard.md) 모
 
 | 기호                                                                                                                                                                                                                                                                                                                                                                          | 설명                                                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| M                                                                                                                                                                                                                                                                                                                                                                           | RC 스틱을 통한 수동 제어. RC 입력은 출력 믹서로 직접 전송됩니다.                                   |
+| M                                                                                                                                                                                                                                                                                                                                                                           | RC 스틱을 통한 수동 제어. RC input is sent directly to control allocation.          |
 | S                                                                                                                                                                                                                                                                                                                                                                           | 자세를 안정시키기위한 자동조종장치의 지원. RC 입력이 필요합니다. RC 스틱의 위치는 차량의 방향에 매핑됩니다.            |
 | S<sub>rate</sub>                                                                                                                                                                                                                                                                                                                                                            | 자세를 안정시키기위한 자동조종장치의 지원. RC 입력이 필요합니다. RC 스틱의 위치는 해당 방향에서 차량의 회전 속도에 매핑됩니다. |
 | S<sup>+</sup>                                                                                                                                                                                                                                                                                                                                                               | 바람에 대한 위치 또는 고도를 유지하기위한 자동조종장치의 지원. RC 입력이 필요합니다.                          |

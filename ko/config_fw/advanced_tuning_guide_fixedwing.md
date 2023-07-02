@@ -35,7 +35,7 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 다음 매개 변수를 설정하십시오.
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) -기동비행시 원하는 트림 대기 속도로 설정합니다.
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - 트림 대기 속도로 비행에 필요한 스로틀을 설정합니다.
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 수평 비행을 유지를 위한 피치 각도로 설정합니다.
 
 #### 2 차 : 대기 속도와 스로틀 제한
@@ -67,8 +67,8 @@ Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_M
 Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
 
 
-### L1 컨트롤러 조정(위치)
+### FW Path Control Tuning (Position)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
+All path control parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control).
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - L1 거리이며 추종하는 항공기 전방의 추적 지점을 정의합니다. 25 미터 값은 대부분의 항공기에서 작동합니다. 16-18의 값은 여전히 작동하며 더 선명한 응답을 제공합니다. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다.
+- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. A value of 10-20 meters works for most aircraft. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다. Vehicles with a slow roll dynamic should have this value increased.

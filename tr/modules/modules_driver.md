@@ -2,6 +2,7 @@
 Subcategories:
 - [Imu](modules_driver_imu.md)
 - [Distance Sensor](modules_driver_distance_sensor.md)
+- [Ins](modules_driver_ins.md)
 - [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Baro](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
@@ -9,6 +10,37 @@ Subcategories:
 - [Optical Flow](modules_driver_optical_flow.md)
 - [Magnetometer](modules_driver_magnetometer.md)
 
+## MCP23009
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+
+<a id="MCP23009_usage"></a>
+
+### Usage
+```
+MCP23009 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 37
+     [-D <val>]  Direction
+                 default: 0
+     [-O <val>]  Output
+                 default: 0
+     [-P <val>]  Pullups
+                 default: 0
+     [-U <val>]  Update Interval [ms]
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
@@ -34,6 +66,16 @@ adc <command> [arguments...]
 ```
 ## ads1115
 Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
+
+
+### Description
+
+Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
+
+The driver is included by default in firmware for boards that do not have an internal analog to digital converter, such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md) (search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
+
+It is enabled/disabled using the [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) parameter, and is disabled by default. If enabled, internal ADCs are not used.
+
 
 <a id="ads1115_usage"></a>
 
@@ -369,6 +411,11 @@ gimbal <command> [arguments...]
  Commands:
    start
 
+   status
+
+   primary-control Set who is in control of gimbal
+     <sysid> <compid> MAVLink system ID and MAVLink component ID
+
    test          Test the output: set a fixed angle for one or multiple axes
                  (gimbal must be running)
      roll|pitch|yaw <angle> Specify an axis and an angle in degrees
@@ -449,6 +496,45 @@ gz_bridge <command> [arguments...]
      -n <val>    Model name
      -i <val>    PX4 instance
      [-w <val>]  World name
+
+   stop
+
+   status        print status info
+```
+## ina220
+Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+
+
+### Description
+Driver for the INA220 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+
+If the INA220 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
+
+<a id="ina220_usage"></a>
+
+### Usage
+```
+ina220 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 65
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+     [-T <val>]  Type
+                 values: VBATT|VREG, default: VBATT
 
    stop
 
@@ -659,8 +745,8 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## modalai_esc
-Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
+## modal_io
+Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
 
 
 ### Description
@@ -676,11 +762,11 @@ todo
 ```
 
 
-<a id="modalai_esc_usage"></a>
+<a id="modal_io_usage"></a>
 
 ### Usage
 ```
-modalai_esc <command> [arguments...]
+modal_io <command> [arguments...]
  Commands:
    start         Start the task
 
@@ -694,19 +780,19 @@ modalai_esc <command> [arguments...]
      -i <val>    ESC ID, 0-3
 
    rpm           Closed-Loop RPM test control request
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -r <val>    RPM, -32,768 to 32,768
      -n <val>    Command repeat count, 0 to INT_MAX
      -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
 
    pwm           Open-Loop PWM test control request
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -r <val>    Duty Cycle value, 0 to 800
      -n <val>    Command repeat count, 0 to INT_MAX
      -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
 
    tone          Send tone generation request to ESC
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -p <val>    Period of sound, inverse frequency, 0-255
      -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
      -v <val>    Power (volume) of sound, 0-100
@@ -724,10 +810,10 @@ Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src
 
 
 ### Description
-Msp OSD!
+MSP telemetry streamer
 
 ### Implementation
-Does the things for the DJI Air Unit OSD
+Converts uORB messages to MSP telemetry packets
 
 ### Examples
 CLI usage example:
@@ -815,33 +901,6 @@ paw3902 <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-Y <val>]  custom yaw rotation (degrees)
                  default: 0
-
-   stop
-
-   status        print status info
-```
-## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685)
-
-<a id="pca9685_usage"></a>
-
-### Usage
-```
-pca9685 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 64
-
-   reset
-
-   test          enter test mode
 
    stop
 
@@ -1093,51 +1152,65 @@ rgbled <command> [arguments...]
 
    status        print status info
 ```
-## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+## rgbled_is31fl3195
+Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
 
-
-### Description
-
-This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf). It performs two tasks:
-
-- Control the motors based on the `actuator_controls_0` UOrb topic.
-- Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
-
-In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4, use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
-
-### Implementation
-
-The main loop of this module (Located in `RoboClaw.cpp::task_main()`) performs 2 tasks:
-
- 1. Write `actuator_controls_0` messages to the Roboclaw as they become available
- 2. Read encoder data from the Roboclaw at a constant, fixed rate.
-
-Because of the latency of UART, this driver does not write every single `actuator_controls_0` message to the Roboclaw immediately. Instead, it is rate limited based on the parameter `RBCLW_WRITE_PER`.
-
-On startup, this driver will attempt to read the status of the Roboclaw to verify that it is connected. If this fails, the driver terminates immediately.
-
-### Examples
-
-The command to start this driver is:
-
-roboclaw start <device> <baud>
-
-- `<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`.
-- `<baud>` is the baud rate.
-
-All available commands are:
-
-- `$ roboclaw start <device> <baud>`
-- `$ roboclaw status`
-- `$ roboclaw stop`
-
-<a id="roboclaw_usage"></a>
+<a id="rgbled_is31fl3195_usage"></a>
 
 ### Usage
 ```
-roboclaw <command> [arguments...]
+rgbled_is31fl3195 <command> [arguments...]
  Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 84
+     [-o <val>]  RGB PWM Assignment
+                 default: 123
+     [-i <val>]  Current Band
+                 default: 0.5
+
+   stop
+
+   status        print status info
+```
+## rgbled_lp5562
+Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
+
+
+### Description
+Driver for [LP5562](https://www.ti.com/product/LP5562) LED driver connected via I2C.
+
+This used in some GPS modules by Holybro for [PX4 status notification](../getting_started/led_meanings.md)
+
+The driver is included by default in firmware (KConfig key DRIVERS_LIGHTS_RGBLED_LP5562) and is always enabled.
+
+<a id="rgbled_lp5562_usage"></a>
+
+### Usage
+```
+rgbled_lp5562 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 48
+     [-u <val>]  Current in mA
+                 default: 17.5
+
+   stop
+
+   status        print status info
 ```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)

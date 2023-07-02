@@ -21,16 +21,16 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
    - 지원 이메일
    - 전화번호
 
-1. PX4 관리자를 위한 PoC(Point of Contact)(직접 이메일 또는 Slack/Forum/Github에서 사용 가능)
-1. 보드는 [PX4 부트로더 프로토콜](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader)을 사용하여야 합니다. 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
-1. 다음 내용을 포함하는 적절한 문서:
+2. PX4 관리자를 위한 PoC(Point of Contact)(직접 이메일 또는 Slack/Forum/Github에서 사용 가능)
+3. 보드는 [PX4 부트로더 프로토콜](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader)을 사용하여야 합니다. 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
+4. 다음 내용을 포함하는 적절한 문서:
 
     - PX4 핀 정의를 아래에 매핑하는 완전한 핀배열 공개:
       1. 마이크로컨트롤러 핀
       2. 물리적 외부 커넥터
     - 소프트웨어 요구 사항과 부팅 순서를 유추할 수 있는 주요 구성 요소(센서, 전원 공급 장치 등)의 블록 다이어그램 또는 전체 회로도
     - 완제품 사용 설명서
-1. PX4와 함께 사용하기 위한 기능과 제한 사항을 나열하고 위에 설명된 문서를 포함하거나 링크하는 PX4가 있는 보드용 전용 웹페이지가 있어야 합니다.
+5. PX4와 함께 사용하기 위한 기능과 제한 사항을 나열하고 위에 설명된 문서를 포함하거나 링크하는 PX4가 있는 보드용 전용 웹페이지가 있어야 합니다.
 
 ## 보드 지원 카테고리
 
@@ -50,17 +50,9 @@ PX4는 일반적으로 상업적으로 사용 가능한 보드만 지원하므�
 
 ### VER 및 REV ID(하드웨어 개정 및 버전 감지)
 
-FMUv5 이상에는 전기 감지 메커니즘이 있습니다. 선택적 구성 데이터와 결합된 이 감지는 필수 장치 및 전원 공급 장치 구성과 관련하여 하드웨어 구성을 정의합니다. 제조업체는 Pixhawk 표준 보드를 출시하기 위하여 [boards@px4.io](mailto:boards@px4.io)에서 PX4 보드 유지 관리자로부터 VER 및 REV ID를 얻어야 합니다.
+FMUv5 이상에는 전기 감지 메커니즘이 있습니다. 선택적 구성 데이터와 결합된 이 감지는 필수 장치 및 전원 공급 장치 구성과 관련하여 하드웨어 구성을 정의합니다. Manufacturers must obtain the VER and REV ID from PX4 board maintainers by issuing a PR to ammend the [DS-018 Pixhawk standard](https://github.com/pixhawk/Pixhawk-Standards) for board versions and revisions.
 
-이 보드는 Pixhawk 표준과 100% 호환되기 때문에 VER 및 REV ID에 할당된 값은 해당 FMUv 버전의 기본값입니다.
-
-예를 들어 FMUv5의 값은 다음과 같습니다.
-
-| REV | VER | &nbsp;     |
-| --- | --- | ---------- |
-| 0   | 0   | FMUV5      |
-| 0   | 4   | FMUV5 Mini |
-
+Because these boards are 100% compliant with the Pixhawk standard, the values assigned for VER and REV ID are the defaults for that FMU Version.
 
 ## 지원 제조업체
 

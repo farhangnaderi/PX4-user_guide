@@ -1,26 +1,29 @@
-# Gimbal Configuration
+# 云台配置
 
-This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
+本页面介绍了如何配置及控制一个安装了相机（或其他任务载荷）的云台。
 
-## Overview
+## 概述
 
-PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
+PX4包含支持不同输入输出方法的通用云台驱动程序：
 
-- The input method defines the protocol used to command a gimbal mount that is managed by PX4. This might be an RC controller, a MAVLink command sent by a GCS, or both — automatically switching between them.
-- The output method defines how PX4 communicates with the connected gimbal. The recommended protocol is MAVLink v2, but you can also connect directly to a flight controller PWM output port.
+- **输入方法**定义了被PX4管理的云台指令协议。 该输入可能是一个RC遥控器，通过GCS发送的MAVLink命令，或者两者兼备并可自动切换。
+- **输出方法**定义了PX4如何与已连接的云台通讯。 推荐使用Mavlink v2协议，但是你也可以直接通过PWM输出端口与非空链接。
 
-PX4 takes the input signal and routes/translates it to be sent through to the output. Any input method can be selected to drive any output.
+PX4接收输入信号并将其经过路由/转换发送至输出。 任何输入方法都可以被用来驱动任何输出。
 
-Both the input and output are configured using parameters. The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN). By default this is set to `Disabled (-1)` and the driver does not run. After selecting the input mode, reboot the vehicle to start the mount driver.
+输入和输出都使用参数进行配置。 输入通过参数[MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)进行设置。 默认情况下设置为 `Disabled (-1)` 既驱动不运行。 在选择输入模式后，请重新启动飞行器以启动云台驱动程序。
 
-You should set `MNT_MODE_IN` to one of: `RC (1)`, `MAVlink gimbal protocol v2 (4)` or `Auto (0)` (the other options are deprecated). If you select `Auto (0)`, the gimbal will automatically select either RC or or MAVLink input based on the latest input. Note that the auto-switch from MAVLink to RC requires a large stick motion!
+`MNT_MODE_IN` 应该被设置为下列选项中的其中一个： `RC (1)` ，`MAVlink gimbal protocol v2 (4)` 或 `Auto (0)` (其他选项已废弃)。 如果选择 `Auto(0)`，则云台将基于最新地输入自动选择 RC 或 MAVLink 作为输入。 请注意，从 MAVLink 到 RC 的自动切换需要一个大幅度地杆量操作！
 
-The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) parameter. By default the output is set to a PXM port (`AUX (0)`). If the [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) is supported by your gimbal, you should instead select `MAVLink gimbal protocol v2 (2)`.
+输出通过参数[MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)进行设置。 默认情况下，输出被设置为 PXM 端口(`AUX (0)`)。 如果云台支持 [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) ，应该选择 `MAVLink gimbal protocl v2 (2)`。
 
-
-The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount). The relevant settings for a number of common gimbal configurations are described below.
+云台驱动的完整参数列表可在 [参数 > Mount](../advanced_config/parameter_reference.md#mount) 中找到。 下面介绍了一些通用的云台相关设置。
 
 ## MAVLink 云台(MNT_MODE_OUT=MAVLINK)
+
+Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol. The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager of the gimbal it wants to control, and the manager will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+
+PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal that implements the [gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)).
 
 To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
 
@@ -29,11 +32,16 @@ To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)为**NORMAL**
 - [SER_TEL2)BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)设置为厂家建议的波特率。
 
-With this setup, ground stations can send [MAVLink Gimbal Commands](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) to PX4, such as `MAV_CMD_DO_SET_ROI_LOCATION` to track region of interest and `MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW` to control the gimbal attitude, and so on.
+### Multiple Gimbal Support
 
-:::note
-In Gimbal Protocol v2 terms, this setup configures PX4 as a _Gimbal Manager_. The flight stack handles high level "gimbal manager" commands and mission items, sending appropriate lower level "gimbal device" commands to control the gimbal.
-:::
+PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface. It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects.
+
+You can support additional gimbals provided that they:
+
+- implement the gimbal _manager_ protocol
+- Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
+- Each gimbal must have a unique component id. For a PWM connected gimbal this will be the component ID of the autopilot
+
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
@@ -52,31 +60,32 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 
 ## SITL
 
-The Gazebo [Typhoon H480 model](../simulation/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
 要运行它，请使用：
+
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
+To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## 测试
 
-The driver provides a simple test command — it needs to be stopped first with `vmount stop`. 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
+The driver provides a simple test command. 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
 
 使用下面这条指令开始仿真（不需要修改任何参数）：
 
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 确保无人机是上锁状态，例如使用`命令行 takeoff`， 然后用下面的命令来控制云台（例如）：
 
 ```
-vmount test yaw 30
+gimbal test yaw 30
 ```
 
 注意模拟的云台自身稳定，因此如果发送 MAVLink 命令，设置`stabilize`标志为`false`。
 
-![Gazebo 云台仿真](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 云台仿真](../../assets/simulation/gazebo_classic/gimbal-simulation.png)

@@ -12,7 +12,7 @@ The components needed for this build are:
 
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
-  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://shop.holybro.com/tekko32-f4-4in1-50a-esc_p1283.html) :::note
+  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc) :::note
 You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
 :::
   - GPS: [ZED-F9P](https://www.gnss.store/gnss-gps-modules/105-ublox-zed-f9p-rtk-gnss-receiver-board-with-sma-base-or-rover.html?search_query=ZED-F9P&results=11)
@@ -91,7 +91,7 @@ Make sure the motors do not overheat with the changed settings.
 ### PX4
 
 - Select a generic multicopter airframe
-- Use an [arming switch](../advanced_config/prearm_arm_disarm#arming-button-switch), do not use stick arming
+- Use an [arming switch](../advanced_config/prearm_arm_disarm.md#arming-button-switch), do not use stick arming
 - [Select DShot](../config/actuators.md) as output protocol on all eight outputs
 - Configure the motors according to this: ![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png) We used the following convention: the motors are facing the direction of where the axis points to. The spinning direction matches the direction of positive thrust (moving the motor slider up). Make sure to use the right props, as there is a CCW and a CW version.
 - Parameters:
@@ -105,10 +105,10 @@ Make sure the motors do not overheat with the changed settings.
 
 ## Simulation
 
-There is an omnicopter gazebo simulation target:
+There is an omnicopter simulation target in Gazebo Classic:
 
 ```sh
-make px4_sitl gazebo_omnicopter
+make px4_sitl gazebo-classic_omnicopter
 ```
 ![Gazebo Sim](../../assets/airframes/multicopter/omnicopter/gazebo.png)
 

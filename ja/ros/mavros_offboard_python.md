@@ -1,6 +1,6 @@
 # MAVROS *Offboard* control example (Python)
 
-This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in Gazebo/SITL. It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
+This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/README.md). It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
 
 At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
 
@@ -12,8 +12,9 @@ At the end of the tutorial, you should see the same behaviour as in the video be
 This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
-<video width="100%" autoplay="true" controls="true" id = "offb_video">
-    <source src="../../assets/simulation/gazebo_offboard.webm" type="video/webm">
+<a id="offb_video"></a>
+<video width="100%" autoplay="true" controls="true">
+ <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
 ## Creating the ROS Package
@@ -22,7 +23,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
 
     ```sh
     roscd  # Should cd into ~/catkin_ws/devel
-    cd .. 
+    cd ..
     cd src
     ```
 
@@ -67,7 +68,7 @@ After that, open `offb_node.py` file and paste the following code:
 ```py
 """
  * File: offb_node.py
- * Stack and tested in Gazebo 9 SITL
+ * Stack and tested in Gazebo Classic 9 SITL
 """
 
 #! /usr/bin/env python
@@ -92,7 +93,7 @@ if __name__ == "__main__":
     local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
     rospy.wait_for_service("/mavros/cmd/arming")
-    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
     rospy.wait_for_service("/mavros/set_mode")
     set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -112,7 +113,7 @@ if __name__ == "__main__":
     pose.pose.position.z = 2
 
     # Send a few setpoints before starting
-    for i in range(100):   
+    for i in range(100):
         if(rospy.is_shutdown()):
             break
 
@@ -175,7 +176,7 @@ state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
 rospy.wait_for_service("/mavros/cmd/arming")
-arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
 rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -212,7 +213,7 @@ Before entering *OFFBOARD* mode, you must have already started streaming setpoin
 
 ```py
 # Send a few setpoints before starting
-for i in range(100):   
+for i in range(100):
     if(rospy.is_shutdown()):
         break
 
@@ -265,7 +266,7 @@ In your `offboard_py` package, create another folder inside the `~/catkin_ws/src
 ```sh
 roscd offboard_py
 mkdir launch
-cd launch 
+cd launch
 touch start_offb.launch
 ```
 
@@ -283,10 +284,10 @@ For the `start_offb.launch` copy the following code:
 </launch>
 ```
 
-As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Classic Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
 :::tip
-The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
+The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo Classic world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
 
 You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
 
@@ -308,7 +309,7 @@ In the terminal write:
 roslaunch offboard_py start_offb.launch
 ```
 
-You should now see the PX4 firmware initiating and the Gazebo application running. After the *OFFBOARD* mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
+You should now see the PX4 firmware initiating and the Gazebo Classic application running. After the *OFFBOARD* mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
 
 :::warning
 It is possible that when running the script an error appears saying:
@@ -320,13 +321,13 @@ This means that PX4 SITL was not included in the path. To solve this add these l
 ```sh
 source ~/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
 Now in the terminal, go to the home directory and run the following command to apply the changes above to the current terminal:
 
-```sh 
+```sh
 source .bashrc
 ```
 

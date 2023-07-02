@@ -21,16 +21,16 @@ The general requirements for all supported boards are:
    - Support email
    - Phone number
 
-1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
-1. Adequate documentation, which includes, but is not limited to:
+2. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
+3. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
+4. Adequate documentation, which includes, but is not limited to:
 
     - A complete pinout made available publicly that maps PX4 pin definitions to:
       1. Microcontroller pins
       2. Physical external connectors
     - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
     - A manual of the finished product detailing its use
-1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
+5. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
 
 ## Board Support Categories
 
@@ -50,17 +50,9 @@ PX4 generally only supports boards that are commercially available, which typica
 
 ### VER and REV ID (Hardware Revision and Version Sensing)
 
-FMUv5 and onwards have an electrical sensing mechanism. This sensing coupled with optional configuration data will be used to define hardware’s configuration with respect to a mandatory device and power supply configuration. Manufacturers must obtain the VER and REV ID from PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) for releasing Pixhawk standard boards.
+FMUv5 and onwards have an electrical sensing mechanism. This sensing coupled with optional configuration data will be used to define hardware’s configuration with respect to a mandatory device and power supply configuration. Manufacturers must obtain the VER and REV ID from PX4 board maintainers by issuing a PR to ammend the [DS-018 Pixhawk standard](https://github.com/pixhawk/Pixhawk-Standards) for board versions and revisions.
 
-Because these boards are 100% compliant with the Pixhawk standard, the values assigned for VER and REV ID are the defaults for that FMUv Version.
-
-For example on FMUv5, the values are as listed below:
-
-| REV | VER | &nbsp;     |
-| --- | --- | ---------- |
-| 0   | 0   | FMUV5      |
-| 0   | 4   | FMUV5 Mini |
-
+Because these boards are 100% compliant with the Pixhawk standard, the values assigned for VER and REV ID are the defaults for that FMU Version.
 
 ## Manufacturer Supported
 

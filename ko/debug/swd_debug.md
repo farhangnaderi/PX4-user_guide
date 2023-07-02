@@ -35,7 +35,7 @@ This connector may come with your flight controller or debug probe. Other option
 
 ### Holybro Pixhawk Debug Adapter
 
-The [Holybro Pixhawk Debug Adapter](https://shop.holybro.com/pixhawk-debug-adapter_p1318.html) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
+The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
 
 It is the easiest way to connect:
 - Flight controllers that use either the [Pixhawk Debug Full](#pixhawk_debug_port_10_pin_sh) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini-6-pin-sh-debug-port) (6-pin SH) debug port, and
@@ -81,7 +81,7 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 <a id="port_information"></a>
 
-| 자동조종장치                                                                              | 커넥터                                                                                                                                                                                                                                         |
+| 오토파일럿                                                                               | 커넥터                                                                                                                                                                                                                                         |
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full-10-pin-sh-debug-port)                                                                                                                                                                              |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                          |

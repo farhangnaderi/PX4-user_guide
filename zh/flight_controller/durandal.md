@@ -1,6 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
 
@@ -23,6 +23,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## 概览
 
 #### Technical Specifications
+
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
 - IO 处理器：STM32F100
@@ -36,6 +37,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 
 #### 接口
+
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
 - FMU上有6个专用PWM/Capture输入
 - Dedicated R/C input for Spektrum / DSM
@@ -75,12 +77,12 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - FCC
 - RoHS compliant (lead-free)
 
-For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
+For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <span id="purchase"></span>
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
 
 <span id="connections"></span>
@@ -195,7 +197,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## 针脚定义
 
-*Durandal* pinouts are listed below. These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
+*Durandal* pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -409,5 +411,5 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## 更多信息
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)

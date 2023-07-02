@@ -8,7 +8,7 @@ While it can be controlled using traditional PWM input, it is designed to operat
 
 Multiple vendors sell ESC hardware that runs sapog firmware:
 * [Zubax Orel 20](https://zubax.com/products/orel_20)
-* [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
+* [Holybro Kotleta20](https://holybro.com/products/kotleta20)
 
 <style>
 #image_container {
@@ -30,7 +30,7 @@ Multiple vendors sell ESC hardware that runs sapog firmware:
   </div>
 
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://shop.holybro.com/kotleta20_p1156.html">Holybro Kotleta20</a>
+    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://holybro.com/products/kotleta20">Holybro Kotleta20</a>
   </div>
 
 </div>
@@ -65,12 +65,6 @@ Refer to the [project page](https://github.com/PX4/sapog) to learn more, includi
 
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to '3' to enable both dynamic node ID allocation and DroneCAN ESC output.
 
-### PX4 Configuration
-
-(Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
-:::note
-Some systems will not benefit from this behavior, e.g. glider drones).
-:::
 
 ### Automatic ESC Enumeration using QGroundControl
 
@@ -105,7 +99,7 @@ The following video demonstrates the process:
 ### Manual ESC Enumeration using Sapog
 
 :::tip
-We recommend automated [Sapog ESC Enumeration using QGroundControl](#sapog-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
+We recommend automated [Sapog ESC Enumeration using QGroundControl](#automatic-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
 :::
 
 You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/).
@@ -116,6 +110,11 @@ This assigns the following Sapog configuration parameters for each enumerated ES
 :::note
 See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
+
+### PX4 Configuration
+
+Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
+
 
 ## Troubleshooting
 

@@ -1,21 +1,21 @@
 # PX4 Vision 视觉自主开发套件
 
-[*PX4 Vision 视觉自主开发套件*](http://www.holybro.com/product/px4-vision/) 是一个稳定且高性价比的套件，让你能够在自动化载具上开发计算机视觉。
+The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
-该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+该无人机发货时没有预先安装软件。 A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
 :::
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
 ## Where to Buy
 
-- [PX4 Vision Dev Kit (Discontinued)](https://item.taobao.com/item.htm?id=609418685176)
-- [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
+- [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
+- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 
 ## 警告&通知
 - [警告&通知](#warnings-and-notifications)
@@ -24,7 +24,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 - [首次使用](#first-time-setup)
 - [试飞无人机（带避障）](#fly-the-drone-with-avoidance)
 - [使用套件开发](#development-using-the-kit)
-- [Px4 Vision 载板引脚排列](#px4-vision-carrier-board-pinouts)
+- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
 - [其他拓展资源](#other-development-resources)
 - [如何获得技术支持](#how-to-get-technical-support)
 
@@ -52,8 +52,7 @@ Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.h
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
-
+What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 当无人机按上述安装完成时：
 - 核心组件：
@@ -88,7 +87,7 @@ What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardw
   - 数传：连接飞行控制器的ESP8266（连接外部2号天线）。 实现与地面站的无线连接。
 
 
-- 带有 Auterion 提供的预刷新软件的 USB2.0 盘，其附带：
+- A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
@@ -220,46 +219,47 @@ Documentation about the companion computer vision/planning software can be found
 - [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - 机载计算机技术信息
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 
-
-<!--
 <span id="install_image_mission_computer"></span>
-### Installing the image on the Companion Computer
+### 在机载计算机上安装镜像
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
-This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
+要将USB映像刷到 *UP Core* ：
 
-:::note
-Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
-:::
+首先将提供的 USB2.0 U盘插入标有 `USB1` 的 *UP Core* 端口，然后使用4S电池为无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
 To flash the USB image to the *UP Core*:
 
-1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
-1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
-   The terminal will prompt for a number of responses during the flashing process.
+1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
+1.
+登录到配套计算机<0> （如上所述）。</li> 
+   
+   1 打开终端，然后运行以下命令将映像复制到内部存储器（eMMC）。 终端将在刷新过程中提示您一些响应。 
+  
+  
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
-   :::note
-   All information saved in the *UP Core* computer will be removed when executing this script.
 
+:::note
+执行此脚本时，将删除 *UP Core* 计算机中保存的所有信息。
 :::
 
-1. Pull out the USB stick.
-1. Restart the vehicle.
-   The *UP Core* computer will now boot from internal memory (eMMC).
--->
+1 拔出U盘。
+
+1 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
+
+
 
 ### Boot the Companion Computer
 
 PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
 
 :::tip
-[Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active. 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
+[Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active.
+:::
 
 If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
 
@@ -270,21 +270,27 @@ Once started the companion computer can be used both as a computer vision develo
 ### 登录机载计算机
 
 To login to the companion computer:
+
 1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
-
+   
    ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+
    - 使用套件中的 USB-JST电缆获取一个 USB A 连接器
-
+     
      ![USB 转 JST 线](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
+
    - 如果键盘和鼠标具有单独的接口，则可以将USB集线器连接到电缆。
-1. 连接显示器到 *UP Core* 的 HDMI 接口。
+     
+     1. 连接显示器到 *UP Core* 的 HDMI 接口。
+![UP Core：HDMI 端口](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
-   ![UP Core：HDMI 端口](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+Ubuntu 登录屏幕应显示在显示器上。
 
-   Ubuntu 登录屏幕应显示在显示器上。
-1. 使用凭据登录到 *UP Core*：
-   - **用户名：**px4vision
+1. 使用凭据登录到 *UP Core*： 
+      - **用户名：**px4vision
    - **密码：**px4vision
+
+
 
 
 
@@ -296,13 +302,19 @@ ROS 工作区位于 `~/catkin_ws`。 有关在 ROS 中进行开发以及使用 c
 
 The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
-1. 使用以下指令禁用避障程序：
+1. 使用以下指令禁用避障程序： 
+   
+   
    ```sh
    systemctl stop avoidance.service
    ```
-   您只需重启机器即可重启服务。
 
-   其他有用的指令是：
+
+您只需重启机器即可重启服务。
+
+其他有用的指令是： 
+
+
    ```sh
    # restart service
    systemctl start avoidance.service
@@ -314,19 +326,29 @@ The avoidance package is started on boot. To integrate a different planner, this
    systemctl enable avoidance.service  
    ```
 
+
 1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
-1. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码：
+1. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码： 
+   
+   
    ```sh
    git pull origin
    git checkout origin/master
    ```
-1. 构建软件包
+
+
+1. 构建软件包 
+   
+   
    ```
    catkin build local_planner
    ```
 
+
 The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+
+
 
 
 ### 开发 PX4 固件
@@ -334,6 +356,7 @@ The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
 可从 [Holybro的网站](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf) 下载载板的引脚 。
+
 - You will need to connect *QGroundControl* to the kit's *Pixhawk* **via USB** in order to update firmware.
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
@@ -341,9 +364,13 @@ The kit is designed for creating computer vision software that runs on the compa
 Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
+
+
 ## PX4 Vision Carrier Board Pinouts
 
-软件问题，请使用以下社区支持频道：
+Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5). The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
+
+
 
 ## 如何获得技术支持？
 
@@ -353,12 +380,14 @@ Modification of PX4 code is not *needed* to meet most computer vision use cases.
 - [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 避障软件/文档](https://github.com/PX4/PX4-Avoidance)
 - [路径规划接口](../computer_vision/path_planning_interface.md)
-- [Px4 Vision 载板引脚排列](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+
+
 
 ## 如何获得技术支持
 
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
+
 - [Holybro PX4 Vision Wikifactory 资料库](https://wikifactory.com/+holybro/px4-vision)
 - [PX4 Support channels](../contribute/support.md)

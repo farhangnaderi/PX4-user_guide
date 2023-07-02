@@ -1,12 +1,12 @@
 # Holybro Pix32 v6
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pix32 v6*<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. It is a variant of the Pixhawk 6C with a modular design and shares the same FMUv6C Target. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). It is designed for those pilots who need a high power, flexible and customizable flight control system.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/flight_controller/pix32v6/pix32v6_fc_only.png" width="550px" title="pix32v6 Upright Image" />
 
@@ -88,19 +88,8 @@ This flight controller is perfect for people that is looking for a affordable an
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pix32-v6_p1338.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
-
-<!---
-## Assembly/Setup
-
-[Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
-
-## Connections
-
-Sample Wiring Diagram
-![Pixhawk 6C Wiring Overview](../../assets/flight_controller/pixhawk6c/pixhawk6c_wiring_diagram.png)
---->
 
 ## Pinouts
 
@@ -144,7 +133,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pix32 v6 uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module) for different need.
+Holybro makes various analog [power modules](../power_module/README.md) for different need.
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
@@ -188,8 +177,8 @@ For information about wiring and using this port see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
-* [Telemetry Radio Modules](http://www.holybro.com/product-category/radio/?orderby=date)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+* [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 
@@ -201,7 +190,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Reference: Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
+- [참고자료: Pixhawk 6C 배선 퀵 스타트 ](../assembly/quick_start_pixhawk6c.md)
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)

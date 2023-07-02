@@ -354,6 +354,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -371,6 +372,8 @@ logger <command> [arguments...]
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   trigger_watchdog manually trigger the watchdog now
 
    stop
 
@@ -409,56 +412,29 @@ pwm_input <command> [arguments...]
 
    test          prints PWM capture info.
 ```
-## microdds_client
-Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/microdds_client)
-
-
-### Description
-MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
-
-### Examples
-```
-microdds_client start -t serial -d /dev/ttyS3 -b 921600
-microdds_client start -t udp -h 127.0.0.1 -p 15555
-```
-
-<a id="microdds_client_usage"></a>
-
-### 설명
-```
-microdds_client <command> [arguments...]
- Commands:
-   start
-     [-t <val>]  Transport protocol
-                 values: serial|udp, default: udp
-     [-d <val>]  serial device
-                 values: <file:dev>
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 0
-     [-h <val>]  Host IP
-                 values: <IP>, default: 127.0.0.1
-     [-p <val>]  Remote Port
-                 default: 15555
-     [-l]        Restrict to localhost (use in combination with
-                 ROS_LOCALHOST_ONLY=1)
-
-   stop
-
-   status        print status info
-```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted.
 
-  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+  #### update
+
+  `netman update` is run automatically by [a startup script](../concept/system_startup.md#system-startup). When run, the `update` option will check for the existence of `net.cfg` in the root of the SD Card. It then saves the network settings from `net.cfg` in non-volatile memory, deletes the file and reboots the system.
+
+  #### save
+
+  The `save` option will save settings from non-volatile memory to a file named `net.cfg` on the SD Card filesystem for editing. Use this to edit the settings. Save does not immediately apply the network settings; the user must reboot the flight stack. By contrast, the `update` command is run by the start-up script, commits the settings to non-volatile memory, and reboots the flight controller (which will then use the new settings).
+
+  #### show
+
+  The `show` option will display the network settings in `net.cfg` to the console.
 
   ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
 
 <a id="netman_usage"></a>
 
-### Usage
+### 설명
 ```
 netman <command> [arguments...]
  Commands:
@@ -481,7 +457,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 
 <a id="pwm_input_usage"></a>
 
-### 사용법
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -495,7 +471,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
 
-### 설명
+### Description
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -504,7 +480,7 @@ To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### 사용법
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -518,7 +494,7 @@ rc_update <command> [arguments...]
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
-### Description
+### 설명
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
@@ -561,6 +537,26 @@ The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, e
 send_event <command> [arguments...]
  Commands:
    start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+
+
+### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
 
    stop
 
@@ -616,7 +612,7 @@ Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_mag_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -630,13 +626,13 @@ sensor_mag_sim <command> [arguments...]
 Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
 
 
-### Description
+### 설명
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
-- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- Read the output from the sensor drivers (`SensorGyro`, etc.). 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
-- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
+- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
@@ -693,8 +689,9 @@ temperature_compensation <command> [arguments...]
                  sensor_correction topic
 
    calibrate     Run temperature calibration process
-     [-g]        calibrate the gyro
      [-a]        calibrate the accel
+     [-g]        calibrate the gyro
+     [-m]        calibrate the mag
      [-b]        calibrate the baro (if none of these is given, all will be
                  calibrated)
 
@@ -742,18 +739,57 @@ tune_control <command> [arguments...]
 
    stop          Stop playback (use for repeated tunes)
 ```
+## uxrce_dds_client
+Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+
+
+### Description
+UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
+uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="uxrce_dds_client_usage"></a>
+
+### Usage
+```
+uxrce_dds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Agent IP. If not provided, defaults to UXRCE_DDS_AG_IP
+                 values: <IP>
+     [-p <val>]  Agent listening port. If not provided, defaults to
+                 UXRCE_DDS_PRT
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
+     [-n <val>]  Client DDS namespace
+
+   stop
+
+   status        print status info
+```
 ## work_queue
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
-### Description
+### 설명
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:

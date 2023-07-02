@@ -155,6 +155,38 @@ lightware_laser_serial <command> [arguments...]
 
    stop          Stop driver
 ```
+## lightware_sf45_serial
+Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
+
+
+### Description
+
+Serial bus driver for the Lightware SF45/b Laser rangefinder.
+
+Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+
+### Examples
+
+Attempt to start driver on a specified serial device.
+```
+lightware_sf45_serial start -d /dev/ttyS1
+```
+Stop driver
+```
+lightware_sf45_serial stop
+```
+
+<a id="lightware_sf45_serial_usage"></a>
+### Usage
+```
+lightware_sf45_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     -R <val>    Sensor rotation - downward facing by default
+
+   stop          Stop driver
+```
 ## ll40ls
 Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ll40ls)
 
@@ -342,6 +374,30 @@ teraranger <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 48
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop
+
+   status        print status info
+```
+## tf02pro
+Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tf02pro)
+
+<a id="tf02pro_usage"></a>
+### Usage
+```
+tf02pro <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 16
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 

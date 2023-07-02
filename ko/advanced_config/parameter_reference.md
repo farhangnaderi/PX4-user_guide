@@ -215,6 +215,246 @@ table {
 </tr>
 </tbody></table>
 
+## ADSB
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ADSB_CALLSIGN_1">ADSB_CALLSIGN_1</strong> (INT32)</td>
+ <td>First 4 characters of CALLSIGN <p><strong>Comment:</strong> Sets first 4 characters of a total of 8. Valid characters are A-Z, 0-9, " ". Example "PX4 " -> 1347957792 For CALLSIGN shorter than 8 characters use the null terminator at the end '\0'.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_CALLSIGN_2">ADSB_CALLSIGN_2</strong> (INT32)</td>
+ <td>Second 4 characters of CALLSIGN <p><strong>Comment:</strong> Sets second 4 characters of a total of 8. Valid characters are A-Z, 0-9, " " only. Example "TEST" -> 1413829460 For CALLSIGN shorter than 8 characters use the null terminator at the end '\0'.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
+ <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> NoEmergency</li>
+
+<li><strong>1:</strong> General</li>
+
+<li><strong>2:</strong> Medical</li>
+
+<li><strong>3:</strong> LowFuel</li>
+
+<li><strong>4:</strong> NoCommunications</li>
+
+<li><strong>5:</strong> Interference</li>
+
+<li><strong>6:</strong> Downed</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 6] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+
+<li><strong>1:</strong> Light</li>
+
+<li><strong>2:</strong> Small</li>
+
+<li><strong>3:</strong> Large</li>
+
+<li><strong>4:</strong> HighVortex</li>
+
+<li><strong>5:</strong> Heavy</li>
+
+<li><strong>6:</strong> Performance</li>
+
+<li><strong>7:</strong> Rotorcraft</li>
+
+<li><strong>8:</strong> RESERVED</li>
+
+<li><strong>9:</strong> Glider</li>
+
+<li><strong>10:</strong> LightAir</li>
+
+<li><strong>11:</strong> Parachute</li>
+
+<li><strong>12:</strong> UltraLight</li>
+
+<li><strong>13:</strong> RESERVED</li>
+
+<li><strong>14:</strong> UAV</li>
+
+<li><strong>15:</strong> Space</li>
+
+<li><strong>16:</strong> RESERVED</li>
+
+<li><strong>17:</strong> EmergencySurf</li>
+
+<li><strong>18:</strong> ServiceSurf</li>
+
+<li><strong>19:</strong> PointObstacle</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 15] </td>
+ <td>14</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_GPS_OFF_LAT">ADSB_GPS_OFF_LAT</strong> (INT32)</td>
+ <td>ADSB-Out GPS Offset lat <p><strong>Comment:</strong> Sets GPS lataral offset encoding</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> NoData</li>
+
+<li><strong>1:</strong> LatLeft2M</li>
+
+<li><strong>2:</strong> LatLeft4M</li>
+
+<li><strong>3:</strong> LatLeft6M</li>
+
+<li><strong>4:</strong> LatRight0M</li>
+
+<li><strong>5:</strong> LatRight2M</li>
+
+<li><strong>6:</strong> LatRight4M</li>
+
+<li><strong>7:</strong> LatRight6M</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 7] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_GPS_OFF_LON">ADSB_GPS_OFF_LON</strong> (INT32)</td>
+ <td>ADSB-Out GPS Offset lon <p><strong>Comment:</strong> Sets GPS longitudinal offset encoding</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> NoData</li>
+
+<li><strong>1:</strong> AppliedBySensor</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
+ <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-1, 16777215] </td>
+ <td>1194684</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
+ <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 16777215] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
+ <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> SizeUnknown</li>
+
+<li><strong>1:</strong> Len15_Wid23</li>
+
+<li><strong>2:</strong> Len25_Wid28</li>
+
+<li><strong>3:</strong> Len25_Wid34</li>
+
+<li><strong>4:</strong> Len35_Wid33</li>
+
+<li><strong>5:</strong> Len35_Wid38</li>
+
+<li><strong>6:</strong> Len45_Wid39</li>
+
+<li><strong>7:</strong> Len45_Wid45</li>
+
+<li><strong>8:</strong> Len55_Wid45</li>
+
+<li><strong>9:</strong> Len55_Wid52</li>
+
+<li><strong>10:</strong> Len65_Wid59</li>
+
+<li><strong>11:</strong> Len65_Wid67</li>
+
+<li><strong>12:</strong> Len75_Wid72</li>
+
+<li><strong>13:</strong> Len75_Wid80</li>
+
+<li><strong>14:</strong> Len85_Wid80</li>
+
+<li><strong>15:</strong> Len85_Wid90</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 15] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
+ <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 50] </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> UnknownMaxSpeed</li>
+
+<li><strong>1:</strong> 75Kts</li>
+
+<li><strong>2:</strong> 150Kts</li>
+
+<li><strong>3:</strong> 300Kts</li>
+
+<li><strong>4:</strong> 600Kts</li>
+
+<li><strong>5:</strong> 1200Kts</li>
+
+<li><strong>6:</strong> Over1200Kts</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 6] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
+ <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 7777] </td>
+ <td>1200</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Actuator Outputs
 
 <table>
@@ -223,6 +463,426 @@ table {
    <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="MODAL_IO_FUNC1">MODAL_IO_FUNC1</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC2">MODAL_IO_FUNC2</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC3">MODAL_IO_FUNC3</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC4">MODAL_IO_FUNC4</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_REV">MODAL_IO_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for MODAL IO Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> MODAL IO Output ESC 1</li> 
+  <li><strong>1:</strong> MODAL IO Output ESC 2</li> 
+  <li><strong>2:</strong> MODAL IO Output ESC 3</li> 
+  <li><strong>3:</strong> MODAL IO Output ESC 4</li> 
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>0</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="PCA9685_DIS1">PCA9685_DIS1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
@@ -540,7 +1200,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -640,7 +1302,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -740,7 +1404,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -840,7 +1506,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -940,7 +1608,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1040,7 +1710,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1140,7 +1812,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1240,7 +1914,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1340,7 +2016,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1440,7 +2118,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1540,7 +2220,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1640,7 +2322,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1740,7 +2424,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1840,7 +2526,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1940,7 +2628,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2040,7 +2730,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2544,6 +3236,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -2649,6 +3343,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -2756,6 +3452,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -2861,6 +3559,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -2968,6 +3668,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3073,6 +3775,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3180,6 +3884,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3285,6 +3991,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3392,6 +4100,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3498,6 +4208,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3603,6 +4315,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -4077,7 +4791,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4177,7 +4893,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4277,7 +4995,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4377,7 +5097,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4477,7 +5199,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4577,7 +5301,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4677,7 +5403,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4777,7 +5505,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4970,64 +5700,120 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS1">SIM_GZ_DIS1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS1">SIM_GZ_EC_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS2">SIM_GZ_DIS2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS2">SIM_GZ_EC_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS3">SIM_GZ_DIS3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS3">SIM_GZ_EC_DIS3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS4">SIM_GZ_DIS4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS4">SIM_GZ_EC_DIS4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS5">SIM_GZ_DIS5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS5">SIM_GZ_EC_DIS5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS6">SIM_GZ_DIS6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS6">SIM_GZ_EC_DIS6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS7">SIM_GZ_DIS7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS7">SIM_GZ_EC_DIS7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS8">SIM_GZ_DIS8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS8">SIM_GZ_EC_DIS8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC1">SIM_GZ_FUNC1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FAIL1">SIM_GZ_EC_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC1).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL2">SIM_GZ_EC_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC2).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL3">SIM_GZ_EC_FAIL3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC3).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL4">SIM_GZ_EC_FAIL4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC4).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL5">SIM_GZ_EC_FAIL5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC5).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL6">SIM_GZ_EC_FAIL6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC6).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL7">SIM_GZ_EC_FAIL7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC7).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL8">SIM_GZ_EC_FAIL8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC8).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FUNC1">SIM_GZ_EC_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5118,7 +5904,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5126,8 +5914,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC2">SIM_GZ_FUNC2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC2">SIM_GZ_EC_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5218,7 +6006,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5226,8 +6016,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC3">SIM_GZ_FUNC3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC3">SIM_GZ_EC_FUNC3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5318,7 +6108,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5326,8 +6118,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC4">SIM_GZ_FUNC4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC4">SIM_GZ_EC_FUNC4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5418,7 +6210,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5426,8 +6220,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC5">SIM_GZ_FUNC5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC5">SIM_GZ_EC_FUNC5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5518,7 +6312,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5526,8 +6322,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC6">SIM_GZ_FUNC6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC6">SIM_GZ_EC_FUNC6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5618,7 +6414,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5626,8 +6424,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC7">SIM_GZ_FUNC7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC7">SIM_GZ_EC_FUNC7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5718,7 +6516,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5726,8 +6526,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC8">SIM_GZ_FUNC8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC8">SIM_GZ_EC_FUNC8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5818,7 +6618,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5826,127 +6628,1183 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX1">SIM_GZ_MAX1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX1">SIM_GZ_EC_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX2">SIM_GZ_MAX2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX2">SIM_GZ_EC_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX3">SIM_GZ_MAX3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX3">SIM_GZ_EC_MAX3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX4">SIM_GZ_MAX4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX4">SIM_GZ_EC_MAX4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX5">SIM_GZ_MAX5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX5">SIM_GZ_EC_MAX5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX6">SIM_GZ_MAX6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX6">SIM_GZ_EC_MAX6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX7">SIM_GZ_MAX7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX7">SIM_GZ_EC_MAX7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX8">SIM_GZ_MAX8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX8">SIM_GZ_EC_MAX8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN1">SIM_GZ_MIN1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN1">SIM_GZ_EC_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN2">SIM_GZ_MIN2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN2">SIM_GZ_EC_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN3">SIM_GZ_MIN3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN3">SIM_GZ_EC_MIN3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN4">SIM_GZ_MIN4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN4">SIM_GZ_EC_MIN4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN5">SIM_GZ_MIN5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN5">SIM_GZ_EC_MIN5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN6">SIM_GZ_MIN6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN6">SIM_GZ_EC_MIN6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN7">SIM_GZ_MIN7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN7">SIM_GZ_EC_MIN7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN8">SIM_GZ_MIN8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN8">SIM_GZ_EC_MIN8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_REV">SIM_GZ_REV</strong> (INT32)</td>
- <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Channel 1</li> 
-  <li><strong>1:</strong> SIM_GZ Channel 2</li> 
-  <li><strong>2:</strong> SIM_GZ Channel 3</li> 
-  <li><strong>3:</strong> SIM_GZ Channel 4</li> 
-  <li><strong>4:</strong> SIM_GZ Channel 5</li> 
-  <li><strong>5:</strong> SIM_GZ Channel 6</li> 
-  <li><strong>6:</strong> SIM_GZ Channel 7</li> 
-  <li><strong>7:</strong> SIM_GZ Channel 8</li> 
+ <td><strong id="SIM_GZ_EC_REV">SIM_GZ_EC_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ ESC 1</li> 
+  <li><strong>1:</strong> SIM_GZ ESC 2</li> 
+  <li><strong>2:</strong> SIM_GZ ESC 3</li> 
+  <li><strong>3:</strong> SIM_GZ ESC 4</li> 
+  <li><strong>4:</strong> SIM_GZ ESC 5</li> 
+  <li><strong>5:</strong> SIM_GZ ESC 6</li> 
+  <li><strong>6:</strong> SIM_GZ ESC 7</li> 
+  <li><strong>7:</strong> SIM_GZ ESC 8</li> 
+</ul>
+ </td>
+ <td>[0, 255] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS1">SIM_GZ_SV_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS2">SIM_GZ_SV_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS3">SIM_GZ_SV_DIS3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS4">SIM_GZ_SV_DIS4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS5">SIM_GZ_SV_DIS5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS6">SIM_GZ_SV_DIS6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS7">SIM_GZ_SV_DIS7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS8">SIM_GZ_SV_DIS8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL1">SIM_GZ_SV_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC1).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL2">SIM_GZ_SV_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC2).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL3">SIM_GZ_SV_FAIL3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC3).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL4">SIM_GZ_SV_FAIL4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC4).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL5">SIM_GZ_SV_FAIL5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC5).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL6">SIM_GZ_SV_FAIL6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC6).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL7">SIM_GZ_SV_FAIL7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC7).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL8">SIM_GZ_SV_FAIL8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC8).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC1">SIM_GZ_SV_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC2">SIM_GZ_SV_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC3">SIM_GZ_SV_FUNC3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC4">SIM_GZ_SV_FUNC4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC5">SIM_GZ_SV_FUNC5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC6">SIM_GZ_SV_FUNC6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC7">SIM_GZ_SV_FUNC7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC8">SIM_GZ_SV_FUNC8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX1">SIM_GZ_SV_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX2">SIM_GZ_SV_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX3">SIM_GZ_SV_MAX3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX4">SIM_GZ_SV_MAX4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX5">SIM_GZ_SV_MAX5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX6">SIM_GZ_SV_MAX6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX7">SIM_GZ_SV_MAX7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX8">SIM_GZ_SV_MAX8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN1">SIM_GZ_SV_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN2">SIM_GZ_SV_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN3">SIM_GZ_SV_MIN3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN4">SIM_GZ_SV_MIN4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN5">SIM_GZ_SV_MIN5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN6">SIM_GZ_SV_MIN6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN7">SIM_GZ_SV_MIN7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN8">SIM_GZ_SV_MIN8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_REV">SIM_GZ_SV_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Servo 1</li> 
+  <li><strong>1:</strong> SIM_GZ Servo 2</li> 
+  <li><strong>2:</strong> SIM_GZ Servo 3</li> 
+  <li><strong>3:</strong> SIM_GZ Servo 4</li> 
+  <li><strong>4:</strong> SIM_GZ Servo 5</li> 
+  <li><strong>5:</strong> SIM_GZ Servo 6</li> 
+  <li><strong>6:</strong> SIM_GZ Servo 7</li> 
+  <li><strong>7:</strong> SIM_GZ Servo 8</li> 
 </ul>
  </td>
  <td>[0, 255] </td>
@@ -6046,7 +7904,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6146,7 +8006,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6246,7 +8108,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6346,7 +8210,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6446,7 +8312,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6546,7 +8414,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6646,7 +8516,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6746,7 +8618,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6918,7 +8792,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7018,7 +8894,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7118,7 +8996,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7218,7 +9098,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7318,7 +9200,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7418,7 +9302,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7518,7 +9404,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7618,7 +9506,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7958,7 +9848,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8058,7 +9950,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8158,7 +10052,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8258,7 +10154,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8358,7 +10256,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8458,7 +10358,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8558,7 +10460,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8658,7 +10562,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8998,7 +10904,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9098,7 +11006,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9198,7 +11108,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9298,7 +11210,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9398,7 +11312,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9498,7 +11414,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9598,7 +11516,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9698,7 +11618,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9798,7 +11720,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9898,7 +11822,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9998,7 +11924,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10098,7 +12026,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10198,7 +12128,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10298,7 +12230,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10398,7 +12332,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10498,7 +12434,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10783,11 +12721,10 @@ table {
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li> 
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
-  <li><strong>4:</strong> Check for data variation in first 10s after sensor connection</li> 
 </ul>
  </td>
- <td>[0, 31] </td>
- <td>23</td>
+ <td>[0, 15] </td>
+ <td>7</td>
  <td></td>
 </tr>
 <tr>
@@ -10891,7 +12828,7 @@ table {
  <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>[0, 0.1] </td>
- <td>0.0001</td>
+ <td>1.e-4</td>
  <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
@@ -10921,142 +12858,6 @@ table {
  <td>[0, 1] </td>
  <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
-</tr>
-</tbody></table>
-
-## Angular Velocity Control
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="AVC_X_D">AVC_X_D</strong> (FLOAT)</td>
- <td>Body X axis angular velocity D gain <p><strong>Comment:</strong> Body X axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.36</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_X_FF">AVC_X_FF</strong> (FLOAT)</td>
- <td>Body X axis angular velocity feedforward gain <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] </td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_I">AVC_X_I</strong> (FLOAT)</td>
- <td>Body X axis angular velocity I gain <p><strong>Comment:</strong> Body X axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.2</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_I_LIM">AVC_X_I_LIM</strong> (FLOAT)</td>
- <td>Body X axis angular velocity integrator limit <p><strong>Comment:</strong> Body X axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.3</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_K">AVC_X_K</strong> (FLOAT)</td>
- <td>Body X axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_X_K * (AVC_X_P * error + AVC_X_I * error_integral + AVC_X_D * error_derivative) Set AVC_X_P=1 to implement a PID in the ideal form. Set AVC_X_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 5.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_X_P">AVC_X_P</strong> (FLOAT)</td>
- <td>Body X axis angular velocity P gain <p><strong>Comment:</strong> Body X axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>18.</td>
- <td>1/s</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_D">AVC_Y_D</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity D gain <p><strong>Comment:</strong> Body Y axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.36</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_FF">AVC_Y_FF</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] </td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_I">AVC_Y_I</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity I gain <p><strong>Comment:</strong> Body Y axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.2</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_I_LIM">AVC_Y_I_LIM</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity integrator limit <p><strong>Comment:</strong> Body Y axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.3</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_K">AVC_Y_K</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Y_K * (AVC_Y_P * error + AVC_Y_I * error_integral + AVC_Y_D * error_derivative) Set AVC_Y_P=1 to implement a PID in the ideal form. Set AVC_Y_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 20.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_P">AVC_Y_P</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity P gain <p><strong>Comment:</strong> Body Y axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>18.</td>
- <td>1/s</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_D">AVC_Z_D</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity D gain <p><strong>Comment:</strong> Body Z axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_FF">AVC_Z_FF</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_I">AVC_Z_I</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity I gain <p><strong>Comment:</strong> Body Z axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.1</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_I_LIM">AVC_Z_I_LIM</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity integrator limit <p><strong>Comment:</strong> Body Z axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.30</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_K">AVC_Z_K</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Z_K * (AVC_Z_P * error + AVC_Z_I * error_integral + AVC_Z_D * error_derivative) Set AVC_Z_P=1 to implement a PID in the ideal form. Set AVC_Z_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 5.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_P">AVC_Z_P</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity P gain <p><strong>Comment:</strong> Body Z axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>7.</td>
- <td>1/s</td>
 </tr>
 </tbody></table>
 
@@ -11175,7 +12976,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AT_MAN_AUX">FW_AT_MAN_AUX</strong> (INT32)</td>
- <td>Enable auto tuning enable on aux input <p><strong>Comment:</strong> Defines which aux input to enable auto tuning</p> <strong>값:</strong><ul>
+ <td>Enable/disable auto tuning using an RC AUX input <p><strong>Comment:</strong> Defines which RC_MAP_AUXn parameter maps the RC channel used to enable/disable auto tuning.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disable</li>
 
 <li><strong>1:</strong> Aux1</li>
@@ -11836,7 +13637,7 @@ table {
 <tr>
  <td><strong id="COM_ACT_FAIL_ACT">COM_ACT_FAIL_ACT</strong> (INT32)</td>
  <td>Set the actuator failure failsafe mode <p><strong>Comment:</strong> Note: actuator failure needs to be enabled and configured via FD_ACT_* parameters.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
+<li><strong>0:</strong> Warning only</li>
 
 <li><strong>1:</strong> Hold mode</li>
 
@@ -11849,6 +13650,18 @@ table {
   </td>
  <td>[0, 3] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_ARMABLE">COM_ARMABLE</strong> (INT32)</td>
+ <td>Flag to allow arming <p><strong>Comment:</strong> Set 0 to prevent accidental use of the vehicle e.g. for safety or maintenance reasons.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disallow arming</li>
+
+<li><strong>1:</strong> Allow arming</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -11932,6 +13745,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_HFLT_CHK">COM_ARM_HFLT_CHK</strong> (INT32)</td>
+ <td>Enable FMU SD card hardfault detection check <p><strong>Comment:</strong> This check detects if there are hardfault files present on the SD card. If so, and the parameter is enabled, arming is prevented.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_IMU_ACC">COM_ARM_IMU_ACC</strong> (FLOAT)</td>
  <td>Maximum accelerometer inconsistency between IMU units that will allow arming    </td>
  <td>[0.1, 1.0] (0.05)</td>
@@ -11974,6 +13794,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_ODID">COM_ARM_ODID</strong> (INT32)</td>
+ <td>Enable Drone ID system detection and health check <p><strong>Comment:</strong> This check detects if the Open Drone ID system is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Warning only</li>
+
+<li><strong>2:</strong> Enforce Open Drone ID system presence</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
  <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -12007,38 +13841,38 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_BAT_ACT_T">COM_BAT_ACT_T</strong> (FLOAT)</td>
- <td>Delay between battery state change and failsafe reaction <p><strong>Comment:</strong> Battery state requires action -> wait COM_BAT_ACT_T seconds in Hold mode for the user to realize and take a custom action -> React with failsafe action COM_LOW_BAT_ACT A zero value disables the delay.</p>   </td>
- <td>[0.0, 25.0] </td>
- <td>5.</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
  <td>Maximum allowed CPU load to still arm <p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
  <td>[-1, 100] (1)</td>
- <td>90.0</td>
+ <td>95.0</td>
  <td>%</td>
 </tr>
 <tr>
  <td><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
  <td>Time-out for auto disarm after landing <p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
- <td></td>
+ <td>(0.1)</td>
  <td>2.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
  <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn't takeoff within the timeout it disarms again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
- <td></td>
+ <td>(0.1)</td>
  <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_DL_LOSS_T">COM_DL_LOSS_T</strong> (INT32)</td>
- <td>Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
+ <td>GCS connection loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink, the GCS connection lost mode triggers</p>   </td>
  <td>[5, 300] (1)</td>
  <td>10</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control. Afterwards the configured failsafe action is triggered and the user may take over. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>[0.0, 25.0] </td>
+ <td>5.</td>
  <td>s</td>
 </tr>
 <tr>
@@ -12282,11 +14116,8 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLT_TIME_MAX">COM_FLT_TIME_MAX</strong> (INT32)</td>
- <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a negative value to disable.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
-</ul>
-  </td>
- <td>[-1, 10000] </td>
+ <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any auto mode other than RTL or Land. Taking over in any manual mode is still possible. Starting from 90% of the maximum flight time, a warning message will be sent every 1 minute with the remaining time until automatic RTL. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] </td>
  <td>-1</td>
  <td>s</td>
 </tr>
@@ -12351,7 +14182,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
- <td>Timeout for detecting a failure after takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW) and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
+ <td>Timeout for detecting a failure after takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to disarm the vehicle if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW) and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
  <td>[-1.0, 5.0] </td>
  <td>3.0</td>
  <td>s</td>
@@ -12366,7 +14197,7 @@ table {
 <li><strong>3:</strong> Return at critical level, land at emergency level</li> 
 </ul>
   </td>
- <td>(1)</td>
+ <td></td>
  <td>0</td>
  <td></td>
 </tr>
@@ -12385,30 +14216,8 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
- <td>Set offboard loss failsafe mode <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>값:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
-
-<li><strong>0:</strong> Land mode</li>
-
-<li><strong>1:</strong> Hold mode</li>
-
-<li><strong>2:</strong> Return mode</li>
-
-<li><strong>3:</strong> Terminate</li>
-
-<li><strong>4:</strong> Lockdown</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
- <td>Set offboard loss failsafe mode when RC is available <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>값:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
-
+ <td>Set offboard loss failsafe mode <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Position mode</li>
 
 <li><strong>1:</strong> Altitude mode</li>
@@ -12423,7 +14232,7 @@ table {
 
 <li><strong>6:</strong> Terminate</li>
 
-<li><strong>7:</strong> Lockdown</li> 
+<li><strong>7:</strong> Disarm</li> 
 </ul>
   </td>
  <td></td>
@@ -12439,7 +14248,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
- <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_ACT and COM_OBL_RC_ACT to configure action.</p>   </td>
+ <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_RC_ACT to configure action.</p>   </td>
  <td>[0, 60] (0.01)</td>
  <td>1.0</td>
  <td>s</td>
@@ -12453,10 +14262,10 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Terminate is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</p> <strong>값:</strong><ul>
+ <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Descend is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to Descend.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Altitude/Manual</li>
 
-<li><strong>1:</strong> Land/Terminate</li> 
+<li><strong>1:</strong> Land/Descend</li> 
 </ul>
   </td>
  <td></td>
@@ -12472,16 +14281,16 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
- <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>5</td>
+ <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
+ <td>5.</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="COM_POS_FS_EPV">COM_POS_FS_EPV</strong> (FLOAT)</td>
- <td>Vertical position error threshold <p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>10</td>
+ <td><strong id="COM_POS_LOW_EPH">COM_POS_LOW_EPH</strong> (FLOAT)</td>
+ <td>EPH threshold for RTL <p><strong>Comment:</strong> Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] </td>
+ <td>-1.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -12508,7 +14317,7 @@ table {
 <tr>
  <td><strong id="COM_QC_ACT">COM_QC_ACT</strong> (INT32)</td>
  <td>Set command after a quadchute  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> No action: stay in current flight mode</li>
+<li><strong>-1:</strong> Warning only</li>
 
 <li><strong>0:</strong> Return mode</li>
 
@@ -12520,13 +14329,6 @@ table {
  <td></td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="COM_RCL_ACT_T">COM_RCL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between RC loss and configured reaction <p><strong>Comment:</strong> RC signal not updated -> still use data for COM_RC_LOSS_T seconds Consider RC signal lost -> wait COM_RCL_ACT_T seconds in Hold mode to regain signal React with failsafe action NAV_RCL_ACT A zero value disables the delay.</p>   </td>
- <td>[0.0, 25.0] </td>
- <td>15.0</td>
- <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
@@ -12591,7 +14393,7 @@ table {
 <tr>
  <td><strong id="COM_SPOOLUP_TIME">COM_SPOOLUP_TIME</strong> (FLOAT)</td>
  <td>Enforced delay between arming and further navigation <p><strong>Comment:</strong> The minimal time from arming the motors until moving the vehicle is possible is COM_SPOOLUP_TIME seconds. Goal: - Motors and propellers spool up to idle speed before getting commanded to spin faster - Timeout for ESCs and smart batteries to successfulyy do failure checks e.g. for stuck rotors before the vehicle is off the ground</p>   </td>
- <td>[0, 30] </td>
+ <td>[0, 30] (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -12609,28 +14411,28 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
- <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>1</td>
+ <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous velocity error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
+ <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
- <td>Wind speed RLT threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered and enforced as long as the threshold is exceeded. A negative value disables the feature.</p>   </td>
- <td>[-1, 30] (0.1)</td>
+ <td>Wind speed RTL threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered. It is not possible to resume the mission or switch to any auto mode other than RTL or Land if this threshold is exceeded. Taking over in any manual mode is still possible. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
- <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1min). A negative value disables the feature.</p>   </td>
- <td>[-1, 30] (0.1)</td>
+ <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1 minute). Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td>Set data link loss failsafe mode <p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>값:</strong><ul>
+ <td>Set GCS connection loss failsafe mode <p><strong>Comment:</strong> The GCS connection loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Hold mode</li>
@@ -12641,7 +14443,7 @@ table {
 
 <li><strong>5:</strong> Terminate</li>
 
-<li><strong>6:</strong> Lockdown</li> 
+<li><strong>6:</strong> Disarm</li> 
 </ul>
   </td>
  <td>[0, 6] </td>
@@ -12659,7 +14461,7 @@ table {
 
 <li><strong>5:</strong> Terminate</li>
 
-<li><strong>6:</strong> Lockdown</li> 
+<li><strong>6:</strong> Disarm</li> 
 </ul>
   </td>
  <td>[1, 6] </td>
@@ -12854,7 +14656,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -12868,37 +14670,6 @@ table {
  <td></td>
  <td>14</td>
  <td></td>
-</tr>
-</tbody></table>
-
-## Data Link Loss
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
- <td>Airfield home alt <p><strong>Comment:</strong> Altitude of airfield home waypoint</p>   </td>
- <td>[-50, ?] (0.5)</td>
- <td>600.0</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
- <td>Airfield home Lat <p><strong>Comment:</strong> Latitude of airfield home waypoint</p>   </td>
- <td>[-900000000, 900000000] </td>
- <td>-265847810</td>
- <td>deg*1e7</td>
-</tr>
-<tr>
- <td><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
- <td>Airfield home Lon <p><strong>Comment:</strong> Longitude of airfield home waypoint</p>   </td>
- <td>[-1800000000, 1800000000] </td>
- <td>1518423250</td>
- <td>deg*1e7</td>
 </tr>
 </tbody></table>
 
@@ -12962,15 +14733,15 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion. Cannot be used if bit position 7 is true. 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Set to true to enable vision velocity fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
-  <li><strong>1:</strong> use optical flow</li> 
-  <li><strong>2:</strong> inhibit IMU bias estimation</li> 
-  <li><strong>3:</strong> vision position fusion</li> 
-  <li><strong>4:</strong> vision yaw fusion</li> 
-  <li><strong>5:</strong> multi-rotor drag fusion</li> 
-  <li><strong>6:</strong> rotate external vision</li> 
+ <td>Will be removed after v1.14 release <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Deprecated. use EKF2_OF_CTRL instead 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Deprecated. use EKF2_DRAG_CTRL instead 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+  <li><strong>1:</strong> unused</li> 
+  <li><strong>2:</strong> unused</li> 
+  <li><strong>3:</strong> unused</li> 
+  <li><strong>4:</strong> unused</li> 
+  <li><strong>5:</strong> unused</li> 
+  <li><strong>6:</strong> unused</li> 
   <li><strong>7:</strong> unused</li> 
-  <li><strong>8:</strong> vision velocity fusion</li> 
+  <li><strong>8:</strong> unused</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
@@ -12988,7 +14759,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
- <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion.</p>   </td>
+ <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion. Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
  <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>m/s</td>
@@ -13018,7 +14789,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_BARO_CTRL">EKF2_BARO_CTRL</strong> (INT32)</td>
- <td>Barometric sensor height aiding <p><strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the barometric height measurements to estimate it's height in addition to other height sources (if activated).</p>   </td>
+ <td>Barometric sensor height aiding <p><strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the barometric height measurements to estimate its height in addition to other height sources (if activated).</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -13047,14 +14818,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
- <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_X paraemter should be set initially to the ratio of mass / projected frontal area and adjusted together with EKF2_MCOEF to minimise variance of the X-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. Set this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
+ <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed squared. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter. Set this parameter to zero to turn off the bluff body drag model for this axis.</p>   </td>
  <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
- <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_Y paraemter should be set initially to the ratio of mass / projected side area and adjusted together with EKF2_MCOEF to minimise variance of the Y-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. et this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
+ <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed squared. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter. Set this parameter to zero to turn off the bluff body drag model for this axis.</p>   </td>
  <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
@@ -13086,6 +14857,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="EKF2_DRAG_CTRL">EKF2_DRAG_CTRL</strong> (INT32)</td>
+ <td>Multirotor wind estimation selection <p><strong>Comment:</strong> Activate wind speed estimation using specific-force measurements and a drag model defined by EKF2_BCOEF_[XY] and EKF2_MCOEF. Only use on vehicles that have their thrust aligned with the Z axis and no thrust in the XY plane.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="EKF2_DRAG_NOISE">EKF2_DRAG_NOISE</strong> (FLOAT)</td>
  <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model <p><strong>Comment:</strong> Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
  <td>[0.5, 10.0] </td>
@@ -13103,7 +14881,7 @@ table {
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.05, ?] </td>
- <td>0.05</td>
+ <td>0.1</td>
  <td>rad</td>
 </tr>
 <tr>
@@ -13135,6 +14913,18 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_EV_CTRL">EKF2_EV_CTRL</strong> (INT32)</td>
+ <td>External vision (EV) sensor aiding <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Horizontal position fusion 1 : Vertical position fusion 2 : 3D velocity fusion 3 : Yaw</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Horizontal position</li> 
+  <li><strong>1:</strong> Vertical position</li> 
+  <li><strong>2:</strong> 3D velocity</li> 
+  <li><strong>3:</strong> Yaw</li> 
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>15</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
  <td>Vision Position Estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
@@ -13144,9 +14934,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EV_NOISE_MD">EKF2_EV_NOISE_MD</strong> (INT32)</td>
- <td>Whether to set the external vision observation noise from the parameter or from vision message <p><strong>Comment:</strong> If set to true the observation noise is set from the parameters directly, if set to false the measurement noise is taken from the vision message and the parameter are used as a lower bound.</p>   </td>
+ <td>External vision (EV) noise mode <p><strong>Comment:</strong> If set to 0 (default) the measurement noise is taken from the vision message and the EV noise parameters are used as a lower bound. If set to 1 the observation noise is set from the parameters directly,</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> EV reported variance (parameter lower bound)</li>
+
+<li><strong>1:</strong> EV noise parameters</li> 
+</ul>
+  </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -13169,6 +14964,13 @@ table {
  <td></td>
  <td>0.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EV_QMIN">EKF2_EV_QMIN</strong> (INT32)</td>
+ <td>External vision (EV) minimum quality (optional) <p><strong>Comment:</strong> External vision will only be started and fused if the quality metric is above this threshold. The quality metric is a completely optional field provided by some VIO systems.</p>   </td>
+ <td>[0, 100] </td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
@@ -13286,11 +15088,25 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_GRAV_NOISE">EKF2_GRAV_NOISE</strong> (FLOAT)</td>
+ <td>Accelerometer measurement noise for gravity based observations    </td>
+ <td>[0.1, 10.0] </td>
+ <td>1.0</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
  <td>Default value of true airspeed used in EKF-GSF AHRS calculation <p><strong>Comment:</strong> If no airspeed measurements are available, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes.</p>   </td>
  <td>[0.0, 100.0] </td>
  <td>15.0</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_GYR_B_LIM">EKF2_GYR_B_LIM</strong> (FLOAT)</td>
+ <td>Gyro bias learning limit <p><strong>Comment:</strong> The ekf delta angle bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
+ <td>[0.0, 0.4] </td>
+ <td>0.15</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
@@ -13308,7 +15124,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_HDG_GATE">EKF2_HDG_GATE</strong> (FLOAT)</td>
- <td>Gate size for magnetic heading fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for heading fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1.0, ?] </td>
  <td>2.6</td>
  <td>SD</td>
@@ -13338,6 +15154,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="EKF2_IMU_CTRL">EKF2_IMU_CTRL</strong> (INT32)</td>
+ <td>IMU control   <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Gyro Bias</li> 
+  <li><strong>1:</strong> Accel Bias</li> 
+  <li><strong>2:</strong> Gravity vector fusion</li> 
+</ul>
+ </td>
+ <td>[0, 7] </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)</td>
  <td>X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)    </td>
  <td></td>
@@ -13360,7 +15187,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
- <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
+ <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
  <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m/s^2</td>
@@ -13417,7 +15244,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>값:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times. If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Automatic</li>
 
 <li><strong>1:</strong> Magnetic heading</li>
@@ -13438,14 +15265,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
- <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
+ <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
  <td>[0.0, 1.0] </td>
- <td>0.25</td>
+ <td>0.20</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
- <td>propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. For example, if flying at 10 m/s at sea level conditions produces a rotor induced drag deceleration of 1.5 m/s/s when the multi-copter levelled to zero roll/pitch, then EKF2_MCOEF would be set to 0.15 = (1.5/10.0). Set EKF2_MCOEF to a positive value to enable wind estimation using this drag effect. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. The EKF2_MCOEF parameter should be adjusted together with EKF2_BCOEF_X and EKF2_BCOEF_Y to minimise variance of the X and y axis drag specific force innovation sequences.</p>   </td>
+ <td>Propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
  <td>[0, 1.0] </td>
  <td>0.15</td>
  <td>1/s</td>
@@ -13486,6 +15313,13 @@ table {
  <td>[500000, 10000000] </td>
  <td>5000000</td>
  <td>us</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_OF_CTRL">EKF2_OF_CTRL</strong> (INT32)</td>
+ <td>Optical flow aiding <p><strong>Comment:</strong> Enable optical flow fusion.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
@@ -13645,7 +15479,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_HMAX">EKF2_RNG_A_HMAX</strong> (FLOAT)</td>
- <td>Maximum absolute altitude (height above ground level) allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
+ <td>Maximum absolute altitude (height above ground level) allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
  <td>[1.0, 10.0] </td>
  <td>5.0</td>
  <td>m</td>
@@ -13659,14 +15493,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_VMAX">EKF2_RNG_A_VMAX</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle horizontal speed exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
+ <td>Maximum horizontal velocity allowed for conditional range aid mode <p><strong>Comment:</strong> If the vehicle horizontal speed exceeds this value then the estimator will not fuse range measurements to estimate its height. This only applies when conditional range aid mode is activated (EKF2_RNG_CTRL = 1).</p>   </td>
  <td>[0.1, 2] </td>
  <td>1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_CTRL">EKF2_RNG_CTRL</strong> (INT32)</td>
- <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. To en-/disable range finder for terrain height estimation, use EKF2_TERR_MASK instead. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in "conditional" mode. Conditional mode: This enables the range finder to be used during low speed (< EKF2_RNG_A_VMAX) and low altitude (< EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>값:</strong><ul>
+ <td>Range sensor height aiding <p><strong>Comment:</strong> WARNING: Range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff. To en-/disable range finder for terrain height estimation, use EKF2_TERR_MASK instead. If this parameter is enabled then the estimator will make use of the range finder measurements to estimate its height in addition to other height sources (if activated). Range sensor aiding can be enabled (i.e.: always use) or set in "conditional" mode. Conditional mode: This enables the range finder to be used during low speed (< EKF2_RNG_A_VMAX) and low altitude (< EKF2_RNG_A_HMAX) operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disable range fusion</li>
 
 <li><strong>1:</strong> Enabled (conditional mode)</li>
@@ -13911,142 +15745,11 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
- <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
- <td>[45, 720] </td>
- <td>90</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
- <td>[45, 720] </td>
- <td>90</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
- <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
- <td>[10, 180] </td>
- <td>45</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Normal (use airspeed if available)</li>
-
-<li><strong>1:</strong> Airspeed disabled</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
- <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_BAT_SCALE_EN">FW_BAT_SCALE_EN</strong> (INT32)</td>
- <td>Whether to scale throttle by battery power level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
- <td>Pitch trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
- <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
- <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
- <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
- <td>Roll trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
- <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
- <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
- <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
- <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.0</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
  <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
- <td>Manual pitch scale <p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
@@ -14056,53 +15759,11 @@ table {
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
- <td>Manual roll scale <p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
- <td>Manual yaw scale <p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
- <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
- <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
- <td>0.5</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
- <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.5] (0.005)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
- <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
- <td>Pitch rate proportional gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.08</td>
- <td>%/rad/s</td>
+ <td><strong id="FW_MAN_YR_MAX">FW_MAN_YR_MAX</strong> (FLOAT)</td>
+ <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. The controller already generates a yaw rate setpoint to coordinate a turn, and this value is added to it. This is an absolute value, which is applied symmetrically to the negative and positive side.</p>   </td>
+ <td>[0, ?] (0.5)</td>
+ <td>30.</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_PSP_OFF">FW_PSP_OFF</strong> (FLOAT)</td>
@@ -14113,15 +15774,15 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
- <td>Maximum negative / down pitch rate <p><strong>Comment:</strong> This limits the maximum pitch down up angular rate the controller will output (in degrees per second).</p>   </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>Maximum negative / down pitch rate setpoint    </td>
+ <td>[0.0, 180] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_POS">FW_P_RMAX_POS</strong> (FLOAT)</td>
- <td>Maximum positive / up pitch rate <p><strong>Comment:</strong> This limits the maximum pitch up angular rate the controller will output (in degrees per second).</p>   </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>Maximum positive / up pitch rate setpoint    </td>
+ <td>[0.0, 180] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
@@ -14133,58 +15794,16 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
- <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator (rudder, airbrakes, ...) to counteract this effect.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
- <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.00</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
- <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
- <td>0.5</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
- <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.2] (0.005)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
- <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
- <td>Roll rate proportional Gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.05</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
- <td>Maximum roll rate <p><strong>Comment:</strong> This limits the maximum roll rate the controller will output (in degrees per second).</p>   </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>Maximum roll rate setpoint    </td>
+ <td>[0.0, 180] (0.5)</td>
  <td>70.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
  <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
- <td>[0.4, 1.0] (0.05)</td>
+ <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
 </tr>
@@ -14203,30 +15822,16 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
- <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>1:</strong> Flaps channel</li>
-
-<li><strong>2:</strong> Aux1</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
  <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
+ <td>[0.0, 10] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_WR_I">FW_WR_I</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.5] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -14234,19 +15839,19 @@ table {
  <td><strong id="FW_WR_IMAX">FW_WR_IMAX</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
- <td>1.0</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_WR_P">FW_WR_P</strong> (FLOAT)</td>
  <td>Wheel steering rate proportional gain <p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_W_EN">FW_W_EN</strong> (INT32)</td>
- <td>Enable wheel steering controller    </td>
+ <td>Enable wheel steering controller <p><strong>Comment:</strong> Only enabled during automatic runway takeoff and landing. In all manual modes the wheel is directly controlled with yaw stick.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -14259,44 +15864,9 @@ table {
  <td>deg/s</td>
 </tr>
 <tr>
- <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
- <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.0</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
- <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
- <td>0.3</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
- <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 50.0] (0.5)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
- <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
- <td>Yaw rate proportional gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.05</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
  <td><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
- <td>Maximum yaw rate <p><strong>Comment:</strong> This limits the maximum yaw rate the controller will output (in degrees per second).</p>   </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>Maximum yaw rate setpoint    </td>
+ <td>[0.0, 180] (0.5)</td>
  <td>50.0</td>
  <td>deg/s</td>
 </tr>
@@ -14312,7 +15882,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_LND_ABORT">FW_LND_ABORT</strong> (INT32)</td>
- <td>Bit mask to set the automatic landing abort conditions <p><strong>Comment:</strong> Terrain estimation: bit 0: Abort if terrain is not found bit 1: Abort if terrain times out (after a first successful measurement) The last estimate is always used as ground, whether the last valid measurement or the land waypoint, depending on the selected abort criteria, until an abort condition is entered. If FW_LND_USETER == 0, these bits are ignored. TODO: Extend automatic abort conditions e.g. glide slope tracking error (horizontal and vertical)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Abort if terrain is not found</li> 
+ <td>Bit mask to set the automatic landing abort conditions <p><strong>Comment:</strong> Terrain estimation: bit 0: Abort if terrain is not found bit 1: Abort if terrain times out (after a first successful measurement) The last estimate is always used as ground, whether the last valid measurement or the land waypoint, depending on the selected abort criteria, until an abort condition is entered. If FW_LND_USETER == 0, these bits are ignored. TODO: Extend automatic abort conditions e.g. glide slope tracking error (horizontal and vertical)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Abort if terrain is not found (only applies to mission landings)</li> 
   <li><strong>1:</strong> Abort if terrain times out (after a first successful measurement)</li> 
 </ul>
  </td>
@@ -14321,11 +15891,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_LND_AIRSPD_SC">FW_LND_AIRSPD_SC</strong> (FLOAT)</td>
- <td>Min. airspeed scaling factor for landing <p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>   </td>
- <td>[1.0, 1.5] (0.01)</td>
- <td>1.3</td>
- <td>norm</td>
+ <td><strong id="FW_LND_AIRSPD">FW_LND_AIRSPD</strong> (FLOAT)</td>
+ <td>Landing airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint during landing. If set <= 0.0, landing airspeed = FW_AIRSPD_MIN by default.</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_ANG">FW_LND_ANG</strong> (FLOAT)</td>
@@ -14358,21 +15928,21 @@ table {
 <tr>
  <td><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
  <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
- <td>[0, 15.0] (0.5)</td>
+ <td>[-5, 15.0] (0.5)</td>
  <td>2.5</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_SINK">FW_LND_FL_SINK</strong> (FLOAT)</td>
  <td>Landing flare sink rate <p><strong>Comment:</strong> TECS will attempt to control the aircraft to this sink rate via pitch angle (throttle killed during flare)</p>   </td>
- <td>[0.0, 1.0] (0.1)</td>
+ <td>[0.0, 2] (0.1)</td>
  <td>0.25</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_TIME">FW_LND_FL_TIME</strong> (FLOAT)</td>
  <td>Landing flare time <p><strong>Comment:</strong> Multiplied by the descent rate to calculate a dynamic altitude at which to trigger the flare. NOTE: max(FW_LND_FLALT, FW_LND_FL_TIME * descent rate) is taken as the flare altitude</p>   </td>
- <td>[0.0, 5.0] (0.1)</td>
+ <td>[0.1, 5.0] (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -14398,8 +15968,15 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="FW_LND_TD_TIME">FW_LND_TD_TIME</strong> (FLOAT)</td>
+ <td>Landing touchdown time (since flare start) <p><strong>Comment:</strong> This is the time after the start of flaring that we expect the vehicle to touch the runway. At this time, a 0.5s clamp down ramp will engage, constraining the pitch setpoint to RWTO_PSP. If enabled, ensure that RWTO_PSP is configured appropriately for full gear contact on ground roll. Set to -1.0 to disable touchdown clamping. E.g. it may not be desirable to clamp on belly landings. The touchdown time will be constrained to be greater than or equal to the flare time (FW_LND_FL_TIME).</p>   </td>
+ <td>[-1.0, 5.0] (0.1)</td>
+ <td>-1.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
- <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
+ <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight. During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
  <td>[0.2, 1.0] (0.1)</td>
  <td>1.0</td>
  <td></td>
@@ -14444,68 +16021,6 @@ table {
 </tr>
 </tbody></table>
 
-## FW L1 Control
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</strong> (FLOAT)</td>
- <td>Climbout Altitude difference <p><strong>Comment:</strong> If the altitude error exceeds this parameter, the system will climb out with maximum throttle and minimum airspeed until it is closer than this distance to the desired altitude. Mostly used for takeoff waypoints / modes. Set to 0 to disable climbout mode (not recommended).</p>   </td>
- <td>[0.0, 150.0] (0.5)</td>
- <td>10.0</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="FW_L1_DAMPING">FW_L1_DAMPING</strong> (FLOAT)</td>
- <td>L1 damping <p><strong>Comment:</strong> Damping factor for L1 control.</p>   </td>
- <td>[0.6, 0.9] (0.05)</td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_L1_PERIOD">FW_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period <p><strong>Comment:</strong> Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>[7.0, 50.0] (0.5)</td>
- <td>20.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>L1 controller roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
- <td>[0, ?] (1)</td>
- <td>90.0</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
- <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
-  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
-</ul>
- </td>
- <td>[0, 3] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
- <td>[35.0, 65.0] (0.5)</td>
- <td>50.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch during takeoff    </td>
- <td>[-5.0, 30.0] (0.5)</td>
- <td>10.0</td>
- <td>deg</td>
-</tr>
-</tbody></table>
-
 ## FW Launch detection
 
 <table>
@@ -14515,38 +16030,31 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="LAUN_ALL_ON">LAUN_ALL_ON</strong> (INT32)</td>
- <td>Launch detection    </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
+ <td><strong id="FW_LAUN_AC_T">FW_LAUN_AC_T</strong> (FLOAT)</td>
+ <td>Trigger time <p><strong>Comment:</strong> Launch is detected when acceleration in body forward direction is above FW_LAUN_AC_THLD for FW_LAUN_AC_T seconds.</p>   </td>
+ <td>[0.0, 5.0] (0.05)</td>
+ <td>0.05</td>
+ <td>s</td>
 </tr>
 <tr>
- <td><strong id="LAUN_CAT_A">LAUN_CAT_A</strong> (FLOAT)</td>
- <td>Catapult accelerometer threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
+ <td><strong id="FW_LAUN_AC_THLD">FW_LAUN_AC_THLD</strong> (FLOAT)</td>
+ <td>Trigger acceleration threshold <p><strong>Comment:</strong> Launch is detected when acceleration in body forward direction is above FW_LAUN_AC_THLD for FW_LAUN_AC_T seconds.</p>   </td>
  <td>[0, ?] (0.5)</td>
  <td>30.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
- <td><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
- <td>Motor delay <p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>   </td>
+ <td><strong id="FW_LAUN_DETCN_ON">FW_LAUN_DETCN_ON</strong> (INT32)</td>
+ <td>FW Launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Only available for fixed-wing vehicles. Not compatible with runway takeoff.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_LAUN_MOT_DEL">FW_LAUN_MOT_DEL</strong> (FLOAT)</td>
+ <td>Motor delay <p><strong>Comment:</strong> Start the motor(s) this amount of seconds after launch is detected.</p>   </td>
  <td>[0.0, 10.0] (0.5)</td>
  <td>0.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
- <td>Maximum pitch before the throttle is powered up (during motor delay phase) <p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>   </td>
- <td>[0.0, 45.0] (0.5)</td>
- <td>30.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
- <td>Catapult time threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
- <td>[0.0, 5.0] (0.05)</td>
- <td>0.05</td>
  <td>s</td>
 </tr>
 </tbody></table>
@@ -14559,13 +16067,6 @@ table {
    <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="FW_USE_NPFG">FW_USE_NPFG</strong> (INT32)</td>
- <td>Use NPFG as lateral-directional guidance law for fixed-wing vehicles <p><strong>Comment:</strong> Replaces L1.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="NPFG_DAMPING">NPFG_DAMPING</strong> (FLOAT)</td>
  <td>NPFG damping ratio <p><strong>Comment:</strong> Damping ratio of the NPFG control law.</p>   </td>
@@ -14617,7 +16118,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NPFG_SW_DST_MLT">NPFG_SW_DST_MLT</strong> (FLOAT)</td>
- <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.</p>   </td>
+ <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1.</p>   </td>
  <td>[0.1, 1.0] (0.01)</td>
  <td>0.32</td>
  <td></td>
@@ -14645,6 +16146,314 @@ table {
 </tr>
 </tbody></table>
 
+## FW Path Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
+ <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
+ <td>[0, ?] (1)</td>
+ <td>90.0</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
+ <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
+  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
+ <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for setpoint for a height-rate or altitude controlled mode.</p>   </td>
+ <td>[35.0, 65.0] (0.5)</td>
+ <td>50.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch during takeoff    </td>
+ <td>[-5.0, 30.0] (0.5)</td>
+ <td>10.0</td>
+ <td>deg</td>
+</tr>
+</tbody></table>
+
+## FW Rate Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
+ <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
+ <td>[10, 720] </td>
+ <td>90</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ACRO_YAW_EN">FW_ACRO_YAW_EN</strong> (INT32)</td>
+ <td>Enable yaw rate controller in Acro <p><strong>Comment:</strong> If this parameter is set to 1, the yaw rate controller is enabled in Fixed-wing Acro mode. Otherwise the pilot commands directly the yaw actuator. It is disabled by default because an active yaw rate controller will fight against the natural turn coordination of the plane.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
+ <td>Acro body pitch max rate setpoint    </td>
+ <td>[10, 720] </td>
+ <td>90</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
+ <td>Acro body yaw max rate setpoint    </td>
+ <td>[10, 720] </td>
+ <td>45</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
+ <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Use airspeed in controller</li>
+
+<li><strong>1:</strong> Do not use airspeed in controller</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
+ <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_BAT_SCALE_EN">FW_BAT_SCALE_EN</strong> (INT32)</td>
+ <td>Enable throttle scale by battery level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
+ <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
+ <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
+ <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
+ <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
+ <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
+ <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.5, 0.5] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
+ <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
+ <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
+ <td>Manual pitch scale <p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
+ <td>Manual roll scale <p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
+ <td>Manual yaw scale <p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
+ <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain.</p>   </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
+ <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.5</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
+ <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
+ <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.4</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
+ <td>Pitch rate proportional gain    </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.08</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
+ <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator to counteract this effect.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
+ <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.00</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
+ <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.5</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
+ <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 10] (0.01)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
+ <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
+ <td>Roll rate proportional Gain    </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.05</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
+ <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Flaps channel</li>
+
+<li><strong>2:</strong> Aux1</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
+ <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.0</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
+ <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.3</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
+ <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 10] (0.5)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
+ <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
+ <td>Yaw rate proportional gain    </td>
+ <td>[0.0, 10] (0.005)</td>
+ <td>0.05</td>
+ <td>%/rad/s</td>
+</tr>
+</tbody></table>
+
 ## FW TECS
 
 <table>
@@ -14655,29 +16464,29 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle's stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
- <td>Cruise Airspeed (CAS) <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve if no other airspeed setpoint sources are present (e.g. through non-centered RC sticks).</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve.</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
@@ -14690,17 +16499,31 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
- <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint setpoint for a height-rate or altitude controlled mode.</p>   </td>
  <td>[0.0, 60.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for a height-rate or altitude controlled mode.</p>   </td>
  <td>[-60.0, 0.0] (0.5)</td>
  <td>-30.0</td>
  <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MAX">FW_THR_ASPD_MAX</strong> (FLOAT)</td>
+ <td>Throttle at max airspeed <p><strong>Comment:</strong> Required throttle for level flight at maximum airspeed FW_AIRSPD_MAX (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MIN">FW_THR_ASPD_MIN</strong> (FLOAT)</td>
+ <td>Throttle at min airspeed <p><strong>Comment:</strong> Required throttle for level flight at minimum airspeed FW_AIRSPD_MIN (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle below FW_AIRSPD_TRIM.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
@@ -14726,16 +16549,23 @@ table {
 <tr>
  <td><strong id="FW_THR_SLEW_MAX">FW_THR_SLEW_MAX</strong> (FLOAT)</td>
  <td>Throttle max slew rate <p><strong>Comment:</strong> Maximum slew rate for the commanded throttle</p>   </td>
- <td>[0.0, 1.0] </td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_THR_TRIM">FW_THR_TRIM</strong> (FLOAT)</td>
- <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight. Most airframes have a value of 0.5-0.7.</p>   </td>
+ <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.6</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_TKO_AIRSPD">FW_TKO_AIRSPD</strong> (FLOAT)</td>
+ <td>Takeoff Airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint TECS will stabilize to during the takeoff climbout. If set <= 0.0, FW_AIRSPD_MIN will be set by default.</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.0</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_ALT_TC">FW_T_ALT_TC</strong> (FLOAT)</td>
@@ -14746,7 +16576,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
- <td>Maximum climb rate <p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
+ <td>Maximum climb rate <p><strong>Comment:</strong> This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced.</p>   </td>
  <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
@@ -14776,7 +16606,7 @@ table {
  <td><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
  <td>Integrator gain throttle <p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
  <td>[0.0, 2.0] (0.05)</td>
- <td>0.3</td>
+ <td>0.05</td>
  <td></td>
 </tr>
 <tr>
@@ -14823,30 +16653,37 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_SPDWEIGHT">FW_T_SPDWEIGHT</strong> (FLOAT)</td>
- <td>Speed <--> Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Note to Glider Pilots - set this parameter to 2.0 (The glider will adjust its pitch angle to maintain airspeed, ignoring changes in height).</p>   </td>
+ <td>Speed <--> Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.</p>   </td>
  <td>[0.0, 2.0] (1.0)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_T_SPD_OMEGA">FW_T_SPD_OMEGA</strong> (FLOAT)</td>
- <td>Complementary filter "omega" parameter for speed <p><strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.</p>   </td>
- <td>[1.0, 10.0] (0.5)</td>
- <td>2.0</td>
- <td>rad/s</td>
+ <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
+ <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_PRC_STD">FW_T_SPD_PRC_STD</strong> (FLOAT)</td>
+ <td>Process noise standard deviation for the airspeed rate in the airspeed filter <p><strong>Comment:</strong> This is the process noise standard deviation in the airspeed filter filter defining the noise in the airspeed rate for the constant airspeed rate model. This is used to define how much the airspeed and the airspeed rate are filtered. The smaller the value the more the measurements are smoothed with the drawback for delays.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_STD">FW_T_SPD_STD</strong> (FLOAT)</td>
+ <td>Airspeed measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_STE_R_TC">FW_T_STE_R_TC</strong> (FLOAT)</td>
  <td>Specific total energy rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the specific total energy rate used for throttle damping.</p>   </td>
  <td>[0.0, 2] (0.01)</td>
  <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_T_TAS_R_TC">FW_T_TAS_R_TC</strong> (FLOAT)</td>
- <td>True airspeed rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the true airspeed rate.</p>   </td>
- <td>[0.0, 2] (0.01)</td>
- <td>0.2</td>
  <td></td>
 </tr>
 <tr>
@@ -15084,7 +16921,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15121,11 +16958,13 @@ table {
 
 <li><strong>5:</strong> Femtomes</li>
 
-<li><strong>6:</strong> NMEA (generic)</li> 
+<li><strong>6:</strong> NMEA (generic)</li>
+
+<li><strong>7:</strong> Septentrio (SBF)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 5] </td>
+ <td>[0, 7] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -15154,7 +16993,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15195,7 +17034,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 5] </td>
+ <td>[0, 6] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -15214,6 +17053,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the "roll" angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0.</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
  <td>Enable sat info (if available) <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible. Not available on MTK.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15228,6 +17075,21 @@ table {
  <td>[0, ?] </td>
  <td>230400</td>
  <td>B/s</td>
+</tr>
+<tr>
+ <td><strong id="GPS_UBX_CFG_INTF">GPS_UBX_CFG_INTF</strong> (INT32)</td>
+ <td>u-blox protocol configuration for interfaces   <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable I2C input protocol UBX</li> 
+  <li><strong>1:</strong> Enable I2C input protocol NMEA</li> 
+  <li><strong>2:</strong> Enable I2C input protocol RTCM3X</li> 
+  <li><strong>3:</strong> Enable I2C output protocol UBX</li> 
+  <li><strong>4:</strong> Enable I2C output protocol NMEA</li> 
+  <li><strong>5:</strong> Enable I2C output protocol RTCM3X</li> 
+</ul>
+ <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 32] </td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
@@ -15271,7 +17133,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>
@@ -15497,8 +17359,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_HELI_YAW_CP_O">CA_HELI_YAW_CP_O</strong> (FLOAT)</td>
+ <td>Offset for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to specify which collective pitch command results in the least amount of rotor drag. This is used to increase the accuracy of the yaw drag torque compensation based on collective pitch by aligning the lowest rotor drag with zero compensation. For symmetric profile blades this is the command that results in exactly 0° collective blade angle. For lift profile blades this is typically a command resulting in slightly negative collective blade angle. tail_output += CA_HELI_YAW_CP_S * abs(collective_pitch - CA_HELI_YAW_CP_O)</p>   </td>
+ <td>[-2, 2] (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_HELI_YAW_CP_S">CA_HELI_YAW_CP_S</strong> (FLOAT)</td>
- <td>Scale for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to add a proportional factor of the collective pitch command to the yaw command. A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction. tail_output += CA_HELI_YAW_CP_S * collective_pitch</p>   </td>
+ <td>Scale for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to add a proportional factor of the collective pitch command to the yaw command. A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction. tail_output += CA_HELI_YAW_CP_S * abs(collective_pitch - CA_HELI_YAW_CP_O)</p>   </td>
  <td>[-2, 2] (0.1)</td>
  <td>0.0</td>
  <td></td>
@@ -16675,6 +18544,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_SV_CS0_FLAP">CA_SV_CS0_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 0 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS0_SPOIL">CA_SV_CS0_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 0 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_SV_CS0_TRIM">CA_SV_CS0_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 0 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
  <td>[-1.0, 1.0] </td>
@@ -16727,7 +18610,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -16737,10 +18620,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS1_FLAP">CA_SV_CS1_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 1 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS1_SPOIL">CA_SV_CS1_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 1 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16797,7 +18698,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -16807,10 +18708,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS2_FLAP">CA_SV_CS2_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 2 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS2_SPOIL">CA_SV_CS2_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 2 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16867,7 +18786,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -16877,10 +18796,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS3_FLAP">CA_SV_CS3_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 3 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS3_SPOIL">CA_SV_CS3_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 3 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16937,7 +18874,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -16947,10 +18884,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS4_FLAP">CA_SV_CS4_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 4 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS4_SPOIL">CA_SV_CS4_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 4 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17007,7 +18962,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -17017,10 +18972,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS5_FLAP">CA_SV_CS5_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 5 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS5_SPOIL">CA_SV_CS5_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 5 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17077,7 +19050,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -17087,10 +19060,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS6_FLAP">CA_SV_CS6_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 6 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS6_SPOIL">CA_SV_CS6_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 6 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17147,7 +19138,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -17157,10 +19148,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS7_FLAP">CA_SV_CS7_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 7 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS7_SPOIL">CA_SV_CS7_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 7 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17217,7 +19226,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -17227,7 +19236,11 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
@@ -17533,7 +19546,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -17580,6 +19593,14 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="LNDFW_TRIG_TIME">LNDFW_TRIG_TIME</strong> (FLOAT)</td>
+ <td>Fixed-wing land detection trigger time <p><strong>Comment:</strong> Time the land conditions (speeds and acceleration) have to be satisfied to detect a landing.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0.1, ?] </td>
+ <td>2.</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max horizontal velocity threshold <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>[0.5, 10] </td>
@@ -17588,9 +19609,9 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
+ <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state.</p>   </td>
  <td>[0.1, 20] </td>
- <td>2.0</td>
+ <td>1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -17637,9 +19658,9 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
- <td></td>
- <td>0.50</td>
+ <td>Multicopter vertical velocity threshold <p><strong>Comment:</strong> Vertical velocity threshold to detect landing. Has to be set lower than the expected minimal speed for landing, which is either MPC_LAND_SPEED or MPC_LAND_CRWL. This is enforced by an automatic check.</p>   </td>
+ <td>[0, ?] </td>
+ <td>0.25</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -18120,7 +20141,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li>
+<li><strong>401:</strong> EXT2</li>
 
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
@@ -18139,7 +20160,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
@@ -18173,7 +20195,9 @@ table {
 
 <li><strong>10:</strong> Gimbal</li>
 
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
+<li><strong>11:</strong> Onboard Low Bandwidth</li>
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18252,7 +20276,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li>
+<li><strong>401:</strong> EXT2</li>
 
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
@@ -18271,7 +20295,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
@@ -18305,7 +20330,9 @@ table {
 
 <li><strong>10:</strong> Gimbal</li>
 
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
+<li><strong>11:</strong> Onboard Low Bandwidth</li>
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18384,7 +20411,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li>
+<li><strong>401:</strong> EXT2</li>
 
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
@@ -18403,7 +20430,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
@@ -18437,7 +20465,9 @@ table {
 
 <li><strong>10:</strong> Gimbal</li>
 
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
+<li><strong>11:</strong> Onboard Low Bandwidth</li>
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18504,13 +20534,6 @@ table {
  <td>Heartbeat message forwarding <p><strong>Comment:</strong> The mavlink heartbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_ODOM_LP">MAV_ODOM_LP</strong> (INT32)</td>
- <td>Activate ODOMETRY loopback <p><strong>Comment:</strong> If set, it gets the data from 'vehicle_visual_odometry' instead of 'vehicle_odometry' serving as a loopback of the received ODOMETRY messages on the Mavlink receiver.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -18602,6 +20625,163 @@ table {
 </tr>
 </tbody></table>
 
+## MODAL IO
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MODAL_IO_BAUD">MODAL_IO_BAUD</strong> (INT32)</td>
+ <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
+ <td></td>
+ <td>250000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_CONFIG">MODAL_IO_CONFIG</strong> (INT32)</td>
+ <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+
+<li><strong>1:</strong> - VOXL ESC</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_MODE">MODAL_IO_MODE</strong> (INT32)</td>
+ <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> - None</li>
+
+<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
+
+<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
+
+<li><strong>3:</strong> - UART Passthrough Mode</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_RPM_MAX">MODAL_IO_RPM_MAX</strong> (INT32)</td>
+ <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
+ <td></td>
+ <td>15000</td>
+ <td>rpm</td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_RPM_MIN">MODAL_IO_RPM_MIN</strong> (INT32)</td>
+ <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
+ <td></td>
+ <td>5500</td>
+ <td>rpm</td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR1">MODAL_IO_SDIR1</strong> (INT32)</td>
+ <td>UART ESC ID 1 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR2">MODAL_IO_SDIR2</strong> (INT32)</td>
+ <td>UART ESC ID 2 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR3">MODAL_IO_SDIR3</strong> (INT32)</td>
+ <td>UART ESC ID 3 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR4">MODAL_IO_SDIR4</strong> (INT32)</td>
+ <td>UART ESC ID 4 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_COSP">MODAL_IO_T_COSP</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Cosphi    </td>
+ <td>[0.000, 1.000] (0.001)</td>
+ <td>0.990</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_DEAD">MODAL_IO_T_DEAD</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
+ <td>[0, 100] (1)</td>
+ <td>20</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_EXPO">MODAL_IO_T_EXPO</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
+ <td>[0, 100] (1)</td>
+ <td>35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_MINF">MODAL_IO_T_MINF</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
+ <td>[0.0, 100.0] (1.0)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_PERC">MODAL_IO_T_PERC</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
+ <td>[1, 100] (1)</td>
+ <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_VLOG">MODAL_IO_VLOG</strong> (INT32)</td>
+ <td>UART ESC verbose logging  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+
+<li><strong>1:</strong> - Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Magnetometer Bias Estimator
 
 <table>
@@ -18661,30 +20841,23 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_GPSF_R">FW_GPSF_R</strong> (FLOAT)</td>
- <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter). Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter).</p>   </td>
  <td>[0.0, 30.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
- <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the home position.</p>   </td>
- <td>[0, 10000] (100)</td>
+ <td>Maximal horizontal distance from current position to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.</p>   </td>
+ <td>[-1, 10000] (100)</td>
  <td>900</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
- <td>Maximal horizontal distance between waypoint <p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>   </td>
- <td>[0, 10000] (100)</td>
- <td>900</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
- <td>Minimum Loiter altitude <p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>   </td>
- <td>[-1, 80] (0.5)</td>
- <td>-1.0</td>
+ <td><strong id="MIS_LND_ABRT_ALT">MIS_LND_ABRT_ALT</strong> (INT32)</td>
+ <td>Landing abort min altitude <p><strong>Comment:</strong> Minimum altitude above landing point that the vehicle will climb to after an aborted landing. Then vehicle will loiter in this altitude until further command is received. Only applies to fixed-wing vehicles.</p>   </td>
+ <td>[0, ?] </td>
+ <td>30</td>
  <td>m</td>
 </tr>
 <tr>
@@ -18714,10 +20887,21 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="MIS_TAKEOFF_REQ">MIS_TAKEOFF_REQ</strong> (INT32)</td>
- <td>Take-off waypoint required <p><strong>Comment:</strong> If set, the mission feasibility checker will check for a takeoff waypoint on the mission.</p>   </td>
+ <td><strong id="MIS_TKO_LAND_REQ">MIS_TKO_LAND_REQ</strong> (INT32)</td>
+ <td>Mission takeoff/landing required <p><strong>Comment:</strong> Specifies if a mission has to contain a takeoff and/or mission landing. Validity of configured takeoffs/landings is checked independently of the setting here.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> No requirements</li>
+
+<li><strong>1:</strong> Require a takeoff</li>
+
+<li><strong>2:</strong> Require a landing</li>
+
+<li><strong>3:</strong> Require a takeoff and a landing</li>
+
+<li><strong>4:</strong> Require both a takeoff and a landing, or neither</li> 
+</ul>
+  </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -18736,7 +20920,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_YAW_MODE">MPC_YAW_MODE</strong> (INT32)</td>
- <td>Yaw mode <p><strong>Comment:</strong> Specifies the heading in Auto.</p> <strong>값:</strong><ul>
+ <td>Heading behavior in autonomous modes  <strong>Values:</strong><ul>
 <li><strong>0:</strong> towards waypoint</li>
 
 <li><strong>1:</strong> towards home</li>
@@ -18754,7 +20938,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
- <td>Acceptance Radius <p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>   </td>
+ <td>Acceptance Radius <p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the npfg switch distance is used for horizontal acceptance.</p>   </td>
  <td>[0.05, 200.0] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
@@ -18795,6 +20979,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="NAV_MIN_LTR_ALT">NAV_MIN_LTR_ALT</strong> (FLOAT)</td>
+ <td>Minimum Loiter altitude <p><strong>Comment:</strong> This is the minimum altitude above Home the system will always obey in Loiter (Hold) mode if switched into this mode without specifying an altitude (e.g. through Loiter switch on RC). Doesn't affect Loiters that are part of Missions or that are entered through a reposition setpoint ("Go to"). Set to a negative value to disable.</p>   </td>
+ <td>[-1, ?] (0.5)</td>
+ <td>-1.</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
  <td>Set traffic avoidance mode <p><strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -18813,18 +21004,25 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="NAV_TRAFF_A_RADM">NAV_TRAFF_A_RADM</strong> (FLOAT)</td>
- <td>Set NAV TRAFFIC AVOID RADIUS MANNED <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation</p>   </td>
+ <td><strong id="NAV_TRAFF_A_HOR">NAV_TRAFF_A_HOR</strong> (FLOAT)</td>
+ <td>Set NAV TRAFFIC AVOID horizontal distance <p><strong>Comment:</strong> Defines a crosstrack horizontal distance</p>   </td>
  <td>[500, ?] </td>
  <td>500</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)</td>
- <td>Set NAV TRAFFIC AVOID RADIUS <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation</p>   </td>
+ <td><strong id="NAV_TRAFF_A_VER">NAV_TRAFF_A_VER</strong> (FLOAT)</td>
+ <td>Set NAV TRAFFIC AVOID vertical distance    </td>
  <td>[10, 500] </td>
- <td>10</td>
+ <td>500</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="NAV_TRAFF_COLL_T">NAV_TRAFF_COLL_T</strong> (INT32)</td>
+ <td>Estimated time until collision <p><strong>Comment:</strong> Minimum acceptable time until collsion. Assumes constant speed over 3d distance.</p>   </td>
+ <td>[1, 900000000] </td>
+ <td>60</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="WEIGHT_BASE">WEIGHT_BASE</strong> (FLOAT)</td>
@@ -19019,20 +21217,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MNT_OB_LOCK_MODE">MNT_OB_LOCK_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting a locking mode <p><strong>Comment:</strong> if required for the gimbal (only in AUX output mode)</p>   </td>
- <td>[-1.0, 1.0] </td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MNT_OB_NORM_MODE">MNT_OB_NORM_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting normal mode <p><strong>Comment:</strong> if required by the gimbal (only in AUX output mode)</p>   </td>
- <td>[-1.0, 1.0] </td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MNT_OFF_PITCH">MNT_OFF_PITCH</strong> (FLOAT)</td>
  <td>Offset for pitch channel output in degrees    </td>
  <td>[-360.0, 360.0] </td>
@@ -19161,9 +21345,9 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in auto mode <p><strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.</p>   </td>
- <td>[0.0, 360.0] (5)</td>
- <td>45.0</td>
+ <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[0, 360] (5)</td>
+ <td>45.</td>
  <td>deg/s</td>
 </tr>
 </tbody></table>
@@ -19213,35 +21397,35 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
- <td>Maximum vertical acceleration in velocity controlled modes down    </td>
+ <td>Maximum downwards acceleration in climb rate controlled modes    </td>
  <td>[2.0, 15.0] (1)</td>
  <td>3.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
- <td>Acceleration for auto and for manual <p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
- <td>[2.0, 15.0] (1)</td>
- <td>3.0</td>
+ <td>Acceleration for autonomous and for manual modes <p><strong>Comment:</strong> When piloting manually, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
+ <td>[2, 15] (1)</td>
+ <td>3.</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td>Maximum horizontal acceleration for auto mode and for manual mode <p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 just acceleration</p>   </td>
- <td>[2.0, 15.0] (1)</td>
- <td>5.0</td>
+ <td>Maximum horizontal acceleration <p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 not used, use MPC_ACC_HOR instead</p>   </td>
+ <td>[2, 15] (1)</td>
+ <td>5.</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
- <td>Maximum vertical acceleration in velocity controlled modes upward    </td>
+ <td>Maximum upwards acceleration in climb rate controlled modes    </td>
  <td>[2.0, 15.0] (1)</td>
  <td>4.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ALT_MODE">MPC_ALT_MODE</strong> (INT32)</td>
- <td>Altitude control mode <p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>값:</strong><ul>
+ <td>Altitude reference mode <p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Altitude following</li>
 
 <li><strong>1:</strong> Terrain following</li>
@@ -19255,66 +21439,85 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
- <td>Deadzone of sticks where position hold is enabled    </td>
- <td>[0.0, 1.0] </td>
+ <td>Deadzone for sticks in manual piloted modes <p><strong>Comment:</strong> Does not apply to manual throttle and direct attitude piloting by stick.</p>   </td>
+ <td>[0, 1] (0.01)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_XY">MPC_HOLD_MAX_XY</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)    </td>
- <td>[0.0, 3.0] </td>
+ <td>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check) <p><strong>Comment:</strong> Only used with MPC_POS_MODE 0 or MPC_ALT_MODE 2</p>   </td>
+ <td>[0, 3] </td>
  <td>0.8</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
- <td>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)    </td>
- <td>[0.0, 3.0] </td>
+ <td>Maximum vertical velocity for which position hold is enabled (use 0 to disable check) <p><strong>Comment:</strong> Only used with MPC_ALT_MODE 1</p>   </td>
+ <td>[0, 3] </td>
  <td>0.6</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
- <td>Jerk limit in auto mode <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
- <td>[1.0, 80.0] (1)</td>
- <td>4.0</td>
+ <td>Jerk limit in autonomous modes <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions but also limited agility.</p>   </td>
+ <td>[1, 80] (1)</td>
+ <td>4.</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
- <td>Maximum jerk limit <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 3 or 4.</p>   </td>
- <td>[0.5, 500.0] (1)</td>
- <td>8.0</td>
+ <td>Maximum horizontal and vertical jerk in Position/Altitude mode <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with smooth MPC_POS_MODE 3 and 4.</p>   </td>
+ <td>[0.5, 500] (1)</td>
+ <td>8.</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
  <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" (or "MPC_Z_V_AUTO_DN") and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td>[0, 122] </td>
- <td>10.0</td>
+ <td>10.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
  <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td>[0, 122] </td>
- <td>5.0</td>
+ <td>5.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT3">MPC_LAND_ALT3</strong> (FLOAT)</td>
  <td>Altitude for 3. step of slow landing <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_CRWL", if LIDAR available. No effect if LIDAR not available</p>   </td>
  <td>[0, 122] </td>
- <td>1.0</td>
+ <td>1.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_CRWL">MPC_LAND_CRWL</strong> (FLOAT)</td>
- <td>Land crawl descend rate. Used below    </td>
- <td>[0.3, ?] </td>
+ <td>Land crawl descend rate <p><strong>Comment:</strong> Used below MPC_LAND_ALT3 if distance sensor data is availabe.</p>   </td>
+ <td>[0.1, ?] </td>
  <td>0.3</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_LAND_RADIUS">MPC_LAND_RADIUS</strong> (FLOAT)</td>
+ <td>User assisted landing radius <p><strong>Comment:</strong> When nudging is enabled (see MPC_LAND_RC_HELP), this controls the maximum allowed horizontal displacement from the original landing point.</p>   </td>
+ <td>[0, ?] (1)</td>
+ <td>1000.</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
+ <td>Enable nudging based on user input during autonomous land routine <p><strong>Comment:</strong> Using stick input the vehicle can be moved horizontally and yawed. The descend speed is amended: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED Manual override during auto modes has to be disabled to use this feature (see COM_RC_OVERRIDE).</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Nudging disabled</li>
+
+<li><strong>1:</strong> Nudging enabled</li> 
+</ul>
+  </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
@@ -19325,40 +21528,40 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
- <td>Minimum manual thrust <p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>   </td>
+ <td>Minimum collective thrust in Stabilized mode <p><strong>Comment:</strong> The value is mapped to the lowest throttle stick position in Stabilized mode. Too low collective thrust leads to loss of roll/pitch/yaw torque control authority. Airmode is used to keep torque authority with zero thrust (see MC_AIRMODE).</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.08</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
- <td>Maximal tilt angle in manual or altitude mode    </td>
- <td>[0.0, 90.0] </td>
- <td>35.0</td>
+ <td>Maximal tilt angle in Stabilized or Altitude mode    </td>
+ <td>[0, 90] (1)</td>
+ <td>35.</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
- <td>Max manual yaw rate    </td>
- <td>[0.0, 400] </td>
- <td>150.0</td>
+ <td>Max manual yaw rate for Stabilized, Altitude, Position mode    </td>
+ <td>[0, 400] (10)</td>
+ <td>150.</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)</td>
- <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
- <td>[0.0, 5.0] </td>
+ <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Not used in Stabilized mode Setting this parameter to 0 disables the filter</p>   </td>
+ <td>[0.0, 5.0] (0.01)</td>
  <td>0.08</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td>Manual-Position control sub-mode <p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Simple position control</li>
+ <td>Position/Altitude mode variant <p><strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there's a virtual brake drag</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Direct velocity</li>
 
-<li><strong>3:</strong> Smooth position control (Jerk optimized)</li>
+<li><strong>3:</strong> Smoothed velocity</li>
 
-<li><strong>4:</strong> Acceleration based input</li> 
+<li><strong>4:</strong> Acceleration based</li> 
 </ul>
   </td>
  <td></td>
@@ -19367,7 +21570,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td>Thrust curve in Manual Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>값:</strong><ul>
+ <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li>
 
 <li><strong>1:</strong> No Rescale</li> 
@@ -19379,52 +21582,52 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
- <td>Hover thrust <p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to Altitude or Position mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed. This parameter is also important for the landing detection to work correctly.</p>   </td>
+ <td>Vertical thrust required to hover <p><strong>Comment:</strong> Mapped to center throttle stick in Stabilized mode (see MPC_THR_CURVE). Used for initialization of the hover thrust estimator (see MPC_USE_HTE). The estimated hover thrust is used as base for zero vertical acceleration in altitude control. The hover thrust is important for land detection to work correctly.</p>   </td>
  <td>[0.1, 0.8] (0.01)</td>
  <td>0.5</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
- <td>Maximum thrust in auto thrust control <p><strong>Comment:</strong> Limit max allowed thrust</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>1.0</td>
+ <td>Maximum collective thrust in climb rate controlled modes <p><strong>Comment:</strong> Limit allowed thrust e.g. for indoor test of overpowered vehicle.</p>   </td>
+ <td>[0, 1] (0.05)</td>
+ <td>1.</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
- <td>Minimum collective thrust in auto thrust control <p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust. Note: Without airmode zero thrust leads to zero roll/pitch control authority. (see MC_AIRMODE)</p>   </td>
- <td>[0.05, 1.0] (0.01)</td>
+ <td>Minimum collective thrust in climb rate controlled modes <p><strong>Comment:</strong> Too low thrust leads to loss of roll/pitch/yaw torque control authority. With airmode enabled this parameters can be set to 0 while still keeping torque authority (see MC_AIRMODE).</p>   </td>
+ <td>[0.05, 0.5] (0.01)</td>
  <td>0.12</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_XY_MARG">MPC_THR_XY_MARG</strong> (FLOAT)</td>
- <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when prioritizing vertical thrust. To avoid completely starving horizontal control with high vertical error.</p>   </td>
+ <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when higher priority vertical thrust is saturated. To avoid completely starving horizontal control with high vertical error.</p>   </td>
  <td>[0.0, 0.5] (0.01)</td>
  <td>0.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
- <td>Maximum tilt angle in air <p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>   </td>
- <td>[20.0, 89.0] </td>
- <td>45.0</td>
+ <td>Maximum tilt angle in air <p><strong>Comment:</strong> Absolute maximum for all velocity or acceleration controlled modes. Any higher value is truncated.</p>   </td>
+ <td>[20, 89] (1)</td>
+ <td>45.</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
- <td>Maximum tilt during landing <p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
- <td>[10.0, 89.0] </td>
- <td>12.0</td>
+ <td>Maximum tilt during inital takeoff ramp <p><strong>Comment:</strong> Tighter tilt limit during takeoff to avoid tip over.</p>   </td>
+ <td>[5, 89] (1)</td>
+ <td>12.</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
- <td>Position control smooth takeoff ramp time constant <p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
+ <td>Smooth takeoff ramp time constant <p><strong>Comment:</strong> Increasing this value will make climb rate controlled takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
  <td>[0, 5] </td>
- <td>3.0</td>
- <td></td>
+ <td>3.</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_SPEED">MPC_TKO_SPEED</strong> (FLOAT)</td>
@@ -19435,71 +21638,71 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_USE_HTE">MPC_USE_HTE</strong> (INT32)</td>
- <td>Hover thrust source selector <p><strong>Comment:</strong> Set false to use the fixed parameter MPC_THR_HOVER Set true to use the value computed by the hover thrust estimator</p>   </td>
+ <td>Hover thrust estimator <p><strong>Comment:</strong> Disable to use the fixed parameter MPC_THR_HOVER Enable to use the hover thrust estimator</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Low pass filter cut freq. for numerical velocity derivative    </td>
- <td>[0.0, 10] </td>
+ <td>Numerical velocity derivative low pass cutoff frequency    </td>
+ <td>[0.0, 10] (0.5)</td>
  <td>5.0</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity setpoint in Position mode <p><strong>Comment:</strong> If velocity setpoint larger than MPC_XY_VEL_MAX is set, then the setpoint will be capped to MPC_XY_VEL_MAX The maximum sideways and backward speed can be set differently using MPC_VEL_MAN_SIDE and MPC_VEL_MAN_BACK, respectively.</p>   </td>
- <td>[3.0, 20.0] (1)</td>
- <td>10.0</td>
+ <td>Maximum horizontal velocity setpoint in Position mode <p><strong>Comment:</strong> Must be smaller than MPC_XY_VEL_MAX. The maximum sideways and backward speed can be set differently using MPC_VEL_MAN_SIDE and MPC_VEL_MAN_BACK, respectively.</p>   </td>
+ <td>[3, 20] (1)</td>
+ <td>10.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MAN_BACK">MPC_VEL_MAN_BACK</strong> (FLOAT)</td>
  <td>Maximum backward velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
- <td>[-1.0, 20.0] (0.1)</td>
- <td>-1.0</td>
+ <td>[-1, 20] (1)</td>
+ <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MAN_SIDE">MPC_VEL_MAN_SIDE</strong> (FLOAT)</td>
  <td>Maximum sideways velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
- <td>[-1.0, 20.0] (0.1)</td>
- <td>-1.0</td>
+ <td>[-1, 20] (1)</td>
+ <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td>Default horizontal velocity in mission <p><strong>Comment:</strong> Horizontal velocity used when flying autonomously in e.g. Missions, RTL, Goto.</p>   </td>
- <td>[3.0, 20.0] (1)</td>
- <td>5.0</td>
+ <td>Default horizontal velocity in autonomous modes <p><strong>Comment:</strong> e.g. in Missions, RTL, Goto if the waypoint does not specify differently</p>   </td>
+ <td>[3, 20] (1)</td>
+ <td>5.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_ERR_MAX">MPC_XY_ERR_MAX</strong> (FLOAT)</td>
  <td>Maximum horizontal error allowed by the trajectory generator <p><strong>Comment:</strong> The integration speed of the trajectory setpoint is linearly reduced with the horizontal position tracking error. When the error is above this parameter, the integration of the trajectory is stopped to wait for the drone. This value can be adjusted depending on the tracking capabilities of the vehicle.</p>   </td>
- <td>[0.1, 10.0] </td>
- <td>2.0</td>
+ <td>[0.1, 10] (1)</td>
+ <td>2.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
- <td>Manual position control stick exponential curve sensitivity <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
+ <td>Manual position control stick exponential curve sensitivity <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] (0.01)</td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_P">MPC_XY_P</strong> (FLOAT)</td>
- <td>Proportional gain for horizontal position error    </td>
- <td>[0.0, 2.0] </td>
+ <td>Proportional gain for horizontal position error <p><strong>Comment:</strong> Defined as corrective velocity in m/s per m position error</p>   </td>
+ <td>[0, 2] (0.1)</td>
  <td>0.95</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_TRAJ_P">MPC_XY_TRAJ_P</strong> (FLOAT)</td>
  <td>Proportional gain for horizontal trajectory position error    </td>
- <td>[0.1, 1.0] </td>
+ <td>[0.1, 1] (0.1)</td>
  <td>0.5</td>
  <td></td>
 </tr>
@@ -19507,111 +21710,111 @@ table {
  <td><strong id="MPC_XY_VEL_ALL">MPC_XY_VEL_ALL</strong> (FLOAT)</td>
  <td>Overall Horizontal Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_XY_VEL_MAX or MPC_VEL_MANUAL). If set to a negative value, the existing individual parameters are used.</p>   </td>
  <td>[-20, 20] (1)</td>
- <td>-10.0</td>
+ <td>-10.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_D_ACC">MPC_XY_VEL_D_ACC</strong> (FLOAT)</td>
- <td>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>[0.1, 2.0] </td>
+ <td>Differential gain for horizontal velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td>[0.1, 2] (0.02)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_I_ACC">MPC_XY_VEL_I_ACC</strong> (FLOAT)</td>
- <td>Integral gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
- <td>[0.0, 60.0] </td>
+ <td>Integral gain for horizontal velocity error <p><strong>Comment:</strong> Defined as correction acceleration in m/s^2 per m velocity integral Allows to eliminate steady state errors in disturbances like wind.</p>   </td>
+ <td>[0, 60] (0.02)</td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_MAX">MPC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>   </td>
- <td>[0.0, 20.0] (1)</td>
- <td>12.0</td>
+ <td>Maximum horizontal velocity <p><strong>Comment:</strong> Absolute maximum for all velocity controlled modes. Any higher value is truncated.</p>   </td>
+ <td>[0, 20] (1)</td>
+ <td>12.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_P_ACC">MPC_XY_VEL_P_ACC</strong> (FLOAT)</td>
- <td>Proportional gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>[1.2, 5.0] </td>
+ <td>Proportional gain for horizontal velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td>[1.2, 5] (0.1)</td>
  <td>1.8</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_YAW_EXPO">MPC_YAW_EXPO</strong> (FLOAT)</td>
- <td>Manual control stick yaw rotation exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
+ <td>Manual control stick yaw rotation exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] (0.01)</td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_MAN_EXPO">MPC_Z_MAN_EXPO</strong> (FLOAT)</td>
- <td>Manual control stick vertical exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
+ <td>Manual control stick vertical exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] (0.01)</td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_P">MPC_Z_P</strong> (FLOAT)</td>
- <td>Proportional gain for vertical position error    </td>
- <td>[0.0, 1.5] </td>
- <td>1.0</td>
+ <td>Proportional gain for vertical position error <p><strong>Comment:</strong> Defined as corrective velocity in m/s per m position error</p>   </td>
+ <td>[0.1, 1.5] (0.1)</td>
+ <td>1.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_ALL">MPC_Z_VEL_ALL</strong> (FLOAT)</td>
  <td>Overall Vertical Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_Z_VEL_MAX_UP or MPC_LAND_SPEED). If set to a negative value, the existing individual parameters are used.</p>   </td>
  <td>[-3, 8] (0.5)</td>
- <td>-3.0</td>
+ <td>-3.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_D_ACC">MPC_Z_VEL_D_ACC</strong> (FLOAT)</td>
- <td>Differential gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>[0.0, 2.0] </td>
- <td>0.0</td>
+ <td>Differential gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td>[0, 2] (0.02)</td>
+ <td>0.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_I_ACC">MPC_Z_VEL_I_ACC</strong> (FLOAT)</td>
- <td>Integral gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>   </td>
- <td>[0.2, 3.0] </td>
- <td>2.0</td>
+ <td>Integral gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m velocity integral</p>   </td>
+ <td>[0.2, 3] (0.1)</td>
+ <td>2.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td>Maximum descent velocity <p><strong>Comment:</strong> Descent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_DN</p>   </td>
- <td>[0.5, 4.0] (0.1)</td>
+ <td>Maximum descent velocity <p><strong>Comment:</strong> Absolute maximum for all climb rate controlled modes. In manually piloted modes full stick deflection commands this velocity. For default autonomous velocity see MPC_Z_V_AUTO_UP</p>   </td>
+ <td>[0.5, 4] (0.1)</td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td>Maximum ascent velocity <p><strong>Comment:</strong> Ascent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_UP</p>   </td>
- <td>[0.5, 8.0] (0.1)</td>
+ <td>Maximum ascent velocity <p><strong>Comment:</strong> Absolute maximum for all climb rate controlled modes. In manually piloted modes full stick deflection commands this velocity. For default autonomous velocity see MPC_Z_V_AUTO_UP</p>   </td>
+ <td>[0.5, 8] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_P_ACC">MPC_Z_VEL_P_ACC</strong> (FLOAT)</td>
- <td>Proportional gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>[2.0, 15.0] </td>
- <td>4.0</td>
+ <td>Proportional gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td>[2, 15] (0.1)</td>
+ <td>4.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_DN">MPC_Z_V_AUTO_DN</strong> (FLOAT)</td>
- <td>Automatic descent velocity <p><strong>Comment:</strong> Descent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
- <td>[0.5, 4.0] (0.1)</td>
+ <td>Descent velocity in autonomous modes <p><strong>Comment:</strong> For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
+ <td>[0.5, 4] (0.5)</td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_UP">MPC_Z_V_AUTO_UP</strong> (FLOAT)</td>
- <td>Automatic ascent velocity <p><strong>Comment:</strong> Ascent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_UP</p>   </td>
- <td>[0.5, 8.0] (0.1)</td>
+ <td>Ascent velocity in autonomous modes <p><strong>Comment:</strong> For manually controlled modes and offboard see MPC_Z_VEL_MAX_UP</p>   </td>
+ <td>[0.5, 8] (0.5)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
@@ -19870,7 +22073,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -19890,6 +22093,13 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="OSD_CH_HEIGHT">OSD_CH_HEIGHT</strong> (INT32)</td>
+ <td>OSD Crosshairs Height <p><strong>Comment:</strong> Controls the vertical position of the crosshair display. Resolution is limited by OSD to 15 discrete values. Negative values will display the crosshairs below the horizon</p>   </td>
+ <td>[-8, 8] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -19934,10 +22144,10 @@ table {
   <li><strong>15:</strong> (unused) ESC_TMP</li> 
   <li><strong>16:</strong> (unused) PITCH_ANGLE</li> 
   <li><strong>17:</strong> (unused) ROLL_ANGLE</li> 
-  <li><strong>18:</strong> (unused) CROSSHAIRS</li> 
-  <li><strong>19:</strong> (unused) AVG_CELL_VOLTAGE</li> 
+  <li><strong>18:</strong> CROSSHAIRS</li> 
+  <li><strong>19:</strong> AVG_CELL_VOLTAGE</li> 
   <li><strong>20:</strong> (unused) HORIZON_SIDEBARS</li> 
-  <li><strong>21:</strong> (unused) POWER</li> 
+  <li><strong>21:</strong> POWER</li> 
 </ul>
  </td>
  <td>[0, 4194303] </td>
@@ -19987,14 +22197,15 @@ table {
 <tbody>
 <tr>
  <td><strong id="PD_GRIPPER_EN">PD_GRIPPER_EN</strong> (INT32)</td>
- <td>Enable Gripper actuation in Payload Deliverer    </td>
+ <td>Enable Gripper actuation in Payload Deliverer    <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PD_GRIPPER_TO">PD_GRIPPER_TO</strong> (FLOAT)</td>
- <td>Timeout for successful gripper actuation acknowledgement <p><strong>Comment:</strong> Maximum time Gripper will wait while the successful griper actuation isn't recognised. If the gripper has no feedback sensor, it will simply wait for this time before considering gripper actuation successful and publish a 'vehicle_command_ack' signaling successful gripper action</p>   </td>
+ <td>Timeout for successful gripper actuation acknowledgement <p><strong>Comment:</strong> Maximum time Gripper will wait while the successful griper actuation isn't recognised. If the gripper has no feedback sensor, it will simply wait for this time before considering gripper actuation successful and publish a 'VehicleCommandAck' signaling successful gripper action</p>   </td>
  <td>[0, ?] </td>
  <td>3</td>
  <td>s</td>
@@ -20118,90 +22329,6 @@ table {
 </tr>
 </tbody></table>
 
-## RTPS
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RTPS_CONFIG">RTPS_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for FastRTPS <p><strong>Comment:</strong> Configure on which serial port to run FastRTPS.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>6:</strong> UART 6</li>
-
-<li><strong>101:</strong> TELEM 1</li>
-
-<li><strong>102:</strong> TELEM 2</li>
-
-<li><strong>103:</strong> TELEM 3</li>
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-
-<li><strong>201:</strong> GPS 1</li>
-
-<li><strong>202:</strong> GPS 2</li>
-
-<li><strong>203:</strong> GPS 3</li>
-
-<li><strong>300:</strong> Radio Controller</li>
-
-<li><strong>301:</strong> Wifi Port</li>
-
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RTPS_MAV_CONFIG">RTPS_MAV_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink + FastRTPS <p><strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>6:</strong> UART 6</li>
-
-<li><strong>101:</strong> TELEM 1</li>
-
-<li><strong>102:</strong> TELEM 2</li>
-
-<li><strong>103:</strong> TELEM 3</li>
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-
-<li><strong>201:</strong> GPS 1</li>
-
-<li><strong>202:</strong> GPS 2</li>
-
-<li><strong>203:</strong> GPS 3</li>
-
-<li><strong>300:</strong> Radio Controller</li>
-
-<li><strong>301:</strong> Wifi Port</li>
-
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RTPS_RATE">RTPS_RATE</strong> (INT32)</td>
- <td>Maximum RTPS data rate <p><strong>Comment:</strong> Configure the maximum sending rate for the RTPS streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. 0 is unlimited. Note this can cause reliability issues if enough RTPS topics are selected that exceed the serial bus limit.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, ?] </td>
- <td>0</td>
- <td>B/s</td>
-</tr>
-</tbody></table>
-
 ## Radio Calibration
 
 <table>
@@ -20245,7 +22372,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC10_TRIM">RC10_TRIM</strong> (FLOAT)</td>
- <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20285,7 +22412,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC11_TRIM">RC11_TRIM</strong> (FLOAT)</td>
- <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20325,7 +22452,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC12_TRIM">RC12_TRIM</strong> (FLOAT)</td>
- <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20365,7 +22492,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC13_TRIM">RC13_TRIM</strong> (FLOAT)</td>
- <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20405,7 +22532,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC14_TRIM">RC14_TRIM</strong> (FLOAT)</td>
- <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20445,7 +22572,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC15_TRIM">RC15_TRIM</strong> (FLOAT)</td>
- <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20485,7 +22612,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC16_TRIM">RC16_TRIM</strong> (FLOAT)</td>
- <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20525,7 +22652,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC17_TRIM">RC17_TRIM</strong> (FLOAT)</td>
- <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20565,7 +22692,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC18_TRIM">RC18_TRIM</strong> (FLOAT)</td>
- <td>RC channel 18 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 18 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20605,7 +22732,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC1_TRIM">RC1_TRIM</strong> (FLOAT)</td>
- <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value (same as min for throttle)</p>   </td>
+ <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
@@ -20645,7 +22772,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC2_TRIM">RC2_TRIM</strong> (FLOAT)</td>
- <td>RC channel 2 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 2 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
@@ -20685,7 +22812,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC3_TRIM">RC3_TRIM</strong> (FLOAT)</td>
- <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20725,7 +22852,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC4_TRIM">RC4_TRIM</strong> (FLOAT)</td>
- <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20765,7 +22892,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC5_TRIM">RC5_TRIM</strong> (FLOAT)</td>
- <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20805,7 +22932,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC6_TRIM">RC6_TRIM</strong> (FLOAT)</td>
- <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20845,7 +22972,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC7_TRIM">RC7_TRIM</strong> (FLOAT)</td>
- <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20885,7 +23012,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC8_TRIM">RC8_TRIM</strong> (FLOAT)</td>
- <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20925,7 +23052,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC9_TRIM">RC9_TRIM</strong> (FLOAT)</td>
- <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21697,21 +23824,21 @@ table {
 <tr>
  <td><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
  <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
  <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
  <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -22618,7 +24745,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RTL_TIME_FACTOR">RTL_TIME_FACTOR</strong> (FLOAT)</td>
- <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estiamte. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
+ <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estimate. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
  <td>[1.0, 2.0] (0.1)</td>
  <td>1.1</td>
  <td></td>
@@ -22629,129 +24756,6 @@ table {
  <td>[0, 3600] (1)</td>
  <td>100</td>
  <td>s</td>
-</tr>
-</tbody></table>
-
-## Roboclaw
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Roboclaw Driver <p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>6:</strong> UART 6</li>
-
-<li><strong>101:</strong> TELEM 1</li>
-
-<li><strong>102:</strong> TELEM 2</li>
-
-<li><strong>103:</strong> TELEM 3</li>
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-
-<li><strong>201:</strong> GPS 1</li>
-
-<li><strong>202:</strong> GPS 2</li>
-
-<li><strong>203:</strong> GPS 3</li>
-
-<li><strong>300:</strong> Radio Controller</li>
-
-<li><strong>301:</strong> Wifi Port</li>
-
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Roboclaw driver
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the Roboclaw <p><strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.</p> <strong>값:</strong><ul>
-<li><strong>128:</strong> 0x80</li>
-
-<li><strong>129:</strong> 0x81</li>
-
-<li><strong>130:</strong> 0x82</li>
-
-<li><strong>131:</strong> 0x83</li>
-
-<li><strong>132:</strong> 0x84</li>
-
-<li><strong>133:</strong> 0x85</li>
-
-<li><strong>134:</strong> 0x86</li>
-
-<li><strong>135:</strong> 0x87</li> 
-</ul>
-  </td>
- <td>[128, 135] </td>
- <td>128</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)</td>
- <td>Roboclaw serial baud rate <p><strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.</p> <strong>값:</strong><ul>
-<li><strong>2400:</strong> 2400 baud</li>
-
-<li><strong>9600:</strong> 9600 baud</li>
-
-<li><strong>19200:</strong> 19200 baud</li>
-
-<li><strong>38400:</strong> 38400 baud</li>
-
-<li><strong>57600:</strong> 57600 baud</li>
-
-<li><strong>115200:</strong> 115200 baud</li>
-
-<li><strong>230400:</strong> 230400 baud</li>
-
-<li><strong>460800:</strong> 460800 baud</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[2400, 460800] </td>
- <td>2400</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)</td>
- <td>Encoder counts per revolution <p><strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.</p>   </td>
- <td>[1, ?] </td>
- <td>1200</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)</td>
- <td>Encoder read period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw</p>   </td>
- <td>[1, 1000] </td>
- <td>10</td>
- <td>ms</td>
-</tr>
-<tr>
- <td><strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)</td>
- <td>Uart write period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw</p>   </td>
- <td>[1, 1000] </td>
- <td>10</td>
- <td>ms</td>
 </tr>
 </tbody></table>
 
@@ -22898,13 +24902,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</strong> (FLOAT)</td>
- <td>Min airspeed scaling factor for takeoff <p><strong>Comment:</strong> Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>1.3</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="RWTO_HDG">RWTO_HDG</strong> (INT32)</td>
  <td>Specifies which heading should be held during the runway takeoff ground roll <p><strong>Comment:</strong> 0: airframe heading when takeoff is initiated 1: position control along runway direction (bearing defined from vehicle position on takeoff initiation to MAV_CMD_TAKEOFF position defined by operator)</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Airframe</li>
@@ -22917,25 +24914,18 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RWTO_L1_PERIOD">RWTO_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period while steering on runway    </td>
- <td>[1.0, 100.0] (0.1)</td>
- <td>5.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="RWTO_MAX_PITCH">RWTO_MAX_PITCH</strong> (FLOAT)</td>
- <td>Max pitch during takeoff <p><strong>Comment:</strong> Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.</p>   </td>
- <td>[0.0, 60.0] (0.5)</td>
- <td>20.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
- <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
+ <td>Max throttle during runway takeoff    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_NPFG_PERIOD">RWTO_NPFG_PERIOD</strong> (FLOAT)</td>
+ <td>NPFG period while steering on runway    </td>
+ <td>[1.0, 100.0] (0.1)</td>
+ <td>5.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="RWTO_NUDGE">RWTO_NUDGE</strong> (INT32)</td>
@@ -22946,7 +24936,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RWTO_PSP">RWTO_PSP</strong> (FLOAT)</td>
- <td>Pitch setpoint during taxi / before takeoff airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
+ <td>Pitch setpoint during taxi / before takeoff rotation airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
  <td>[-10.0, 20.0] (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
@@ -22956,6 +24946,20 @@ table {
  <td>Throttle ramp up time for runway takeoff    </td>
  <td>[1.0, 15.0] (0.1)</td>
  <td>2.0</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_ROT_AIRSPD">RWTO_ROT_AIRSPD</strong> (FLOAT)</td>
+ <td>Takeoff rotation airspeed <p><strong>Comment:</strong> The calibrated airspeed threshold during the takeoff ground roll when the plane should start rotating (pitching up). Must be less than the takeoff airspeed, will otherwise be capped at the takeoff airpeed (see FW_TKO_AIRSPD). If set <= 0.0, defaults to 0.9 * takeoff airspeed (see FW_TKO_AIRSPD)</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_ROT_TIME">RWTO_ROT_TIME</strong> (FLOAT)</td>
+ <td>Takeoff rotation time <p><strong>Comment:</strong> This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>1.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -23044,7 +25048,9 @@ table {
 
 <li><strong>2:</strong> from boot until shutdown</li>
 
-<li><strong>3:</strong> depending on AUX1 RC channel</li> 
+<li><strong>3:</strong> depending on AUX1 RC channel</li>
+
+<li><strong>4:</strong> from 1st armed until shutdown</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -23054,7 +25060,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SDLOG_PROFILE">SDLOG_PROFILE</strong> (INT32)</td>
- <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel) 10: Logging of mavlink tunnel message (useful for payload communication debugging)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
+ <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and magnetometer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel) 10: Logging of mavlink tunnel message (useful for payload communication debugging)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
   <li><strong>1:</strong> Estimator replay (EKF2)</li> 
   <li><strong>2:</strong> Thermal calibration</li> 
   <li><strong>3:</strong> System identification</li> 
@@ -25448,23 +27454,9 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG_ROT_AUTO">CAL_MAG_ROT_AUTO</strong> (INT32)</td>
- <td>Automatically set external rotations <p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>값:</strong><ul>
-<li><strong>34:</strong> Two side calibration</li>
-
-<li><strong>38:</strong> Three side calibration</li>
-
-<li><strong>63:</strong> Six side calibration</li> 
-</ul>
-  </td>
- <td>[34, 63] </td>
+ <td>For legacy QGC support only <p><strong>Comment:</strong> Use SENS_MAG_SIDES instead</p>   </td>
+ <td></td>
  <td>63</td>
  <td></td>
 </tr>
@@ -25505,7 +27497,7 @@ table {
  <td>IMU gyro ESC notch filter bandwidth <p><strong>Comment:</strong> Bandwidth per notch filter when using dynamic notch filtering with ESC RPM.</p>   </td>
  <td>[5, 30] </td>
  <td>15.</td>
- <td></td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_DNF_EN">IMU_GYRO_DNF_EN</strong> (INT32)</td>
@@ -25523,6 +27515,13 @@ table {
  <td>[1, 7] </td>
  <td>3</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_DNF_MIN">IMU_GYRO_DNF_MIN</strong> (FLOAT)</td>
+ <td>IMU gyro dynamic notch filter minimum frequency <p><strong>Comment:</strong> Minimum notch filter frequency in Hz.</p>   </td>
+ <td></td>
+ <td>25.</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
@@ -25641,6 +27640,41 @@ table {
  <td>[100, 1000] </td>
  <td>200</td>
  <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="INA220_CONFIG">INA220_CONFIG</strong> (INT32)</td>
+ <td>INA220 Power Monitor Config    </td>
+ <td>[0, 65535] (1)</td>
+ <td>8607</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_CUR_BAT">INA220_CUR_BAT</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Battery Max Current    </td>
+ <td>[0.1, 500.0] (0.1)</td>
+ <td>164.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_CUR_REG">INA220_CUR_REG</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Regulator Max Current    </td>
+ <td>[0.1, 500.0] (0.1)</td>
+ <td>164.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_SHUNT_BAT">INA220_SHUNT_BAT</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Battery Shunt    </td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
+ <td>0.0005</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_SHUNT_REG">INA220_SHUNT_REG</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Regulator Shunt    </td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
+ <td>0.0005</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="INA226_CONFIG">INA226_CONFIG</strong> (INT32)</td>
@@ -25873,7 +27907,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -25916,6 +27950,40 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_ADIS165X">SENS_EN_ADIS165X</strong> (INT32)</td>
+ <td>Analog Devices ADIS16507 IMU (external SPI)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_ARSPDSIM">SENS_EN_ARSPDSIM</strong> (INT32)</td>
+ <td>Enable simulated airspeed sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_BAROSIM">SENS_EN_BAROSIM</strong> (INT32)</td>
+ <td>Enable simulated barometer sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)</td>
  <td>SMBUS Smart battery driver BQ40Z50 and BQ40Z80    <p><b>Reboot required:</b> true</p>
 </td>
@@ -25926,6 +27994,27 @@ table {
 <tr>
  <td><strong id="SENS_EN_ETSASPD">SENS_EN_ETSASPD</strong> (INT32)</td>
  <td>Eagle Tree airspeed sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_GPSSIM">SENS_EN_GPSSIM</strong> (INT32)</td>
+ <td>Enable simulated GPS sinstance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_INA220">SENS_EN_INA220</strong> (INT32)</td>
+ <td>Enable INA220 Power Monitor <p><strong>Comment:</strong> For systems a INA220 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -25975,6 +28064,19 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_MAGSIM">SENS_EN_MAGSIM</strong> (INT32)</td>
+ <td>Enable simulated magnetometer sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26133,6 +28235,39 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SF45_CFG">SENS_EN_SF45_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Lightware SF45 Rangefinder (serial) <p><strong>Comment:</strong> Configure on which serial port to run Lightware SF45 Rangefinder (serial).</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>102</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SHT3X">SENS_EN_SHT3X</strong> (INT32)</td>
  <td>SHT3x temperature and hygrometer    <p><b>Reboot required:</b> true</p>
 </td>
@@ -26151,6 +28286,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_SR05">SENS_EN_SR05</strong> (INT32)</td>
  <td>HY-SRF05 / HC-SR05    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_TF02PRO">SENS_EN_TF02PRO</strong> (INT32)</td>
+ <td>TF02 Pro Distance Sensor (i2c)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -26189,6 +28332,14 @@ table {
 </td>
  <td>[0, 3] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_VL53L0X">SENS_EN_VL53L0X</strong> (INT32)</td>
+ <td>VL53L0X Distance Sensor    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -26344,7 +28495,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -26355,6 +28506,13 @@ table {
 <tr>
  <td><strong id="SENS_MAG_AUTOCAL">SENS_MAG_AUTOCAL</strong> (INT32)</td>
  <td>Magnetometer auto calibration <p><strong>Comment:</strong> Automatically initialize magnetometer calibration from bias estimate if available.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_MAG_AUTOROT">SENS_MAG_AUTOROT</strong> (INT32)</td>
+ <td>Automatically set external rotations <p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -26379,6 +28537,20 @@ table {
  <td>[1, 200] </td>
  <td>15.0</td>
  <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>값:</strong><ul>
+<li><strong>34:</strong> Two side calibration</li>
+
+<li><strong>38:</strong> Three side calibration</li>
+
+<li><strong>63:</strong> Six side calibration</li> 
+</ul>
+  </td>
+ <td>[34, 63] </td>
+ <td>63</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
@@ -27018,7 +29190,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27058,7 +29230,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27091,7 +29263,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27124,11 +29296,120 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_VN_CFG">SENS_VN_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for VectorNav (VN-100, VN-200, VN-300) <p><strong>Comment:</strong> Configure on which serial port to run VectorNav (VN-100, VN-200, VN-300).</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_ORIENT_CFG">SF45_ORIENT_CFG</strong> (INT32)</td>
+ <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Rotation upward</li>
+
+<li><strong>1:</strong> Rotation downward</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_UPDATE_CFG">SF45_UPDATE_CFG</strong> (INT32)</td>
+ <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>값:</strong><ul>
+<li><strong>1:</strong> 50hz</li>
+
+<li><strong>2:</strong> 100hz</li>
+
+<li><strong>3:</strong> 200hz</li>
+
+<li><strong>4:</strong> 400hz</li>
+
+<li><strong>5:</strong> 500hz</li>
+
+<li><strong>6:</strong> 625hz</li>
+
+<li><strong>7:</strong> 1000hz</li>
+
+<li><strong>8:</strong> 1250hz</li>
+
+<li><strong>9:</strong> 1538hz</li>
+
+<li><strong>10:</strong> 2000hz</li>
+
+<li><strong>11:</strong> 2500hz</li>
+
+<li><strong>12:</strong> 5000hz</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_YAW_CFG">SF45_YAW_CFG</strong> (INT32)</td>
+ <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Rotation forward</li>
+
+<li><strong>1:</strong> Rotation backward</li>
+
+<li><strong>2:</strong> Rotation right</li>
+
+<li><strong>3:</strong> Rotation left</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_ARSPD_FAIL">SIM_ARSPD_FAIL</strong> (INT32)</td>
+ <td>Dynamically simulate failure of airspeed sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -27183,7 +29464,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27216,12 +29497,73 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>300</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SER_EXT2_BAUD">SER_EXT2_BAUD</strong> (INT32)</td>
+ <td>Baudrate for the EXT2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the EXT2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Auto</li>
+
+<li><strong>50:</strong> 50 8N1</li>
+
+<li><strong>75:</strong> 75 8N1</li>
+
+<li><strong>110:</strong> 110 8N1</li>
+
+<li><strong>134:</strong> 134 8N1</li>
+
+<li><strong>150:</strong> 150 8N1</li>
+
+<li><strong>200:</strong> 200 8N1</li>
+
+<li><strong>300:</strong> 300 8N1</li>
+
+<li><strong>600:</strong> 600 8N1</li>
+
+<li><strong>1200:</strong> 1200 8N1</li>
+
+<li><strong>1800:</strong> 1800 8N1</li>
+
+<li><strong>2400:</strong> 2400 8N1</li>
+
+<li><strong>4800:</strong> 4800 8N1</li>
+
+<li><strong>9600:</strong> 9600 8N1</li>
+
+<li><strong>19200:</strong> 19200 8N1</li>
+
+<li><strong>38400:</strong> 38400 8N1</li>
+
+<li><strong>57600:</strong> 57600 8N1</li>
+
+<li><strong>115200:</strong> 115200 8N1</li>
+
+<li><strong>230400:</strong> 230400 8N1</li>
+
+<li><strong>460800:</strong> 460800 8N1</li>
+
+<li><strong>500000:</strong> 500000 8N1</li>
+
+<li><strong>921600:</strong> 921600 8N1</li>
+
+<li><strong>1000000:</strong> 1000000 8N1</li>
+
+<li><strong>1500000:</strong> 1500000 8N1</li>
+
+<li><strong>2000000:</strong> 2000000 8N1</li>
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>57600</td>
  <td></td>
 </tr>
 <tr>
@@ -27436,67 +29778,6 @@ table {
 </td>
  <td>[0, 10] </td>
  <td>5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SER_PPB_BAUD">SER_PPB_BAUD</strong> (INT32)</td>
- <td>Baudrate for the Pixhawk Payload Bus Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Pixhawk Payload Bus Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Auto</li>
-
-<li><strong>50:</strong> 50 8N1</li>
-
-<li><strong>75:</strong> 75 8N1</li>
-
-<li><strong>110:</strong> 110 8N1</li>
-
-<li><strong>134:</strong> 134 8N1</li>
-
-<li><strong>150:</strong> 150 8N1</li>
-
-<li><strong>200:</strong> 200 8N1</li>
-
-<li><strong>300:</strong> 300 8N1</li>
-
-<li><strong>600:</strong> 600 8N1</li>
-
-<li><strong>1200:</strong> 1200 8N1</li>
-
-<li><strong>1800:</strong> 1800 8N1</li>
-
-<li><strong>2400:</strong> 2400 8N1</li>
-
-<li><strong>4800:</strong> 4800 8N1</li>
-
-<li><strong>9600:</strong> 9600 8N1</li>
-
-<li><strong>19200:</strong> 19200 8N1</li>
-
-<li><strong>38400:</strong> 38400 8N1</li>
-
-<li><strong>57600:</strong> 57600 8N1</li>
-
-<li><strong>115200:</strong> 115200 8N1</li>
-
-<li><strong>230400:</strong> 230400 8N1</li>
-
-<li><strong>460800:</strong> 460800 8N1</li>
-
-<li><strong>500000:</strong> 500000 8N1</li>
-
-<li><strong>921600:</strong> 921600 8N1</li>
-
-<li><strong>1000000:</strong> 1000000 8N1</li>
-
-<li><strong>1500000:</strong> 1500000 8N1</li>
-
-<li><strong>2000000:</strong> 2000000 8N1</li>
-
-<li><strong>3000000:</strong> 3000000 8N1</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>57600</td>
  <td></td>
 </tr>
 <tr>
@@ -28261,9 +30542,16 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p>   </td>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> All sensors</li>
+
+<li><strong>2:</strong> All sensors except mag</li> 
+</ul>
+  </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -28291,10 +30579,10 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
- <td>Control if the vehicle has a magnetometer <p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Control if the vehicle has a magnetometer <p><strong>Comment:</strong> Set this to 0 if the board has no magnetometer. If set to 0, the preflight checks will not check for the presence of a magnetometer, otherwise N sensors are required.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -28407,7 +30695,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -28440,7 +30728,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -29794,6 +32082,462 @@ table {
  <td>Disabled (0)</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="TC_M0_ID">TC_M0_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TMAX">TC_M0_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TMIN">TC_M0_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TREF">TC_M0_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_0">TC_M0_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_1">TC_M0_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_2">TC_M0_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_0">TC_M0_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_1">TC_M0_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_2">TC_M0_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_0">TC_M0_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_1">TC_M0_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_2">TC_M0_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_0">TC_M0_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_1">TC_M0_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_2">TC_M0_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_ID">TC_M1_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TMAX">TC_M1_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TMIN">TC_M1_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TREF">TC_M1_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_0">TC_M1_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_1">TC_M1_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_2">TC_M1_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_0">TC_M1_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_1">TC_M1_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_2">TC_M1_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_0">TC_M1_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_1">TC_M1_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_2">TC_M1_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_0">TC_M1_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_1">TC_M1_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_2">TC_M1_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_ID">TC_M2_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TMAX">TC_M2_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TMIN">TC_M2_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TREF">TC_M2_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_0">TC_M2_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_1">TC_M2_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_2">TC_M2_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_0">TC_M2_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_1">TC_M2_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_2">TC_M2_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_0">TC_M2_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_1">TC_M2_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_2">TC_M2_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_0">TC_M2_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_1">TC_M2_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_2">TC_M2_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_ID">TC_M3_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TMAX">TC_M3_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TMIN">TC_M3_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TREF">TC_M3_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_0">TC_M3_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_1">TC_M3_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_2">TC_M3_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_0">TC_M3_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_1">TC_M3_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_2">TC_M3_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_0">TC_M3_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_1">TC_M3_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_2">TC_M3_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_0">TC_M3_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_1">TC_M3_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_2">TC_M3_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M_ENABLE">TC_M_ENABLE</strong> (INT32)</td>
+ <td>Thermal compensation for magnetometer sensors    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Transponder
@@ -29804,182 +32548,6 @@ table {
    <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
- <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> NoEmergency</li>
-
-<li><strong>1:</strong> General</li>
-
-<li><strong>2:</strong> Medical</li>
-
-<li><strong>3:</strong> LowFuel</li>
-
-<li><strong>4:</strong> NoCommunications</li>
-
-<li><strong>5:</strong> Interference</li>
-
-<li><strong>6:</strong> Downed</li> 
-</ul>
-  <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 6] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Unknown</li>
-
-<li><strong>1:</strong> Light</li>
-
-<li><strong>2:</strong> Small</li>
-
-<li><strong>3:</strong> Large</li>
-
-<li><strong>4:</strong> HighVortex</li>
-
-<li><strong>5:</strong> Heavy</li>
-
-<li><strong>6:</strong> Performance</li>
-
-<li><strong>7:</strong> Rotorcraft</li>
-
-<li><strong>8:</strong> RESERVED</li>
-
-<li><strong>9:</strong> Glider</li>
-
-<li><strong>10:</strong> LightAir</li>
-
-<li><strong>11:</strong> Parachute</li>
-
-<li><strong>12:</strong> UltraLight</li>
-
-<li><strong>13:</strong> RESERVED</li>
-
-<li><strong>14:</strong> UAV</li>
-
-<li><strong>15:</strong> Space</li>
-
-<li><strong>16:</strong> RESERVED</li>
-
-<li><strong>17:</strong> EmergencySurf</li>
-
-<li><strong>18:</strong> ServiceSurf</li>
-
-<li><strong>19:</strong> PointObstacle</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 15] </td>
- <td>14</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
- <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[-1, 16777215] </td>
- <td>1194684</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
- <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 16777215] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
- <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> SizeUnknown</li>
-
-<li><strong>1:</strong> Len15_Wid23</li>
-
-<li><strong>2:</strong> Len25_Wid28</li>
-
-<li><strong>3:</strong> Len25_Wid34</li>
-
-<li><strong>4:</strong> Len35_Wid33</li>
-
-<li><strong>5:</strong> Len35_Wid38</li>
-
-<li><strong>6:</strong> Len45_Wid39</li>
-
-<li><strong>7:</strong> Len45_Wid45</li>
-
-<li><strong>8:</strong> Len55_Wid45</li>
-
-<li><strong>9:</strong> Len55_Wid52</li>
-
-<li><strong>10:</strong> Len65_Wid59</li>
-
-<li><strong>11:</strong> Len65_Wid67</li>
-
-<li><strong>12:</strong> Len75_Wid72</li>
-
-<li><strong>13:</strong> Len75_Wid80</li>
-
-<li><strong>14:</strong> Len85_Wid80</li>
-
-<li><strong>15:</strong> Len85_Wid90</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 15] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
- <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 50] </td>
- <td>25</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> UnknownMaxSpeed</li>
-
-<li><strong>1:</strong> 75Kts</li>
-
-<li><strong>2:</strong> 150Kts</li>
-
-<li><strong>3:</strong> 300Kts</li>
-
-<li><strong>4:</strong> 600Kts</li>
-
-<li><strong>5:</strong> 1200Kts</li>
-
-<li><strong>6:</strong> Over1200Kts</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 6] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
- <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 7777] </td>
- <td>1200</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="MXS_EXT_CFG">MXS_EXT_CFG</strong> (INT32)</td>
  <td>Sagetech External Configuration Mode <p><strong>Comment:</strong> Disables auto-configuration mode enabling MXS config through external software.</p>   <p><b>Reboot required:</b> true</p>
@@ -30030,7 +32598,7 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -30051,137 +32619,6 @@ table {
 </td>
  <td>[0, 2] </td>
  <td>1</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## UART ESC
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UART_ESC_BAUD">UART_ESC_BAUD</strong> (INT32)</td>
- <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
- <td></td>
- <td>250000</td>
- <td>bit/s</td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_CONFIG">UART_ESC_CONFIG</strong> (INT32)</td>
- <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> - Disabled</li>
-
-<li><strong>1:</strong> - VOXL ESC</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MODE">UART_ESC_MODE</strong> (INT32)</td>
- <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> - None</li>
-
-<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
-
-<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
-
-<li><strong>3:</strong> - UART Passthrough Mode</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR1">UART_ESC_MOTOR1</strong> (INT32)</td>
- <td>UART ESC Motor 1 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>3</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR2">UART_ESC_MOTOR2</strong> (INT32)</td>
- <td>UART ESC Motor 2 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR3">UART_ESC_MOTOR3</strong> (INT32)</td>
- <td>UART ESC Motor 3 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR4">UART_ESC_MOTOR4</strong> (INT32)</td>
- <td>UART ESC Motor 4 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_RPM_MAX">UART_ESC_RPM_MAX</strong> (INT32)</td>
- <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
- <td></td>
- <td>15000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_RPM_MIN">UART_ESC_RPM_MIN</strong> (INT32)</td>
- <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
- <td></td>
- <td>5500</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_COSP">UART_ESC_T_COSP</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Cosphi    </td>
- <td>[0.000, 1.000] (0.001)</td>
- <td>0.990</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_DEAD">UART_ESC_T_DEAD</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
- <td>[0, 100] (1)</td>
- <td>20</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_EXPO">UART_ESC_T_EXPO</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
- <td>[0, 100] (1)</td>
- <td>35</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_MINF">UART_ESC_T_MINF</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
- <td>[0.0, 100.0] (1.0)</td>
- <td>0.15</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_PERC">UART_ESC_T_PERC</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
- <td>[1, 100] (1)</td>
- <td>90</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_YAWR">UART_ESC_T_YAWR</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Yaw Reversal    </td>
- <td>[0, 1] (1)</td>
- <td>0</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -30236,6 +32673,14 @@ table {
  <td><strong id="CANNODE_TERM">CANNODE_TERM</strong> (INT32)</td>
  <td>CAN built-in bus termination    </td>
  <td>[?, 1] </td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EN">SIM_GZ_EN</strong> (INT32)</td>
+ <td>Simulator Gazebo bridge enable    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
@@ -30338,6 +32783,14 @@ table {
 </td>
  <td>[1, 125] </td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_PUB_ARM">UAVCAN_PUB_ARM</strong> (INT32)</td>
+ <td>publish Arming Status stream <p><strong>Comment:</strong> Enable UAVCAN Arming Status stream publication uavcan::equipment::safety::ArmingStatus</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -30692,12 +33145,89 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li>
 
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+<li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UXRCE-DDS Client
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UXRCE_DDS_AG_IP">UXRCE_DDS_AG_IP</strong> (INT32)</td>
+ <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>2130706433</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_CFG">UXRCE_DDS_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for UXRCE-DDS Client <p><strong>Comment:</strong> Configure on which serial port to run UXRCE-DDS Client.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li>
+
+<li><strong>1000:</strong> Ethernet</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_DOM_ID">UXRCE_DDS_DOM_ID</strong> (INT32)</td>
+ <td>uXRCE-DDS domain ID <p><strong>Comment:</strong> uXRCE-DDS domain ID</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_KEY">UXRCE_DDS_KEY</strong> (INT32)</td>
+ <td>uXRCE-DDS Session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_PRT">UXRCE_DDS_PRT</strong> (INT32)</td>
+ <td>uXRCE-DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 65535] </td>
+ <td>8888</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -30725,6 +33255,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="VT_BT_TILT_DUR">VT_BT_TILT_DUR</strong> (FLOAT)</td>
+ <td>Duration motor tilt up in backtransition <p><strong>Comment:</strong> Time in seconds it takes to tilt form VT_TILT_FW to VT_TILT_MC.</p>   </td>
+ <td>[0.1, 10] (0.1)</td>
+ <td>1.</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
  <td>[0, 0.2] (0.01)</td>
@@ -30740,45 +33277,24 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
+ <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
  <td>[0.5, 10] (0.1)</td>
  <td>2.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
- <td><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down. unit s</p>   </td>
- <td>[0, 10] (1)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td>Output on airbrakes channel during back transition <p><strong>Comment:</strong> Used for airbrakes or with ESCs that have reverse thrust enabled on a separate channel. Airbrakes need to be enabled for your selected model/mixer.</p>   </td>
- <td>[0, 1] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
+ <td>Maximum duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
  <td>[0.1, 20.00] (1)</td>
- <td>4.0</td>
+ <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
  <td>Back transition MC motor ramp up time <p><strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
- <td>[0.0, 20.0] </td>
+ <td>[0.0, 20.0] (0.1)</td>
  <td>3.0</td>
  <td>s</td>
-</tr>
-<tr>
- <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>   </td>
- <td>[-1, 1] (0.01)</td>
- <td>0.0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
@@ -30789,7 +33305,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This feature can be used to avoid the plane having to pitch down in order to move forward, and prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.</p> <strong>값:</strong><ul>
+ <td>Use fixed-wing actuation in hover to accelerate forward <p><strong>Comment:</strong> This feature can be used to avoid the plane having to pitch nose down in order to move forward. Prevents large, negative lift from pitching nose down into wind. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Enabled (except LANDING)</li>
@@ -30811,52 +33327,70 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.</p>   </td>
- <td>[0.0, 2.0] </td>
+ <td>Fixed-wing actuation thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>0.7</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
- <td>Adaptive QuadChute <p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>   </td>
- <td>[0.0, 200.0] </td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>   </td>
- <td>[0, 1] </td>
+ <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Enable differential thrust seperately for roll, pitch, yaw in forward (fixed-wing) mode. The effectiveness of differential thrust around the corresponding axis can be tuned by setting VT_FW_DIFTHR_S_R / VT_FW_DIFTHR_S_P / VT_FW_DIFTHR_S_Y.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Yaw</li> 
+  <li><strong>1:</strong> Roll</li> 
+  <li><strong>2:</strong> Pitch</li> 
+</ul>
+ </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td>Differential thrust scaling factor <p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>   </td>
- <td>[0.0, 1.0] (0.1)</td>
+ <td><strong id="VT_FW_DIFTHR_S_P">VT_FW_DIFTHR_S_P</strong> (FLOAT)</td>
+ <td>Pitch differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
+ <td>1.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_FW_DIFTHR_S_R">VT_FW_DIFTHR_S_R</strong> (FLOAT)</td>
+ <td>Roll differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
+ <td>1.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_FW_DIFTHR_S_Y">VT_FW_DIFTHR_S_Y</strong> (FLOAT)</td>
+ <td>Yaw differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_MIN_ALT">VT_FW_MIN_ALT</strong> (FLOAT)</td>
- <td>QuadChute Altitude <p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
- <td>[0.0, 200.0] </td>
+ <td>Quad-chute altitude <p><strong>Comment:</strong> Minimum altitude for fixed-wing flight. When the vehicle is in fixed-wing mode and the altitude drops below this altitude (relative altitude above local origin), it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT.</p>   </td>
+ <td>[0.0, 200.0] (1)</td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
+ <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwise above Home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
+ <td>[0, ?] (1)</td>
+ <td>0</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
- <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
+ <td>Quad-chute max pitch threshold <p><strong>Comment:</strong> Absolute pitch threshold for quad-chute triggering in FW mode. Above this the vehicle will transition back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 180] </td>
  <td>0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_R">VT_FW_QC_R</strong> (INT32)</td>
- <td>QuadChute Max Roll <p><strong>Comment:</strong> Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
+ <td>Quad-chute max roll threshold <p><strong>Comment:</strong> Absolute roll threshold for quad-chute triggering in FW mode. Above this the vehicle will transition back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 180] </td>
  <td>0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
@@ -30867,84 +33401,98 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to fixed wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
+ <td>Target throttle value for the transition to fixed-wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
- <td>Airspeed less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
- <td>[1.0, 30.0] </td>
+ <td>Airspeed-less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
+ <td>[1.0, 30.0] (0.5)</td>
  <td>6.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
- <td>[-10.0, 45.0] </td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
- <td>[-10.0, 45.0] </td>
+ <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
- <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
- <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
- <td>[?, 20] (0.01)</td>
- <td>3.0</td>
- <td></td>
+ <td><strong id="VT_PSHER_SLEW">VT_PSHER_SLEW</strong> (FLOAT)</td>
+ <td>Pusher throttle ramp up slew rate <p><strong>Comment:</strong> Defines the slew rate of the puller/pusher throttle during transitions. Zero will deactivate the slew rate limiting and thus produce an instant throttle rise to the transition throttle VT_F_TRANS_THR.</p>   </td>
+ <td>[0, ?] (0.01)</td>
+ <td>0.33</td>
+ <td>1/s</td>
+</tr>
+<tr>
+ <td><strong id="VT_QC_ALT_LOSS">VT_QC_ALT_LOSS</strong> (FLOAT)</td>
+ <td>Quad-chute uncommanded descent threshold <p><strong>Comment:</strong> Altitude error threshold for quad-chute triggering during fixed-wing flight. The check is only active if altitude is controlled and the vehicle is below the current altitude reference. The altitude error is relative to the highest altitude the vehicle has achieved since it has flown below the current altitude reference. Set to 0 do disable.</p>   </td>
+ <td>[0.0, 200.0] (1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
+ <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. Active until 5s after completing transition to fixed-wing. Only active if altitude estimate is valid and in altitude-controlled mode. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
+ <td>[0, 50] (1)</td>
+ <td>20.0</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
  <td>Spoiler setting while landing (hover)    </td>
- <td>[-1, 1] (0.05)</td>
+ <td>[-1, 1] (0.1)</td>
  <td>0.</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td>Position of tilt servo in fw mode    </td>
+ <td>Normalized tilt in FW    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td>Position of tilt servo in mc mode    </td>
+ <td>Normalized tilt in Hover    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
- <td>Tilt actuator control value commanded when disarmed and during the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
+ <td>Tilt when disarmed and in the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td>Position of tilt servo in transition mode    </td>
+ <td>Normalized tilt in transition to FW    </td>
  <td>[0.0, 1.0] (0.01)</td>
- <td>0.3</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TRANS_MIN_TM">VT_TRANS_MIN_TM</strong> (FLOAT)</td>
  <td>Front transition minimum time <p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>   </td>
- <td>[0.0, 20.0] </td>
+ <td>[0.0, 20.0] (0.1)</td>
  <td>2.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td>Duration of front transition phase 2 <p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>   </td>
+ <td>Duration of front transition phase 2 <p><strong>Comment:</strong> Time in seconds it takes to tilt form VT_TILT_TRANS to VT_TILT_FW.</p>   </td>
  <td>[0.1, 5.0] (0.01)</td>
  <td>0.5</td>
  <td>s</td>
@@ -30997,65 +33545,6 @@ table {
 </tr>
 </tbody></table>
 
-## Vehicle Model
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="VM_INERTIA_XX">VM_INERTIA_XX</strong> (FLOAT)</td>
- <td>Inertia matrix, XX component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_XY">VM_INERTIA_XY</strong> (FLOAT)</td>
- <td>Inertia matrix, XY component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_XZ">VM_INERTIA_XZ</strong> (FLOAT)</td>
- <td>Inertia matrix, XZ component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_YY">VM_INERTIA_YY</strong> (FLOAT)</td>
- <td>Inertia matrix, YY component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_YZ">VM_INERTIA_YZ</strong> (FLOAT)</td>
- <td>Inertia matrix, YZ component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_ZZ">VM_INERTIA_ZZ</strong> (FLOAT)</td>
- <td>Inertia matrix, ZZ component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_MASS">VM_MASS</strong> (FLOAT)</td>
- <td>Mass    </td>
- <td>(0.00001)</td>
- <td>1.</td>
- <td>kg</td>
-</tr>
-</tbody></table>
-
 ## Miscellaneous
 
 <table>
@@ -31064,25 +33553,6 @@ table {
    <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
- <td>Enable user assisted descent speed for autonomous land routine <p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li>
-
-<li><strong>1:</strong> User assisted descent speed</li> 
-</ul>
-  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
- <td>    </td>
- <td></td>
- <td>0.1</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>

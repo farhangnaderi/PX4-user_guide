@@ -1,8 +1,8 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 자율 비행 프로그램 안내서 ({{ $themeConfig.px4_version }})
+# PX4 오토파일럿 사용자 설명서 ({{ $themeConfig.px4_version }})
 
-[![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
+[![배포](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
 PX4는 *전문가용 자율비행 프로그램* 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 세계 각국에서 활동중인 여러 단체들의 지원을 받을 수 있습니다. PX4는 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용하여 사용할 수 있습니다.
 
@@ -34,7 +34,7 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 
 - 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다.
 - 비행 콘트롤러 선택 - [시작하기 &gt; 비행 콘트롤러](getting_started/flight_controller_selection.md)와 [자동항법장치](flight_controller/README.md)에 대하여 설명합니다.
-- [조립](assembly/README.md)은 주요 주변 장치를 자동항법장치에 연결하는 방법을 설명합니다.
+- [조립](assembly/README.md)은 주요 주변 장치를 오토파일럿에 연결하는 방법을 설명합니다.
 - [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 설정법을 설명합니다. 주요 센서(나침반, 자이로, IMU, 대기 센서 등) 보정법, 원격 조종법과 안전 기능 설정 방법을 설명합니다.
 
 기체를 날릴 준비가 되었다면 [비행](flying/README.md)편을 참고하십시오.
@@ -103,7 +103,8 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 * [오스트레일리아 – 멜버른/시드니/호바트](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-달력의 기본 시간대는 유럽중앙시간대(CET)입니다.
+The calendar default timezone is Central European Time (CET).
+
 :::
 
 <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
@@ -113,9 +114,9 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 
 이 라이브러리에서 사용하는 다음 아이콘들은 별도의 라이센스를 적용합니다. 아래 그림을 참고하십시오.
 
-<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>에서 만들었으며, <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 라이센스를 적용합니다.
+<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *카메라 자동 모드* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.freepik.com" title="Freepik">Freepik</a>에서 만들었으며, <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a> 라이센스가 적용합니다.
+<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *camera-automatic-mode* icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 
 ## 운영 방법

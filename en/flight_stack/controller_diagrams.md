@@ -25,7 +25,7 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 
 * K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
 * The integral authority is limited to prevent wind up.
-* The outputs are limited (in the mixer), usually at -1 and 1. 
+* The outputs are limited (in the control allocation module), usually at -1 and 1.
 * A Low Pass Filter (LPF) is used on the derivative path to reduce noise (the gyro driver provides a filtered derivative to the controller).
 
   :::note
@@ -211,8 +211,8 @@ The inputs into this block are called "virtual" as, depending on the current VTO
 For a standard and tilt-rotor VTOL, during transition the fixed-wing attitude controller produces the rate setpoints, which are then fed into the separate rate controllers, resulting in torque commands for the multicopter and fixed-wing actuators.
 For tailsitters, during transition the multicopter attitude controller is running.
 
-The outputs of the VTOL attitude block are separate torque and force commands for the multicopter (typically `actuator_controls_0`) and fixed-wing (typically `actuator_controls_1`) actuators.
-These are handled in an airframe-specific mixer file (see [Mixing](../concept/mixing.md)).
+The outputs of the VTOL attitude block are separate torque and force commands for the multicopter and fixed-wing actuators (two instances for `vehicle_torque_setpoint` and `vehicle_thrust_setpoint`). 
+These are handled in an airframe-specific control allocation class.
 
 For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](../config_vtol/README.md).
 
@@ -311,7 +311,7 @@ $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{
 
 and implement it directly in the rollrate, pitchrate and yawrate controllers.
 
-In the case of airframes with controls performance that is not dependent directly on airspeed e.g. a rotorcraft like [autogyro](../frames_autogyro/). There is possibility to disable airspeed scaling feature by [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN) parameter.
+In the case of airframes with controls performance that is not dependent directly on airspeed e.g. a rotorcraft like [autogyro](../frames_autogyro/README.md). There is possibility to disable airspeed scaling feature by [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN) parameter.
 
 #### Tuning recommendations
 

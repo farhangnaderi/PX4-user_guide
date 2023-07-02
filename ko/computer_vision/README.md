@@ -2,7 +2,7 @@
 
 [컴퓨터 비전](https://en.wikipedia.org/wiki/Computer_vision)은 컴퓨터가 시각 데이터를 사용하여 실재 환경을 이해하는 기술입니다.
 
-PX4는 다음과 기능에 컴퓨터 비전 시스템([보조 컴퓨터](../companion_computer/pixhawk_companion.md)에서 주로 실행됨)을 사용합니다.
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - 자세와 속도 추정
   - [광류(Optical Flow)](../sensor/optical_flow.md)는 2차원 평면상의 속도를 추정합니다(아래 방향으로 향한 카메라와 아래 방향으로 향한 거리 센서 활용).
   - [Motion Capture](../computer_vision/motion_capture.md)는 기체의 *외부* 비전 시스템을 사용하여 3D 자세를 추정합니다. 주로 실내 내비게이션에 사용됩니다.
@@ -13,7 +13,7 @@ PX4는 다음과 기능에 컴퓨터 비전 시스템([보조 컴퓨터](../comp
   - [안전 착륙](../computer_vision/safe_landing.md)은 고정 장애물이 없는 평평한 지형을 찾거나 착륙하도록 기체를 안내합니다.
 
 :::tip
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를위한 강력하고 저렴한 키트입니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를위한 강력하고 저렴한 키트입니다. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
 :::
 
 ## 외부 참고 자료

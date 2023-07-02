@@ -1,24 +1,5 @@
 # 모듈 참조: 콘트롤러
 
-## ODULE_NAM
-소스: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
-
-
-### 설명
-이것은 제어 할당을 구현합니다. 토크 및 추력 설정값을 입력으로 사용하고, 액추에이터 설정값 메시지를 출력합니다.
-
-<a id="ODULE_NAM_usage"></a>
-
-### 사용법
-```
-ODULE_NAM <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## airship_att_control
 소스: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/airship_att_control)
 
@@ -37,6 +18,25 @@ ODULE_NAM <command> [arguments...]
 ### 사용법
 ```
 airship_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## control_allocator
+소스: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
+
+
+### 설명
+이것은 제어 할당을 구현합니다. 토크 및 추력 설정값을 입력으로 사용하고, 액추에이터 설정값 메시지를 출력합니다.
+
+<a id="control_allocator_usage"></a>
+
+### 사용법
+```
+control_allocator <command> [arguments...]
  Commands:
    start
 
@@ -85,19 +85,40 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_pos_control_l1
-소스: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_pos_control_l1)
+## fw_pos_control
+Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
 
 
 ### 설명
-fw_pos_control_l1은 고정익 위치 컨트롤러입니다.
+fw_pos_control is the fixed-wing position controller.
 
 
-<a id="fw_pos_control_l1_usage"></a>
+<a id="fw_pos_control_usage"></a>
 
 ### 사용법
 ```
-fw_pos_control_l1 <command> [arguments...]
+fw_pos_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### 설명
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+
+### 사용법
+```
+fw_rate_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -214,7 +235,7 @@ navigator <command> [arguments...]
 ### 설명
 L1 컨트롤러를 사용하여 그라운드 로버의 위치를 제어합니다.
 
-IMU_GYRO_RATEMAX에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -251,7 +272,7 @@ rover_pos_control <command> [arguments...]
 ### 설명
 무인수중선(UUV)의 자세를 제어합니다.
 
-일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -285,7 +306,7 @@ uuv_att_control <command> [arguments...]
 
 
 ### 설명
-무인수중선(UUV)의 자세를 제어합니다. 일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+무인수중선(UUV)의 자세를 제어합니다. Publishes `attitude_setpoint` messages.
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
  * 완전 수동: 롤, 피치, 요 및 스로틀 컨트롤이 액추에이터에 직접 전달됩니다.

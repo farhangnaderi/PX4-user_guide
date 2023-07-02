@@ -1,8 +1,12 @@
-# HolyBro QAV250 + Pixhawk4-Mini 조립
+# Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
 
-[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. [Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.
+:::note
+The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
 
-키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit). These instructions can therefore still be followed (and might be updated to Pix32 v6).
+:::
+
+The complete kits include a carbon-fibre QAV250 racing frame, flight controller and almost all other components needed (except battery and receiver). FPV 지원 유무에 따라 키트가 조금씩 달라집니다. 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 주요 정보
 
@@ -12,15 +16,14 @@
 
 ![Pixhawk4 Mini와 조립된 Holybro QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 
-## 간단한 가이드
+## 퀵 스타트 가이드
 
-[Pixhawk 4 Mini QAV250 키트 시작 안내서](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Pixhawk 4 Mini QAV250 키트 퀵 스타트 가이드](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
 ## 부품 명세서
 
-Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)에는 필수 구성 요소가 포함되어 있습니다.
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes almost all required components:
+* [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
 * 전원 모듈 holybro
 * 조립된 ESC 전원 관리 보드
 * 모터- DR2205 KV2300
@@ -60,23 +63,22 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 
 ### 전자부품
 
-| 설명                                                                                                       | 수량 |
-| -------------------------------------------------------------------------------------------------------- | -- |
-| 모터- DR2205 KV2300                                                                                        | 4  |
-| 조립된 ESC 전원 관리 보드                                                                                         | 4  |
-| Holybro 전원 모듈                                                                                            | 1  |
-| Fr-sky D4R-II 수신기                                                                                        | 1  |
-| Pixhawk 4 mini                                                                                           | 1  |
-| Holybro GPS Neo-M8N                                                                                      | 1  |
-| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1  |
-| 배터리 lumenier 1300 mAh 4S 14.8V                                                                           | 1  |
-| Vtx 5.8ghz                                                                                               | 1  |
-| FPV 카메라 (전체 키트 전용)                                                                                       | 1  |
+| 설명                                                                          | 수량 |
+| --------------------------------------------------------------------------- | -- |
+| 모터- DR2205 KV2300                                                           | 4  |
+| 조립된 ESC 전원 관리 보드                                                            | 4  |
+| Holybro 전원 모듈                                                               | 1  |
+| Fr-sky D4R-II 수신기                                                           | 1  |
+| Pixhawk 4 mini                                                              | 1  |
+| Holybro GPS Neo-M8N                                                         | 1  |
+| [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md) | 1  |
+| 배터리 lumenier 1300 mAh 4S 14.8V                                              | 1  |
+| Vtx 5.8ghz                                                                  | 1  |
+| FPV 카메라 (전체 키트 전용)                                                          | 1  |
 
 아래의 이미지는 프레임과 전자 부품들을 나타냅니다.
 
 ![조립 전 QAV250 프레임 / Pixhawk 4 미니 전자 부품](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
-
 
 
 ## 조립
@@ -146,9 +148,9 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
    ![QAV250 벨크로 배터리 스트랩](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/16_velcro_strap.jpg)
 
 
-이제 "기본"프레임 빌드가 완료되었습니다 (필요한 경우, [Pixhawk 4 Wiring 빠른 시작](../assembly/quick_start_pixhawk4.md)에서 구성 요소 연결에 대한 자세한 정보를 참조).
+이제 "기본" 프레임 빌드가 완료되었습니다 (필요한 경우, [Pixhawk 4 Wiring 퀵 스타트](../assembly/quick_start_pixhawk4.md)에서 구성 요소 연결에 대한 자세한 정보를 참조).
 
-"기본" 버전의 키트가있는 경우, [PX4 설치/설정](#configure) 방법에 관한 지침으로 이동할 수 있습니다.
+If you have the "basic" version of the kit, you can now jump ahead to instructions on how to [Install/Configure PX4](#px4-configuration).
 
 
 ### FPV 조립
@@ -170,42 +172,52 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 시스템을 직접 배선해야하는 경우, 아래 다이어그램은 카메라, VTX 및 전원 모듈 간의 연결 방법을 나타냅니다. ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-<span id="configure"></span>
-## PX4 설치/설정
+## PX4 Configuration
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-먼저, 펌웨어와 기체프레임을 업데이트 합니다.
-* [펌웨어](../config/firmware.md)
-* [기체](../config/airframe.md)
+First update the firmware, airframe, and actuator mappings:
+
+- [펌웨어](../config/firmware.md)
+- [기체](../config/airframe.md)
 
 :::note
 *HolyBro QAV250* 기체 (**Quadrotor x > HolyBro QAV250**)를 선택하여야 합니다.
 
-  ![QGroundContro l -HolyBro QAV250 기체 선택](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: 다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
-* [센서 방향](../config/flight_controller_orientation.md)
-* [나침반](../config/compass.md)
-* [가속도계](../config/accelerometer.md)
-* [수평 보정](../config/level_horizon_calibration.md)
-* [무선 조종기 설정](../config/radio.md)
-* [비행 모드](../config/flight_mode.md)
+  ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
+:::
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
+    - The Pix32 v6 has an I/O board, so you can assign to either AUX or MAIN.
+  - Test the configuration using the sliders.
+
+Then perform the mandatory setup/calibration:
+
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [가속도계](../config/accelerometer.md)
+- [수평 보정](../config/level_horizon_calibration.md)
+- [무선 조종기 설정](../config/radio.md)
+- [비행 모드](../config/flight_mode.md)
 
 다음 작업 역시 반드시 진행하여야 합니다.
-* [ESC 보정](../advanced_config/esc_calibration.md)
-* [배터리](../config/battery.md)
-* [안전 설정](../config/safety.md)
+
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
+- [안전 설정](../config/safety.md)
 
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행하기에 충분하지만, 특정 프레임 구성에 대한 파라미터를 조정하는 것이 좋습니다.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
 
-<!-- should state what we want them to use! -->
-
-튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 
 ## 감사의 글

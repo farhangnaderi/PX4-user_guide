@@ -10,7 +10,7 @@ The first thing that needs to be done is to identify the module or modules that 
 
 All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
 
-It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, then they must be relative with respect to the main timestamp. For an example, see [sensor_combined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_combined.msg). Reasons for this are given below.
+It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, then they must be relative with respect to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). Reasons for this are given below.
 
 
 ## Usage
@@ -96,7 +96,7 @@ You can stop it after there's an output like:
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-The parameters can be adjusted as well. They can be extracted from the log with the following \(install pyulog with `sudo pip install pyulog` first\):
+The parameters can be adjusted as well. They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt

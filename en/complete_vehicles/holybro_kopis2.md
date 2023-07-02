@@ -1,16 +1,17 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html) is a ready-to-fly race quad for flying FPV or line-of-sight.
+The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is a ready-to-fly race quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
 ## Where to Buy
 
 The *Kopis 2* can be bought from a number of vendors, including:
-- [Holybro](https://shop.holybro.com/c/kopis_0480)  <!-- item code 30069, 30070 -->
+- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping)  <!-- item code 30069, 30070 -->
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 In addition you will need:
+
 - An RC transmitter. The *Kopis 2* can ship with an FrSky receiver or no receiver at all.
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV.
@@ -29,7 +30,7 @@ Before loading PX4 firmware you must first install the PX4 bootloader.
 Instructions for installing the bootloader can be found in the [Kakute F7](../flight_controller/kakutef7.md#bootloader) topic (this is the flight controller board on the *Kopis 2*).
 
 :::tip
-You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight) later if you want!
+You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
 :::
 
 ## Installation/Configuration

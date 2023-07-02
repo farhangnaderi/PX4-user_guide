@@ -2,7 +2,7 @@
 
 [Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/pixhawk_companion.md)) in order to support the following features:
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - [Optical Flow](#optical-flow) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
 - [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is *external* to the vehicle. It is primarily used for indoor navigation.
 - [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.
@@ -10,7 +10,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
 - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
 
 :::tip
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
 :::
 
 ## Motion Capture
@@ -47,8 +47,8 @@ For information about configuring VIO on PX4 see:
 [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
 
 For information about optical flow see:
+
 - [Optical Flow](../sensor/optical_flow.md)
-  - [PX4Flow Smart Camera](../sensor/px4flow.md)
 - [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## External Resources

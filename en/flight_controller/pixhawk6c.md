@@ -2,7 +2,7 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 6C*<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
@@ -91,18 +91,11 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-6c_p1333.html).
+Order from [Holybro](https://holybro.com/products/pixhawk-6c).
 
 ## Assembly/Setup
 
 The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
-
-<!---
-## Connections
-
-Sample Wiring Diagram
-![Pixhawk 6C Wiring Overview](../../assets/flight_controller/pixhawk6c/pixhawk6c_wiring_diagram.png)
---->
 
 ## Pinouts
 
@@ -145,7 +138,8 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pixhawk 6C uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module) for different need.
+Holybro makes various analog [power modules](../power_module/README.md) for different needs:
+
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
@@ -190,8 +184,8 @@ For information about wiring and using this port see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
-* [Telemetry Radio Modules](http://www.holybro.com/product-category/radio/?orderby=date)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+* [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 

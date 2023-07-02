@@ -1,6 +1,6 @@
 # Holybro Pixhawk 6X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 6X*<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
@@ -48,7 +48,7 @@ The Pixhawk®​ 6X is perfect for developers at corporate research labs, startu
 * IO Processor: STM32F100
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors
-  * Accel/Gyro: ICM-20649
+  * Accel/Gyro: ICM-20649 or BMI088
   * Accel/Gyro: ICM-42688-P
   * Accel/Gyro: ICM-42670-P
   * Mag: BMM150
@@ -110,7 +110,7 @@ The Pixhawk®​ 6X is perfect for developers at corporate research labs, startu
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-6x_p1333.html).
+Order from [Holybro](https://holybro.com/products/pixhawk-6x).
 
 ## Assembly/Setup
 
@@ -210,8 +210,8 @@ For information about wiring and using this port see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
-* [Telemetry Radio Modules](http://www.holybro.com/product-category/radio/?orderby=date)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+* [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 

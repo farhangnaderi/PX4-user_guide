@@ -30,7 +30,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 Key features:
 
 * Web based, great for end-users.
-* User can upload, load and then share report with others.
+* Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
 * Interactive plots.
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
@@ -116,19 +116,6 @@ Name (multi id, message size in bytes)    number of data points, total bytes
  vehicle_rates_setpoint (0, 24)              6448     154752
  vehicle_status (0, 45)                       294      13230
 ```
-
-### pyFlightAnalysis
-
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](#flightplot).
-
-Key features:
-
-* Dynamic filter for displaying data
-* 3D visualization for attitude and position of drone
-* Easily replay with _pyqtgraph_'s ROI (Region Of Interest)
-* Python based, cross-platform.
-
-![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
 ### FlightPlot
 

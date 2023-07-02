@@ -19,7 +19,7 @@ You can also "tweak" the current frame configuration using text files on the SD 
 The recommended process for developing a new frame configuration is:
 
 1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
-1. Configure the [geometry and actuator outputs](.../config/actuators.md).
+1. Configure the [geometry and actuator outputs](../config/actuators.md).
 1. Perform other [basic configuration](../config/README.md).
 1. Tune the vehicle.
 1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
@@ -150,7 +150,7 @@ param set-default BAT1_N_CELLS 6
 param set-default FW_AIRSPD_MAX 30
 param set-default FW_AIRSPD_MIN 19
 param set-default FW_AIRSPD_TRIM 23
-param set-default FW_L1_R_SLEW_MAX 40
+param set-default FW_PN_R_SLEW_MAX 40
 param set-default FW_PSP_OFF 3
 param set-default FW_P_LIM_MAX 18
 param set-default FW_P_LIM_MIN -25
@@ -206,12 +206,12 @@ param set-default VT_B_TRANS_DUR 12
 param set-default VT_ELEV_MC_LOCK 0
 param set-default VT_FWD_THRUST_SC 1.2
 param set-default VT_F_TR_OL_TM 8
-param set-default VT_PSHER_RMP_DT 2
+param set-default VT_PSHER_SLEW 0.5
 param set-default VT_TRANS_MIN_TM 4
 param set-default VT_TYPE 2
 ```
 
-Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and acutators.
+Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and servos.
 
 ```bash
 param set-default CA_AIRFRAME 2
@@ -307,7 +307,7 @@ For a new frame belonging to an existing group, you don't need to do anything mo
 
 ## Add Frame to QGroundControl
 
-신규 기체를 *QGroundControl* [기체 구성](../config/airframe.md) 섹션에 사용할 수 있도록 하려면:
+To make a new airframe available for section in the *QGroundControl* [frame configuration](../config/airframe.md):
 
 1. 깨끗한 빌드 만들기(예: `make clean`을 실행한 다음 `make px4_fmu-v5_default` 실행)
 1. QGC를 열고 아래와 같이 **맞춤 펌웨어 파일...**을 선택합니다.

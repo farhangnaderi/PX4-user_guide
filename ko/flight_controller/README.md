@@ -1,6 +1,8 @@
 # 비행 컨트롤러(자동 조종 장치) 하드웨어
 
-문서화되어 있는 자동조종장치들이 기술되어 있습니다. PX4를 실행할 수 있습니다. 이 목록은 전체 목록이 아니며, 여기에 기술되지 않은 비행 컨트롤러와 기타 변종이 있을 수 있습니다.
+This section lists autopilot hardware that can be used to run the PX4 flight stack).
+
+This list is not exhaustive (it covers controllers documented in this library). There are other compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 :::tip
 [완제품 기체](../complete_vehicles/README.md)(PX4를 실행할 수있는 소비자용 드론 및 참조 플랫폼)에서 PX4를 사용할 수 있습니다.
@@ -24,12 +26,15 @@
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
 - [제조사지원 자동항법장치](../flight_controller/autopilot_manufacturer_supported.md)
+  - [AIRLink](../flight_controller/airlink.md)
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
+  - [ARK Electronics ARKV6X](../flight_controller/arkv6x.md) (and [ARK Electronics Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md))
   - [CUAV X7](../flight_controller/cuav_x7.md)
   - [CUAV Nora](../flight_controller/cuav_nora.md)
   - [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md)
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
+  - [Cube Orange+](../flight_controller/cubepilot_cube_orangeplus.md) (CubePilot)
   - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
   - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
@@ -43,6 +48,8 @@
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
+  - [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
+  - [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)
 - [시험단계 자동비행장치](../flight_controller/autopilot_experimental.md)
   - [라즈베리 파이  2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   - [라즈베리 파이 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)
@@ -57,4 +64,4 @@
   - [Holybro Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md)
   - [mRo AUAV-X2](../flight_controller/auav_x2.md)
   - [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md)
-  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md)
+  - Intel® Aero RTF Drone
